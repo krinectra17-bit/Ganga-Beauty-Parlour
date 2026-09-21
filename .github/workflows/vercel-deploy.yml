@@ -1,0 +1,99 @@
+name: CI — Build & Deploy to Vercel
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ '**' ]
+
+jobs:
+  build:
+    name: Build frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: frontend/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('frontend/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Optimize images (optional)
+        working-directory: frontend
+        run: npm run optimize-images || true
+
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
+
+  deploy:
+    name: Deploy to Vercel
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy to Vercel (production)
+        if: github.ref == 'refs/heads/main'
+        uses: amondnet/vercel-action@v23
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+  
+          verify:
+            name: Verify build artifacts
+            needs: build
+            runs-on: ubuntu-latest
+            steps:
+              - name: Download build artifact
+                uses: actions/download-artifact@v4
+                with:
+                  name: frontend-dist
+                  path: frontend-dist
+
+              - name: List artifact files
+                run: ls -laR frontend-dist | sed -n '1,200p'
+
+              - name: Check `index.html` exists
+                run: test -f frontend-dist/index.html
+
+              - name: Check viewport meta is present
+                run: grep -q "<meta name=\"viewport\"" frontend-dist/index.html
+
+              - name: Check hero image exists
+                run: |
+                  if [ -f frontend-dist/images/hero/hero-bridal.webp ]; then echo 'Found hero in hero/'; exit 0; fi
+                  if [ -f frontend-dist/images/hero-bridal.webp ]; then echo 'Found hero in images/'; exit 0; fi
+                  echo 'ERROR: hero image missing from build output' >&2; exit 1
+
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: frontend
+          vercel-args: '--prod'
+
+      - name: Deploy to Vercel (preview)
+        if: github.ref != 'refs/heads/main'
+        uses: amondnet/vercel-action@v23
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: frontend

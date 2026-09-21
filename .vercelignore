@@ -1,0 +1,15 @@
+/backend/
+/ganga-admin/
+/static/
+/.github/
+/.vscode/
+/.gitignore
+README.md
+design_guidelines.json
+**/*.md
+**/*.py
+**/*.sqlite
+**/node_modules
+/.venv
+/.env
+/.env.*

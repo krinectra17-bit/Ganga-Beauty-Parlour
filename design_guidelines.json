@@ -1,0 +1,107 @@
+{
+  "theme": "dark",
+  "archetype": "5 (Jewel & Luxury)",
+  "colors": {
+    "background": "#000000",
+    "surface": "#111111",
+    "surface_light": "#1A1A1A",
+    "primary": "#D4AF37",
+    "primary_light": "#E8CA6B",
+    "primary_dark": "#B5952F",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A1A1AA",
+    "border": "#27272A"
+  },
+  "typography": {
+    "headings": "Playfair Display",
+    "body": "Outfit",
+    "hierarchy": {
+      "h1": "text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight font-serif",
+      "h2": "text-3xl md:text-4xl tracking-tight font-serif",
+      "h3": "text-xl md:text-2xl font-serif",
+      "body": "text-base leading-relaxed text-zinc-300 font-sans",
+      "small": "text-sm text-zinc-400 uppercase tracking-widest font-sans"
+    }
+  },
+  "layout_and_spacing": {
+    "padding": "py-16 md:py-24",
+    "container": "container mx-auto px-4 sm:px-6 lg:px-8",
+    "grid": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8",
+    "border_radius": "rounded-2xl"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#D4AF37] text-black hover:bg-[#E8CA6B] transition-colors rounded-full px-8 py-3 font-medium text-sm tracking-wide",
+      "outline": "border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-colors rounded-full px-8 py-3 font-medium text-sm tracking-wide",
+      "whatsapp": "bg-[#25D366] text-white hover:bg-[#1DA851] transition-colors rounded-full px-8 py-3 font-medium flex items-center gap-2 text-sm tracking-wide"
+    },
+    "cards": {
+      "base": "bg-[#111111] border border-zinc-800 rounded-2xl p-6 hover:border-[#D4AF37]/50 transition-colors duration-300",
+      "premium": "bg-gradient-to-b from-[#1A1A1A] to-[#000000] border border-[#D4AF37]/50 rounded-2xl p-8 relative overflow-hidden shadow-[0_0_30px_rgba(212,175,55,0.1)]"
+    },
+    "inputs": "w-full bg-[#111111] border border-zinc-800 text-white rounded-lg px-4 py-3 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] outline-none transition-all placeholder:text-zinc-600"
+  },
+  "visual_enhancers": {
+    "shadows": {
+      "gold_glow": "shadow-[0_0_30px_rgba(212,175,55,0.15)]"
+    },
+    "glassmorphism": "backdrop-blur-xl bg-black/80 border-t border-zinc-800",
+    "gradients": {
+      "gold_text": "bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#F3E5AB]",
+      "overlay": "bg-gradient-to-t from-black via-black/70 to-black/30"
+    }
+  },
+  "sections": [
+    {
+      "name": "Hero",
+      "description": "Full viewport height. Background image of a bride with a heavy dark gradient overlay (`bg-black/60`). Content centered. Big bold heading 'Your Beauty, Our Passion' in gold gradient text. CTA buttons: 'Book Now' and 'WhatsApp'. "
+    },
+    {
+      "name": "Why Choose Us",
+      "description": "Grid layout highlighting Experience, Happy Clients, Premium Products. Minimal icons (lucide-react), gold accents. Use simple `cards.base`."
+    },
+    {
+      "name": "Services",
+      "description": "Bento grid or cards for Hair, Facial, Waxing, Makeup, Bridal, Hair Spa. Use subtle hover effects where borders glow gold. Include relevant images from the media section."
+    },
+    {
+      "name": "Bridal Packages",
+      "description": "Pricing tier cards (₹7999–₹25000). Highlight the 'Most Popular' package with a gold border (`cards.premium`), slight scale up (`md:scale-105`), and 'Most Popular' badge. Show urgency line 'Limited slots for upcoming wedding season'."
+    },
+    {
+      "name": "Gallery",
+      "description": "Masonry or standard grid gallery of bridal and salon images. Instagram CTA link at the bottom."
+    },
+    {
+      "name": "Testimonials",
+      "description": "Grid of 5-star reviews. Use gold star icons. Clean minimalistic cards."
+    },
+    {
+      "name": "Pricing",
+      "description": "Clean list or simple simple table layout with starting prices for generic services ('starting from ₹...')."
+    },
+    {
+      "name": "Contact & Booking",
+      "description": "Split section: Left side contact details (phone, address, timings) + Google Map embed. Right side Booking form (Name, Phone, Service, Date) that opens WhatsApp pre-filled upon submission."
+    },
+    {
+      "name": "Sticky Bottom Bar",
+      "description": "Mobile only (`md:hidden`). Fixed at bottom `fixed bottom-0 w-full z-50`. Actions: Call, WhatsApp, Book. Glassmorphism background."
+    }
+  ],
+  "media": {
+    "hero_background": "https://images.unsplash.com/photo-1769500801406-d5abac0429c3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwyfHxpbmRpYW4lMjBicmlkZSUyMG1ha2V1cCUyMGx1eHVyeXxlbnwwfHx8fDE3NzgwMDk3NDd8MA&ixlib=rb-4.1.0&q=85",
+    "services": {
+      "hair": "https://images.unsplash.com/photo-1696835196034-cf22e2b72736?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxoYWlyJTIwc3R5bGluZyUyMHNhbG9ufGVufDB8fHx8MTc3ODAwOTc0M3ww&ixlib=rb-4.1.0&q=85",
+      "facial": "https://images.unsplash.com/photo-1643684391140-c5056cfd3436?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxmYWNpYWwlMjBza2luY2FyZSUyMHdvbWFufGVufDB8fHx8MTc3ODAwOTc0M3ww&ixlib=rb-4.1.0&q=85",
+      "waxing": "https://images.unsplash.com/photo-1707355336836-0bcd35139e6f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NDh8MHwxfHNlYXJjaHwzfHx3YXhpbmclMjBzcGF8ZW58MHx8fHwxNzc4MDA5NzQzfDA&ixlib=rb-4.1.0&q=85"
+    },
+    "gallery": [
+      "https://images.unsplash.com/photo-1769500802800-51f5662b82b1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBicmlkZSUyMG1ha2V1cCUyMGx1eHVyeXxlbnwwfHx8fDE3NzgwMDk3NDd8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1740674570349-1fad9be37801?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwzfHxpbmRpYW4lMjBicmlkZSUyMG1ha2V1cCUyMGx1eHVyeXxlbnwwfHx8fDE3NzgwMDk3NDd8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1758738880475-dac2ab1c92d4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxwcmVtaXVtJTIwbWFrZXVwJTIwcHJvZHVjdHN8ZW58MHx8fHwxNzc4MDA5NzQ3fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1760862652442-e8ff7ebdd2f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBzcGElMjBzYWxvbiUyMGludGVyaW9yfGVufDB8fHx8MTc3ODAwOTc0N3ww&ixlib=rb-4.1.0&q=85"
+    ]
+  },
+  "instructions_to_main_agent": "Ensure the application uses `lucide-react` for icons. Add Playfair Display and Outfit to Tailwind font families. Prioritize mobile layout first since the primary traffic will be mobile users seeking bookings. WhatsApp integrations must be simple `href='https://wa.me/917733079941?text=...'` links. The booking form should capture details and dynamically generate a WhatsApp message link with the pre-filled text instead of a traditional backend submission. Add `data-testid` to all interactive elements (buttons, links, forms). Never use placeholder images. Follow the colors rigorously. Add a floating WhatsApp button as well `fixed bottom-20 right-4`."
+}

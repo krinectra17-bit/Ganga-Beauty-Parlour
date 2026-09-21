@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ganga-beauty-parlour.com/sitemap.xml

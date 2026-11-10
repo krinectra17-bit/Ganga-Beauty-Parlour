@@ -111,8 +111,8 @@ export default function PremiumServices() {
                 const isExpanded = !!expandedCards[pkg.key];
                 const displayInclusions = isExpanded
                   ? pkg.inclusions
-                  : pkg.inclusions.slice(0, 6);
-                const hasMore = pkg.inclusions.length > 6;
+                  : pkg.inclusions.slice(0, 7);
+                const hasMore = pkg.inclusions.length > 7;
 
                 return (
                   <div
@@ -175,7 +175,7 @@ export default function PremiumServices() {
                             </>
                           ) : (
                             <>
-                              +{pkg.inclusions.length - 6} more inclusions{" "}
+                              +{pkg.inclusions.length - 7} more inclusions{" "}
                               <ChevronDown className="h-3 w-3" />
                             </>
                           )}
@@ -228,8 +228,8 @@ export default function PremiumServices() {
                 const isExpanded = !!expandedCards[pkg.key];
                 const displayInclusions = isExpanded
                   ? pkg.inclusions
-                  : pkg.inclusions.slice(0, 5);
-                const hasMore = pkg.inclusions.length > 5;
+                  : pkg.inclusions.slice(0, 8);
+                const hasMore = pkg.inclusions.length > 8;
 
                 return (
                   <div
@@ -289,7 +289,7 @@ export default function PremiumServices() {
                             </>
                           ) : (
                             <>
-                              +{pkg.inclusions.length - 5} more inclusions{" "}
+                              +{pkg.inclusions.length - 8} more inclusions{" "}
                               <ChevronDown className="h-3 w-3" />
                             </>
                           )}

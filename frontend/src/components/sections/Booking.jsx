@@ -4,6 +4,14 @@ import {
   BRANCH_OPTIONS,
   SERVICES,
   PREMIUM_SERVICES,
+  BRIDAL_PACKAGES,
+  PREMIUM_BRIDAL_PACKAGES,
+  TWO_TIME_MAKEUP,
+  THREE_TIME_MAKEUP,
+  FACIAL_SERVICES,
+  O3_PROFESSIONAL_FACIAL,
+  HYDRA_FACIAL_SERVICES,
+  LASER_TREATMENTS,
   buildWhatsAppLink,
 } from "@/data/site";
 
@@ -20,10 +28,17 @@ const initialForm = {
   branch: "",
 };
 
-// Combined service options (regular services + offers)
+// Combined service options (regular services + updated rate card packages)
 const SERVICE_OPTIONS = [
   ...SERVICES.map((s) => s.name),
-  ...PREMIUM_SERVICES.map((s) => s.name),
+  ...BRIDAL_PACKAGES.map((p) => p.name),
+  ...PREMIUM_BRIDAL_PACKAGES.map((p) => p.name),
+  ...TWO_TIME_MAKEUP.map((p) => `${p.brand} (Two-Time) - ${p.price}`),
+  ...THREE_TIME_MAKEUP.map((p) => `${p.name} - ${p.price}`),
+  ...FACIAL_SERVICES.map((f) => `Facial: ${f.name} - ${f.price}`),
+  ...O3_PROFESSIONAL_FACIAL.map((f) => `O3+ Facial: ${f.name} - ${f.price}`),
+  ...HYDRA_FACIAL_SERVICES.map((h) => `${h.name} - ${h.price}`),
+  ...LASER_TREATMENTS.map((l) => `Laser: ${l.area} - ${l.price}`),
   "Bridal Trial Makeup (Free)",
   "Other",
 ];
@@ -296,6 +311,9 @@ export default function Booking() {
                     <option value="" disabled>
                       Select a service
                     </option>
+                    {form.service && !SERVICE_OPTIONS.includes(form.service) && (
+                      <option value={form.service}>{form.service}</option>
+                    )}
                     {SERVICE_OPTIONS.map((opt) => (
                       <option key={opt} value={opt}>
                         {opt}

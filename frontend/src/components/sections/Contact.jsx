@@ -26,40 +26,41 @@ export default function Contact() {
     <section
       id="contact"
       data-testid="contact-section"
-      className="section bg-black"
+      className="section relative bg-black"
       data-sr
     >
+      <div className="absolute inset-x-0 top-0 h-px bg-white/[0.06]" />
+
       <div className="container mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="max-w-2xl mb-10 md:mb-12">
-          <span className="eyebrow">Visit Us</span>
-          <div className="gold-divider mt-3 mb-5" />
+        <div className="max-w-2xl mb-8 md:mb-12">
+          <span className="eyebrow">The Salons</span>
+          <div className="gold-divider mt-2.5 mb-4 sm:mt-3 sm:mb-5" />
           <h2
-            className="font-serif text-white text-4xl min-[400px]:text-5xl tracking-tight"
+            className="font-serif text-white text-3xl min-[400px]:text-4xl sm:text-5xl tracking-tight"
             style={{ fontFamily: "Playfair Display, serif" }}
           >
-            Step into the studio in{" "}
-            <span className="italic gold-text">Sujangarh.</span>
+            Step into our{" "}
+            <span className="italic font-serif text-[#DFCEB8]">studios.</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5">
-          <div className="luxe-card p-5 md:p-6" data-sr data-sr-delay="60ms">
+          <div className="luxe-card p-5 sm:p-6 md:p-7" data-sr data-sr-delay="60ms">
             <div className="flex flex-col justify-between h-full">
               <div>
-                <p className="text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase mb-3">
-                  Branch Location
+                <p className="text-[10px] tracking-[0.18em] text-[#c5a880]/90 uppercase mb-2">
+                  Studio Atelier &middot; Sujangarh
                 </p>
                 <h3
-                  className="font-serif text-white text-2xl tracking-tight mb-2.5 min-[400px]:text-[1.65rem]"
+                  className="font-serif text-white text-2xl tracking-tight mb-2 min-[400px]:text-[1.65rem]"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
-                  Sujangarh Branch
+                  Sujangarh Studio
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                  Same premium salon experience, styling and bridal services at
-                  our main Sujangarh studio.
+                <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Signature bridal makeup atelier, bespoke skin rituals, and hair artistry at our flagship salon.
                 </p>
-                <p className="text-sm text-white leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-200/90 leading-relaxed font-light">
                   {BUSINESS.address}
                 </p>
               </div>
@@ -88,23 +89,22 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="luxe-card p-5 md:p-6" data-sr data-sr-delay="120ms">
+          <div className="luxe-card p-5 sm:p-6 md:p-7" data-sr data-sr-delay="120ms">
             <div className="flex flex-col justify-between h-full">
               <div>
-                <p className="text-[10px] tracking-[0.3em] text-[#D4AF37] uppercase mb-3">
-                  Branch Location
+                <p className="text-[10px] tracking-[0.18em] text-[#c5a880]/90 uppercase mb-2">
+                  Studio Atelier &middot; Didwana
                 </p>
                 <h3
-                  className="font-serif text-white text-2xl tracking-tight mb-2.5 min-[400px]:text-[1.65rem]"
+                  className="font-serif text-white text-2xl tracking-tight mb-2 min-[400px]:text-[1.65rem]"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
-                  Didwana Branch
+                  Didwana Studio
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-                  Enjoy the same Ganga Beauty Parlour luxury services at our
-                  Didwana location with full bridal, beauty and wellness support.
+                <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                  Experience complete Ganga Beauty Parlour luxury services, bridal styling, and wellness treatments.
                 </p>
-                <p className="text-sm text-white leading-relaxed mb-1">
+                <p className="text-xs sm:text-sm text-zinc-200/90 leading-relaxed mb-1 font-light">
                   {BUSINESS.hours}
                 </p>
                 <p className="text-xs text-zinc-500">

@@ -1,13 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import {
   ArrowUpRight,
-  Crown,
   Check,
-  ShieldCheck,
-  Car,
-  Clock,
-  Sparkle,
-  Sparkles,
   ChevronDown,
   ChevronUp,
   ChevronLeft,
@@ -90,50 +84,47 @@ export default function PremiumServices() {
     <section
       id="premium-services"
       data-testid="premium-services-section"
-      className="section relative overflow-hidden bg-black"
+      className="section relative bg-[#090909]"
     >
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/24 to-transparent" />
-      <div className="absolute left-1/2 top-16 h-52 w-52 -translate-x-1/2 rounded-full bg-[#D4AF37]/8 blur-[105px]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-white/[0.06]" />
 
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mx-auto mb-6 sm:mb-8 max-w-3xl text-center md:mb-12">
-          <span className="eyebrow">Luxury Ritual Menu</span>
-          <div className="gold-divider mx-auto mt-2.5 sm:mt-3 mb-4 sm:mb-5" />
+          <span className="eyebrow">Rate Card & Packages</span>
+          <div className="gold-divider mx-auto mt-2.5 mb-4" />
           <h2
             className="font-serif text-2xl tracking-tight text-white min-[400px]:text-3xl sm:text-4xl md:text-5xl"
             style={{ fontFamily: "Playfair Display, serif" }}
           >
             Services & <span className="italic gold-text">Package Pricing</span>
           </h2>
-          <p className="mx-auto mt-2.5 sm:mt-3 max-w-2xl text-xs leading-relaxed text-zinc-300/85 sm:text-sm md:text-base sm:leading-6">
-            Complete updated bridal packages, out-of-parlour makeup, luxury facial
-            treatments and laser services with verified inclusions.
+          <p className="mx-auto mt-2.5 max-w-2xl text-xs leading-relaxed text-stone-300/85 sm:text-sm md:text-base sm:leading-6">
+            Complete bridal suites, destination artistry, clinical facials and laser
+            treatments with verified, transparent inclusions.
           </p>
         </div>
 
         {/* Category Navigation Bar */}
         <div className="relative mx-auto mb-6 sm:mb-8 md:mb-10 max-w-5xl px-2 sm:px-4">
           <div className="flex items-center gap-2">
-            {/* Left Scroll Button (visible on tablet when scrollable) */}
             {canScrollLeft && (
               <button
                 type="button"
                 onClick={() => scrollTabs(-280)}
                 aria-label="Scroll left categories"
-                className="hidden sm:flex lg:hidden h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-black/95 text-[#D4AF37] shadow-[0_4px_16px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all hover:bg-[#D4AF37] hover:text-black hover:scale-105 active:scale-95"
+                className="hidden sm:flex lg:hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 bg-black/90 text-stone-300 shadow-sm transition-all hover:border-[#C5A880] hover:text-[#C5A880]"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
             )}
 
-            {/* Scrollable / Centered Tabs Track */}
             <div
               ref={tabsContainerRef}
               onScroll={updateScrollIndicators}
               role="tablist"
               aria-label="Service categories"
-              className="no-scrollbar flex-1 min-w-0 flex items-center gap-2 overflow-x-auto scroll-smooth py-2 px-1 snap-x snap-mandatory lg:flex-wrap lg:justify-center lg:gap-3 lg:overflow-visible lg:py-1"
+              className="no-scrollbar flex-1 min-w-0 flex items-center gap-2 overflow-x-auto scroll-smooth py-1.5 px-1 snap-x snap-mandatory lg:flex-wrap lg:justify-center lg:gap-2.5 lg:overflow-visible"
               style={{
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
@@ -152,18 +143,16 @@ export default function PremiumServices() {
                     id={`pricing-tab-${tab.id}`}
                     onClick={() => handleTabClick(tab.id)}
                     data-testid={`pricing-tab-${tab.id}`}
-                    className={`group relative flex shrink-0 snap-start items-center gap-1.5 rounded-full px-3.5 py-2 text-xs uppercase tracking-wider transition-all duration-300 sm:px-5 sm:py-2.5 min-h-[40px] sm:min-h-[42px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] ${
+                    className={`group relative flex shrink-0 snap-start items-center gap-1.5 rounded-full px-3.5 py-2 text-xs uppercase tracking-wider transition-all duration-300 sm:px-4 sm:py-2 min-h-[38px] sm:min-h-[40px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C5A880] ${
                       isActive
-                        ? "bg-[#D4AF37] font-semibold text-black shadow-[0_4px_22px_rgba(212,175,55,0.45)] scale-[1.02]"
-                        : "border border-[#D4AF37]/25 bg-zinc-950/80 text-zinc-300 hover:border-[#D4AF37]/60 hover:text-white hover:bg-zinc-900/60"
+                        ? "bg-[#C5A880] font-semibold text-[#090909] shadow-sm"
+                        : "border border-white/10 bg-[#0d0d0d] text-stone-300 hover:border-[#C5A880]/40 hover:text-white"
                     }`}
                   >
                     <span className="whitespace-nowrap font-medium">{tab.label}</span>
                     <span
-                      className={`whitespace-nowrap text-[10px] lowercase tracking-normal transition-colors ${
-                        isActive
-                          ? "text-black/80 font-medium"
-                          : "text-[#E8CA6B]/90 font-normal group-hover:text-[#E8CA6B]"
+                      className={`whitespace-nowrap text-[10px] lowercase tracking-normal ${
+                        isActive ? "text-stone-900 font-medium" : "text-stone-400 font-normal"
                       }`}
                     >
                       ({tab.range})
@@ -171,17 +160,15 @@ export default function PremiumServices() {
                   </button>
                 );
               })}
-              {/* Spacer to guarantee the last item is never clipped on mobile scroll */}
               <div className="shrink-0 w-6 lg:hidden" aria-hidden="true" />
             </div>
 
-            {/* Right Scroll Button (visible on tablet when scrollable) */}
             {canScrollRight && (
               <button
                 type="button"
                 onClick={() => scrollTabs(280)}
                 aria-label="Scroll right categories"
-                className="hidden sm:flex lg:hidden h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-black/95 text-[#D4AF37] shadow-[0_4px_16px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all hover:bg-[#D4AF37] hover:text-black hover:scale-105 active:scale-95"
+                className="hidden sm:flex lg:hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 bg-black/90 text-stone-300 shadow-sm transition-all hover:border-[#C5A880] hover:text-[#C5A880]"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
@@ -202,26 +189,24 @@ export default function PremiumServices() {
                   <div
                     key={pkg.key}
                     data-testid={`bridal-card-${pkg.key}`}
-                    className={`luxe-card relative flex flex-col justify-between overflow-hidden p-4 min-[400px]:p-5 sm:p-5 lg:p-6 transition-all duration-500 ${
-                      pkg.highlight
-                        ? "border-[#D4AF37]/60 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.14),transparent_40%),linear-gradient(180deg,#15130d,#060606)] shadow-[0_24px_60px_-40px_rgba(212,175,55,0.5)]"
-                        : ""
+                    className={`luxe-card relative flex flex-col justify-between p-4 min-[400px]:p-5 sm:p-6 transition-all duration-300 ${
+                      pkg.highlight ? "border-[#C5A880]/35 bg-[#100f0e]" : ""
                     }`}
                   >
                     <div>
-                      {/* 1. Category / Artist Level & Badge */}
+                      {/* Category / Artist Level & Badge */}
                       <div className="mb-3 flex items-center justify-between gap-2">
-                        <span className="rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-2.5 py-0.5 text-[9px] uppercase tracking-wider text-[#E8CA6B] sm:text-[10px] sm:px-3 sm:py-1">
+                        <span className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[9px] uppercase tracking-[0.14em] text-[#DFCEB8] sm:text-[10px]">
                           {pkg.artistLevel}
                         </span>
                         {pkg.badge && (
-                          <span className="rounded-full bg-[#D4AF37] px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider text-black sm:text-[9px] sm:px-2.5">
+                          <span className="rounded-full bg-[#C5A880] px-2.5 py-0.5 text-[8px] font-semibold uppercase tracking-[0.1em] text-[#090909] sm:text-[9px]">
                             {pkg.badge}
                           </span>
                         )}
                       </div>
 
-                      {/* 2. Package Price */}
+                      {/* Package Price */}
                       <h3
                         className="font-serif text-2xl font-semibold text-white sm:text-3xl"
                         style={{ fontFamily: "Playfair Display, serif" }}
@@ -229,16 +214,16 @@ export default function PremiumServices() {
                         {pkg.price}
                       </h3>
 
-                      {/* 3. Short Description */}
-                      <p className="mt-1 text-[11px] leading-relaxed text-zinc-400 sm:text-xs">
+                      {/* Short Description */}
+                      <p className="mt-1 text-xs leading-relaxed text-stone-400">
                         {pkg.desc}
                       </p>
 
-                      <div className="my-3 sm:my-4 h-px bg-gradient-to-r from-[#D4AF37]/40 via-zinc-800 to-transparent" />
+                      <div className="my-3 sm:my-4 h-px bg-white/[0.07]" />
 
-                      {/* 4. First 3 Inclusions (responsive expand) */}
-                      <div className="mb-2 text-[9px] font-medium uppercase tracking-[0.18em] text-[#D4AF37] sm:text-[10px]">
-                        Package Inclusions ({pkg.inclusions.length} items):
+                      {/* Inclusions */}
+                      <div className="mb-2 text-[10px] font-medium uppercase tracking-[0.14em] text-[#C5A880]">
+                        Inclusions ({pkg.inclusions.length} items):
                       </div>
                       <ul className="space-y-1.5 sm:space-y-2">
                         {pkg.inclusions.map((item, idx) => {
@@ -247,7 +232,7 @@ export default function PremiumServices() {
                           return (
                             <li
                               key={idx}
-                              className={`items-start gap-2 text-[11px] text-zinc-300 sm:text-xs sm:gap-2.5 ${
+                              className={`items-start gap-2 text-xs text-stone-300 sm:gap-2.5 ${
                                 isMobileVisible
                                   ? isDesktopVisible
                                     ? "flex"
@@ -257,22 +242,20 @@ export default function PremiumServices() {
                                   : "hidden"
                               }`}
                             >
-                              <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#D4AF37]/15 text-[#D4AF37] sm:h-4 sm:w-4">
-                                <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
-                              </span>
+                              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C5A880]" />
                               <span className="leading-snug">{item}</span>
                             </li>
                           );
                         })}
                       </ul>
 
-                      {/* 5. View All Inclusions */}
+                      {/* Expand / Collapse Control */}
                       {pkg.inclusions.length > 3 && (
                         <button
                           type="button"
                           onClick={() => toggleExpand(pkg.key)}
                           data-testid={`toggle-inclusions-${pkg.key}`}
-                          className={`mt-2.5 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#D4AF37] hover:text-[#E8CA6B] transition-colors sm:text-xs ${
+                          className={`mt-2.5 inline-flex items-center gap-1.5 text-xs font-medium text-[#C5A880] hover:text-[#DFCEB8] transition-colors ${
                             pkg.inclusions.length <= 7 && !isExpanded ? "lg:hidden" : ""
                           }`}
                         >
@@ -299,8 +282,8 @@ export default function PremiumServices() {
                       )}
                     </div>
 
-                    {/* 6. Book Appointment button */}
-                    <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-zinc-800/80">
+                    {/* Booking Button */}
+                    <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-white/[0.06]">
                       <button
                         type="button"
                         onClick={() => bookService(pkg.bookingLabel)}
@@ -310,7 +293,7 @@ export default function PremiumServices() {
                         }`}
                       >
                         <span>Book Bridal Package</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                        <ArrowUpRight className="h-3.5 w-3.5" />
                       </button>
                     </div>
                   </div>
@@ -319,18 +302,15 @@ export default function PremiumServices() {
             </div>
 
             {/* Artist Policy Notice */}
-            <div className="rounded-2xl border border-[#D4AF37]/25 bg-zinc-950/80 p-3.5 sm:p-5 text-center">
-              <div className="flex flex-col items-center justify-center gap-2 text-xs text-zinc-300 sm:flex-row">
-                <ShieldCheck className="h-5 w-5 shrink-0 text-[#D4AF37]" />
-                <p className="leading-relaxed">
-                  <span className="font-semibold text-[#E8CA6B]">
-                    Certified Artist Policy:{" "}
-                  </span>
-                  ₹7,999 to ₹11,000 packages prepared by Basic Artists. ₹15,000 to
-                  ₹25,000 packages prepared by Certified Professional Artists with
-                  100% Makeup Guarantee.
-                </p>
-              </div>
+            <div className="rounded-xl border border-white/10 bg-[#0d0d0d] p-4 text-center">
+              <p className="text-xs text-stone-300 leading-relaxed">
+                <span className="font-medium text-[#DFCEB8]">
+                  Certified Artist Standard:{" "}
+                </span>
+                ₹7,999 to ₹11,000 packages prepared by Basic Artists. ₹15,000 to
+                ₹25,000 packages prepared by Certified Professional Artists with
+                100% Makeup Guarantee.
+              </p>
             </div>
           </div>
         )}
@@ -348,23 +328,20 @@ export default function PremiumServices() {
                   <div
                     key={pkg.key}
                     data-testid={`premium-card-${pkg.key}`}
-                    className="luxe-card-premium relative flex flex-col justify-between p-4 min-[400px]:p-5 sm:p-5 lg:p-6 transition-all duration-500 hover:-translate-y-1"
+                    className="luxe-card-premium relative flex flex-col justify-between p-4 min-[400px]:p-5 sm:p-6 transition-all duration-300"
                   >
                     <div>
-                      {/* 1. Category / Badge & Professional Artist Tag */}
+                      {/* Badge & Professional Artist Tag */}
                       <div className="mb-3 flex items-center justify-between gap-2">
-                        <div className="flex items-center gap-1.5">
-                          <Crown className="h-3.5 w-3.5 text-[#D4AF37] sm:h-4 sm:w-4" />
-                          <span className="text-[9px] font-semibold uppercase tracking-wider text-[#E8CA6B] sm:text-[10px]">
-                            {pkg.badge || "Signature Luxury"}
-                          </span>
-                        </div>
-                        <span className="rounded-full border border-[#D4AF37]/30 bg-black/40 px-2.5 py-0.5 text-[8px] uppercase tracking-wider text-[#D4AF37] sm:text-[9px]">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#DFCEB8]">
+                          {pkg.badge || "Signature Luxury"}
+                        </span>
+                        <span className="rounded-full border border-[#C5A880]/30 bg-black/40 px-2 py-0.5 text-[8px] uppercase tracking-wider text-[#C5A880]">
                           Professional Artist
                         </span>
                       </div>
 
-                      {/* 2. Package Price */}
+                      {/* Package Price */}
                       <h3
                         className="font-serif text-2xl font-semibold text-white sm:text-3xl"
                         style={{ fontFamily: "Playfair Display, serif" }}
@@ -372,16 +349,16 @@ export default function PremiumServices() {
                         {pkg.price}
                       </h3>
 
-                      {/* 3. Short Description */}
-                      <p className="mt-1 text-[11px] leading-relaxed text-zinc-300/85 sm:text-xs">
+                      {/* Short Description */}
+                      <p className="mt-1 text-xs leading-relaxed text-stone-300/85">
                         {pkg.desc}
                       </p>
 
-                      <div className="my-3 sm:my-4 h-px bg-gradient-to-r from-[#D4AF37]/50 via-zinc-800 to-transparent" />
+                      <div className="my-3 sm:my-4 h-px bg-white/[0.08]" />
 
-                      {/* 4. First 3 Inclusions (responsive expand) */}
-                      <div className="mb-2 text-[9px] font-medium uppercase tracking-[0.18em] text-[#D4AF37] sm:text-[10px]">
-                        Package Inclusions ({pkg.inclusions.length} items):
+                      {/* Inclusions */}
+                      <div className="mb-2 text-[10px] font-medium uppercase tracking-[0.14em] text-[#C5A880]">
+                        Inclusions ({pkg.inclusions.length} items):
                       </div>
                       <ul className="space-y-1.5 sm:space-y-2">
                         {pkg.inclusions.map((item, idx) => {
@@ -390,7 +367,7 @@ export default function PremiumServices() {
                           return (
                             <li
                               key={idx}
-                              className={`items-start gap-2 text-[11px] text-zinc-200 sm:text-xs sm:gap-2.5 ${
+                              className={`items-start gap-2 text-xs text-stone-200 sm:gap-2.5 ${
                                 isMobileVisible
                                   ? isDesktopVisible
                                     ? "flex"
@@ -400,22 +377,20 @@ export default function PremiumServices() {
                                   : "hidden"
                               }`}
                             >
-                              <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#D4AF37]/20 text-[#D4AF37] sm:h-4 sm:w-4">
-                                <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
-                              </span>
+                              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C5A880]" />
                               <span className="leading-snug">{item}</span>
                             </li>
                           );
                         })}
                       </ul>
 
-                      {/* 5. View All Inclusions */}
+                      {/* Expand / Collapse Control */}
                       {pkg.inclusions.length > 3 && (
                         <button
                           type="button"
                           onClick={() => toggleExpand(pkg.key)}
                           data-testid={`toggle-inclusions-${pkg.key}`}
-                          className={`mt-2.5 inline-flex items-center gap-1.5 text-[11px] font-medium text-[#D4AF37] hover:text-[#E8CA6B] transition-colors sm:text-xs ${
+                          className={`mt-2.5 inline-flex items-center gap-1.5 text-xs font-medium text-[#C5A880] hover:text-[#DFCEB8] transition-colors ${
                             pkg.inclusions.length <= 8 && !isExpanded ? "lg:hidden" : ""
                           }`}
                         >
@@ -442,8 +417,8 @@ export default function PremiumServices() {
                       )}
                     </div>
 
-                    {/* 6. Book Appointment button */}
-                    <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-zinc-800/80">
+                    {/* Booking Button */}
+                    <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-white/[0.06]">
                       <button
                         type="button"
                         onClick={() => bookService(pkg.bookingLabel)}
@@ -451,7 +426,7 @@ export default function PremiumServices() {
                         className="btn-gold w-full justify-center py-2.5 sm:py-3 text-xs uppercase tracking-wider"
                       >
                         <span>Book Premium Package</span>
-                        <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                        <ArrowUpRight className="h-3.5 w-3.5" />
                       </button>
                     </div>
                   </div>
@@ -459,11 +434,11 @@ export default function PremiumServices() {
               })}
             </div>
 
-            {/* Official Artist Guarantee Banner */}
-            <div className="rounded-2xl border border-[#D4AF37]/35 bg-gradient-to-r from-black via-zinc-950 to-black p-4 sm:p-5 text-center shadow-[0_10px_30px_rgba(212,175,55,0.15)]">
-              <p className="text-xs text-zinc-300 leading-relaxed sm:text-sm">
-                <span className="font-semibold text-[#E8CA6B]">
-                  Ganga Beauty Parlour Guarantee:{" "}
+            {/* Guarantee Banner */}
+            <div className="rounded-xl border border-white/10 bg-[#0d0d0d] p-4 text-center">
+              <p className="text-xs text-stone-300 leading-relaxed">
+                <span className="font-medium text-[#DFCEB8]">
+                  Atelier Quality Guarantee:{" "}
                 </span>
                 {ARTIST_GUARANTEE_NOTE}
               </p>
@@ -476,29 +451,26 @@ export default function PremiumServices() {
            ========================================================================= */}
         {activeTab === "out-of-parlour" && (
           <div className="space-y-4 sm:space-y-6">
-            <div className="rounded-2xl border border-[#D4AF37]/25 bg-zinc-950/70 p-3.5 sm:p-5">
-              <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 text-xs text-zinc-300 text-center sm:text-left">
-                <Car className="h-5 w-5 sm:h-6 sm:w-6 shrink-0 text-[#D4AF37]" />
-                <div>
-                  <span className="font-semibold text-[#E8CA6B]">
-                    Out of Parlour / Destination Services:{" "}
-                  </span>
-                  {OUT_OF_PARLOUR_TRAVEL_NOTE}
-                </div>
-              </div>
+            <div className="rounded-xl border border-white/10 bg-[#0d0d0d] p-4">
+              <p className="text-xs text-stone-300 leading-relaxed text-center sm:text-left">
+                <span className="font-medium text-[#DFCEB8]">
+                  Destination & Out of Parlour Protocol:{" "}
+                </span>
+                {OUT_OF_PARLOUR_TRAVEL_NOTE}
+              </p>
             </div>
 
             <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-4">
               {OUT_OF_PARLOUR_MAKEUP.map((item, index) => (
                 <div
                   key={index}
-                  className="luxe-card flex items-center justify-between p-3.5 sm:p-4 transition-all hover:border-[#D4AF37]/50"
+                  className="luxe-card flex items-center justify-between p-3.5 sm:p-4 transition-all hover:border-[#C5A880]/35"
                 >
                   <div className="min-w-0 pr-2">
                     <p className="truncate text-xs font-medium text-white sm:text-sm">
                       {item.name}
                     </p>
-                    <p className="text-xs sm:text-sm font-semibold text-[#E8CA6B]">
+                    <p className="text-xs sm:text-sm font-semibold text-[#DFCEB8]">
                       {item.price}
                     </p>
                   </div>
@@ -507,7 +479,7 @@ export default function PremiumServices() {
                     onClick={() =>
                       bookService(`Out of Parlour: ${item.name} (${item.price})`)
                     }
-                    className="shrink-0 rounded-full border border-[#D4AF37]/40 px-3 py-1.5 text-[10px] uppercase tracking-wider text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-colors"
+                    className="shrink-0 rounded-full border border-white/15 px-3 py-1.5 text-[10px] uppercase tracking-wider text-stone-300 hover:border-[#C5A880] hover:text-[#C5A880] transition-colors"
                   >
                     Book
                   </button>
@@ -534,43 +506,42 @@ export default function PremiumServices() {
           <div className="space-y-8 sm:space-y-10">
             {/* Two-Time Makeup */}
             <div>
-              <div className="mb-3 sm:mb-4 flex items-center gap-2">
-                <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-[#D4AF37]" />
+              <div className="mb-2">
                 <h3
                   className="font-serif text-xl sm:text-2xl text-white md:text-3xl"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
-                  Two-Time Makeup <span className="gold-text">Packages</span>
+                  Two-Time Makeup <span className="italic gold-text">Packages</span>
                 </h3>
+                <p className="mt-1 text-xs text-stone-400">
+                  Coordinated makeovers for two major ceremonies (e.g., Wedding + Sangeet or Wedding + Reception).
+                </p>
               </div>
-              <p className="mb-4 sm:mb-6 text-xs text-zinc-400">
-                Coordinated makeovers for two major ceremonies (e.g., Wedding + Sangeet or Wedding + Reception).
-              </p>
 
-              <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4 mt-4">
                 {TWO_TIME_MAKEUP.map((item) => (
                   <div
                     key={item.key}
-                    className="luxe-card flex flex-col justify-between p-4 sm:p-5 transition-all hover:-translate-y-1"
+                    className="luxe-card flex flex-col justify-between p-4 sm:p-5 transition-all hover:border-[#C5A880]/35"
                   >
                     <div>
-                      <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#D4AF37]">
+                      <span className="text-[9px] uppercase tracking-[0.14em] text-[#C5A880]">
                         2 Ceremonies
                       </span>
                       <h4 className="mt-1 font-serif text-base sm:text-lg font-semibold text-white">
                         {item.name}
                       </h4>
-                      <p className="mt-1.5 sm:mt-2 text-xl sm:text-2xl font-bold text-[#E8CA6B]">
+                      <p className="mt-1.5 text-xl sm:text-2xl font-semibold text-[#DFCEB8]">
                         {item.price}
                       </p>
-                      <p className="mt-1.5 sm:mt-2 text-[11px] sm:text-xs text-zinc-300/80 leading-relaxed">
+                      <p className="mt-1.5 text-xs text-stone-300/80 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
                     <button
                       type="button"
                       onClick={() => bookService(item.bookingLabel)}
-                      className="mt-4 sm:mt-5 btn-outline-gold w-full justify-center py-2 text-xs"
+                      className="mt-4 btn-outline-gold w-full justify-center py-2 text-xs"
                     >
                       Book 2-Time Package
                     </button>
@@ -580,21 +551,20 @@ export default function PremiumServices() {
             </div>
 
             {/* Three-Time Makeup */}
-            <div className="border-t border-zinc-900 pt-6 sm:pt-8">
-              <div className="mb-3 sm:mb-4 flex items-center gap-2">
-                <Crown className="h-4 w-4 sm:h-5 sm:w-5 text-[#D4AF37]" />
+            <div className="border-t border-white/[0.06] pt-6 sm:pt-8">
+              <div className="mb-2">
                 <h3
                   className="font-serif text-xl sm:text-2xl text-white md:text-3xl"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
-                  Three-Time Makeup <span className="gold-text">Signature Combos</span>
+                  Three-Time Makeup <span className="italic gold-text">Signature Combos</span>
                 </h3>
+                <p className="mt-1 text-xs text-stone-400">
+                  Complete bridal luxury for all 3 wedding events (Haldi + Sangeet + Wedding).
+                </p>
               </div>
-              <p className="mb-4 sm:mb-6 text-xs text-zinc-400">
-                Complete bridal luxury for all 3 wedding events (Haldi + Sangeet + Wedding).
-              </p>
 
-              <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-6">
+              <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-6 mt-4">
                 {THREE_TIME_MAKEUP.map((item) => (
                   <div
                     key={item.key}
@@ -602,18 +572,17 @@ export default function PremiumServices() {
                   >
                     <div>
                       <div className="flex items-center justify-between">
-                        <span className="rounded-full bg-[#D4AF37] px-2.5 py-0.5 text-[8px] sm:text-[9px] font-bold uppercase tracking-wider text-black">
+                        <span className="rounded-full border border-[#C5A880]/30 bg-[#C5A880]/10 px-2.5 py-0.5 text-[8px] font-semibold uppercase tracking-wider text-[#DFCEB8]">
                           3 Functions Covered
                         </span>
-                        <Crown className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#D4AF37]" />
                       </div>
-                      <h4 className="mt-2.5 sm:mt-3 font-serif text-xl sm:text-2xl font-semibold text-white">
+                      <h4 className="mt-2.5 font-serif text-xl sm:text-2xl font-semibold text-white">
                         {item.name}
                       </h4>
-                      <p className="mt-1.5 sm:mt-2 text-2xl sm:text-3xl font-bold text-[#E8CA6B]">
+                      <p className="mt-1.5 text-2xl sm:text-3xl font-semibold text-[#DFCEB8]">
                         {item.price}
                       </p>
-                      <p className="mt-2 sm:mt-3 text-[11px] sm:text-xs leading-relaxed text-zinc-300">
+                      <p className="mt-2 text-xs leading-relaxed text-stone-300">
                         {item.desc}
                       </p>
                     </div>
@@ -623,7 +592,7 @@ export default function PremiumServices() {
                       className="mt-4 sm:mt-6 btn-gold w-full justify-center py-2.5 sm:py-3 text-xs"
                     >
                       <span>Reserve 3-Time Package</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                      <ArrowUpRight className="h-3.5 w-3.5" />
                     </button>
                   </div>
                 ))}
@@ -639,43 +608,42 @@ export default function PremiumServices() {
           <div className="space-y-8 sm:space-y-10">
             {/* O3+ Professional Section */}
             <div>
-              <div className="mb-3 flex items-center gap-2">
-                <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-[#D4AF37]" />
+              <div className="mb-2">
                 <h3
                   className="font-serif text-xl sm:text-2xl text-white md:text-3xl"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
-                  O3+ Professional <span className="gold-text">Facials</span>
+                  O3+ Professional <span className="italic gold-text">Facials</span>
                 </h3>
+                <p className="mt-1 text-xs text-stone-400">
+                  Clinical-grade dermaceutical skin brightening and bridal glow treatments.
+                </p>
               </div>
-              <p className="mb-4 sm:mb-6 text-xs text-zinc-400">
-                Clinical-grade dermaceutical skin brightening and bridal glow treatments.
-              </p>
 
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 mt-4">
                 {O3_PROFESSIONAL_FACIAL.map((item, idx) => (
                   <div
                     key={idx}
-                    className="luxe-card flex flex-col justify-between p-4 sm:p-5 transition-all hover:border-[#D4AF37]/50"
+                    className="luxe-card flex flex-col justify-between p-4 sm:p-5 transition-all hover:border-[#C5A880]/35"
                   >
                     <div>
-                      <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#D4AF37]">
+                      <span className="text-[9px] uppercase tracking-[0.14em] text-[#C5A880]">
                         O3+ Professional
                       </span>
                       <h4 className="mt-1 font-serif text-base sm:text-lg font-semibold text-white">
                         {item.name}
                       </h4>
-                      <p className="mt-1.5 sm:mt-2 text-lg sm:text-xl font-bold text-[#E8CA6B]">
+                      <p className="mt-1.5 text-lg sm:text-xl font-semibold text-[#DFCEB8]">
                         {item.price}
                       </p>
-                      <p className="mt-1.5 sm:mt-2 text-[11px] sm:text-xs text-zinc-300/80 leading-relaxed">
+                      <p className="mt-1.5 text-xs text-stone-300/80 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
                     <button
                       type="button"
                       onClick={() => bookService(`${item.name} (${item.price})`)}
-                      className="mt-3.5 sm:mt-4 btn-outline-gold w-full justify-center py-2 text-xs"
+                      className="mt-3.5 btn-outline-gold w-full justify-center py-2 text-xs"
                     >
                       Book Facial
                     </button>
@@ -685,20 +653,20 @@ export default function PremiumServices() {
             </div>
 
             {/* Regular Facial Section */}
-            <div className="border-t border-zinc-900 pt-6 sm:pt-8">
-              <div className="mb-3 flex items-center justify-between">
+            <div className="border-t border-white/[0.06] pt-6 sm:pt-8">
+              <div className="mb-2">
                 <h3
                   className="font-serif text-xl sm:text-2xl text-white md:text-3xl"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
-                  Classic & Premium <span className="gold-text">Facials</span>
+                  Classic & Premium <span className="italic gold-text">Facials</span>
                 </h3>
+                <p className="mt-1 text-xs text-stone-400">
+                  {FACIAL_CONSULTATION_NOTE}
+                </p>
               </div>
-              <p className="mb-4 sm:mb-5 text-xs text-zinc-400">
-                {FACIAL_CONSULTATION_NOTE}
-              </p>
 
-              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 mt-4">
                 {FACIAL_SERVICES.map((item, idx) => (
                   <div
                     key={idx}
@@ -708,17 +676,17 @@ export default function PremiumServices() {
                       <p className="truncate text-xs font-medium text-white sm:text-sm">
                         {item.name}
                       </p>
-                      <p className="text-xs font-semibold text-[#E8CA6B]">
+                      <p className="text-xs font-semibold text-[#DFCEB8]">
                         {item.price}
                       </p>
-                      <p className="truncate text-[10px] sm:text-[11px] text-zinc-400 mt-0.5">
+                      <p className="truncate text-[10px] sm:text-[11px] text-stone-400 mt-0.5">
                         {item.desc}
                       </p>
                     </div>
                     <button
                       type="button"
                       onClick={() => bookService(`${item.name} (${item.price})`)}
-                      className="shrink-0 rounded-full border border-[#D4AF37]/40 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[9px] sm:text-[10px] uppercase tracking-wider text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-colors"
+                      className="shrink-0 rounded-full border border-white/15 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[9px] uppercase tracking-wider text-stone-300 hover:border-[#C5A880] hover:text-[#C5A880] transition-colors"
                     >
                       Book
                     </button>
@@ -741,16 +709,16 @@ export default function PremiumServices() {
                   className="luxe-card-premium flex flex-col justify-between p-4 sm:p-6"
                 >
                   <div>
-                    <span className="rounded-full border border-[#D4AF37]/30 bg-black/40 px-2.5 py-0.5 text-[8px] sm:text-[9px] uppercase tracking-wider text-[#D4AF37]">
+                    <span className="text-[9px] uppercase tracking-[0.14em] text-[#C5A880]">
                       Hydra Technology
                     </span>
-                    <h4 className="mt-2.5 sm:mt-3 font-serif text-lg sm:text-xl font-semibold text-white">
+                    <h4 className="mt-2 font-serif text-lg sm:text-xl font-semibold text-white">
                       {item.name}
                     </h4>
-                    <p className="mt-1.5 sm:mt-2 text-xl sm:text-2xl font-bold text-[#E8CA6B]">
+                    <p className="mt-1.5 text-xl sm:text-2xl font-semibold text-[#DFCEB8]">
                       {item.price}
                     </p>
-                    <p className="mt-2 sm:mt-3 text-[11px] sm:text-xs leading-relaxed text-zinc-300/85">
+                    <p className="mt-2 text-xs leading-relaxed text-stone-300/85">
                       {item.desc}
                     </p>
                   </div>
@@ -760,14 +728,14 @@ export default function PremiumServices() {
                     className="mt-4 sm:mt-6 btn-gold w-full justify-center py-2.5 sm:py-3 text-xs"
                   >
                     <span>Reserve Session</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    <ArrowUpRight className="h-3.5 w-3.5" />
                   </button>
                 </div>
               ))}
             </div>
 
-            <div className="rounded-2xl border border-[#D4AF37]/20 bg-zinc-950/70 p-4 sm:p-5 text-center">
-              <p className="text-xs text-zinc-300 leading-relaxed">
+            <div className="rounded-xl border border-white/10 bg-[#0d0d0d] p-4 text-center">
+              <p className="text-xs text-stone-300 leading-relaxed">
                 Hydra Facials utilize vortex suction, oxygen spray, radio-frequency
                 tightening and cryo-cold hammer technology for deep cellular glow.
               </p>
@@ -780,42 +748,39 @@ export default function PremiumServices() {
            ========================================================================= */}
         {activeTab === "laser" && (
           <div className="space-y-4 sm:space-y-6">
-            <div className="rounded-2xl border border-[#D4AF37]/25 bg-zinc-950/70 p-3.5 sm:p-5">
-              <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 text-xs text-zinc-300 text-center sm:text-left">
-                <Sparkle className="h-5 w-5 sm:h-6 sm:w-6 shrink-0 text-[#D4AF37]" />
-                <div>
-                  <span className="font-semibold text-[#E8CA6B]">
-                    Advanced Permanent Hair Reduction:{" "}
-                  </span>
-                  {LASER_SESSION_NOTE} Complete painless treatments performed using medical-grade laser technology.
-                </div>
-              </div>
+            <div className="rounded-xl border border-white/10 bg-[#0d0d0d] p-4">
+              <p className="text-xs text-stone-300 leading-relaxed text-center sm:text-left">
+                <span className="font-medium text-[#DFCEB8]">
+                  Clinical Laser Protocol:{" "}
+                </span>
+                {LASER_SESSION_NOTE} Complete painless treatments performed using medical-grade laser technology.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
               {LASER_TREATMENTS.map((item, idx) => (
                 <div
                   key={idx}
-                  className="luxe-card flex flex-col justify-between p-4 sm:p-5 transition-all hover:border-[#D4AF37]/50"
+                  className="luxe-card flex flex-col justify-between p-4 sm:p-5 transition-all hover:border-[#C5A880]/35"
                 >
                   <div>
-                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#D4AF37]">
+                    <span className="text-[9px] uppercase tracking-[0.14em] text-[#C5A880]">
                       Laser Session
                     </span>
                     <h4 className="mt-1 font-serif text-base sm:text-lg font-semibold text-white">
                       {item.name}
                     </h4>
-                    <p className="mt-1.5 sm:mt-2 text-lg sm:text-xl font-bold text-[#E8CA6B]">
+                    <p className="mt-1.5 text-lg sm:text-xl font-semibold text-[#DFCEB8]">
                       {item.price}
                     </p>
-                    <p className="mt-1.5 sm:mt-2 text-[11px] sm:text-xs text-zinc-300/80 leading-relaxed">
+                    <p className="mt-1.5 text-xs text-stone-300/80 leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
                   <button
                     type="button"
                     onClick={() => bookService(`${item.name} (${item.price})`)}
-                    className="mt-3.5 sm:mt-5 btn-outline-gold w-full justify-center py-2 text-xs"
+                    className="mt-3.5 btn-outline-gold w-full justify-center py-2 text-xs"
                   >
                     Book Laser Session
                   </button>

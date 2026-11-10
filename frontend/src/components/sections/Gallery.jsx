@@ -45,21 +45,24 @@ export default function Gallery() {
     <section
       id="gallery"
       data-testid="gallery-section"
-      className="section relative overflow-hidden bg-[#050505]"
+      className="section relative overflow-hidden bg-[#070707]"
     >
+      <div className="absolute inset-x-0 top-0 h-px bg-white/[0.06]" />
+
       <div className="container mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="mb-10 flex flex-col gap-5 md:mb-12 md:flex-row md:items-end md:justify-between">
+        <div className="mb-8 flex flex-col gap-4 md:mb-12 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <span className="eyebrow">Instagram</span>
-            <div className="gold-divider mt-3 mb-5" />
+            <span className="eyebrow">Editorial Archives</span>
+            <div className="gold-divider mt-2.5 mb-4 sm:mt-3 sm:mb-5" />
             <h2
-              className="font-serif text-4xl tracking-tight text-white min-[400px]:text-5xl"
+              className="font-serif text-3xl tracking-tight text-white min-[400px]:text-4xl sm:text-5xl"
               style={{ fontFamily: "Playfair Display, serif" }}
             >
-              Moments of <span className="italic gold-text">brilliance.</span>
+              The bridal{" "}
+              <span className="italic font-serif text-[#DFCEB8]">portfolio.</span>
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-zinc-300/82 min-[400px]:text-base">
-              Latest bridal transformations and luxury beauty moments.
+            <p className="mt-3 max-w-xl text-xs leading-relaxed text-zinc-300/80 sm:text-sm sm:leading-7">
+              Capturing transcendent bridal transformations, ceremonial rituals, and bespoke editorial aesthetics.
             </p>
           </div>
           <a
@@ -67,7 +70,7 @@ export default function Gallery() {
             target="_blank"
             rel="noopener noreferrer"
             data-testid="instagram-cta-top"
-            className="inline-flex items-center gap-2 text-sm text-[#D4AF37] transition-colors hover:text-[#E8CA6B]"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm text-[#c5a880] transition-colors hover:text-[#dfceb8]"
           >
             <Instagram className="h-4 w-4" />
             @ganga_beauty_parlour_
@@ -85,7 +88,7 @@ export default function Gallery() {
               data-testid={`instagram-post-${index}`}
               data-sr
               data-sr-delay={`${index * 90}ms`}
-              className="group relative overflow-hidden rounded-3xl border border-[#D4AF37]/14 bg-black shadow-[0_24px_70px_-60px_rgba(212,175,55,0.5)] transition-all duration-500 hover:-translate-y-1 hover:border-[#D4AF37]/38"
+              className="group relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#0c0c0c] transition-all duration-500 hover:-translate-y-1 hover:border-[#c5a880]/40"
             >
               <div className="aspect-[4/5] overflow-hidden bg-zinc-950">
                 <CommonImage
@@ -95,23 +98,22 @@ export default function Gallery() {
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                   width={post.width}
                   height={post.height}
-                  className="h-full w-full object-cover brightness-[0.82] contrast-[1.08] saturate-[0.84] transition-transform duration-700 group-hover:scale-[1.055]"
+                  className="h-full w-full object-cover brightness-[0.84] contrast-[1.06] saturate-[0.88] transition-transform duration-700 group-hover:scale-[1.04]"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/16 to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-br from-black/12 via-transparent to-[#D4AF37]/8 opacity-70" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
               {post.isVideo && (
-                <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-[#D4AF37]/30 bg-black/45 backdrop-blur-sm">
-                  <Play className="ml-0.5 h-4 w-4 fill-[#D4AF37] text-[#D4AF37]" />
+                <div className="absolute right-3.5 top-3.5 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/60 backdrop-blur-sm">
+                  <Play className="ml-0.5 h-3.5 w-3.5 fill-[#c5a880] text-[#c5a880]" />
                 </div>
               )}
 
-              <div className="absolute inset-x-0 bottom-0 p-5 min-[400px]:p-6">
-                <p className="mb-2 text-[9px] uppercase tracking-[0.24em] text-[#D4AF37]">
-                  Latest Instagram
+              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                <p className="mb-1.5 text-[9px] uppercase tracking-[0.18em] text-[#c5a880]/90">
+                  Atelier Archive &middot; 0{index + 1}
                 </p>
-                <p className="line-clamp-2 text-sm leading-6 text-zinc-100/90">
+                <p className="line-clamp-2 text-xs sm:text-sm leading-relaxed text-zinc-100/90 font-light">
                   {getCaption(post, index)}
                 </p>
               </div>
@@ -119,7 +121,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        <div className="mt-10 flex justify-center md:mt-11">
+        <div className="mt-8 flex justify-center md:mt-11">
           <a
             href={BUSINESS.instagram || ACCOUNT_URL}
             target="_blank"

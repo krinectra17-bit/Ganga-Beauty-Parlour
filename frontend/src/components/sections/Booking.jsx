@@ -148,12 +148,12 @@ export default function Booking() {
     <section
       id="booking"
       data-testid="booking-section"
-      className="section bg-[#070707] relative overflow-hidden"
+      className="section relative overflow-hidden bg-gradient-to-b from-[#080706] via-[#100e0b] to-[#060504]"
       data-sr
     >
-      <div className="absolute inset-x-0 top-0 h-px bg-white/[0.06]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af6e]/25 to-transparent" />
 
-      <div className="container mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="container relative mx-auto px-5 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 items-start gap-8 md:gap-12 lg:grid-cols-2">
           <div data-sr data-sr-delay="60ms">
             <span className="eyebrow">Bespoke Consultation</span>
@@ -163,23 +163,23 @@ export default function Booking() {
               style={{ fontFamily: "Playfair Display, serif" }}
             >
               Reserve your{" "}
-              <span className="italic font-serif text-[#DFCEB8]">consultation.</span>
+              <span className="italic font-serif gold-text">consultation.</span>
             </h2>
-            <p className="mt-4 max-w-md text-xs leading-relaxed text-zinc-300/80 sm:text-sm sm:leading-7">
+            <p className="mt-4 max-w-md text-xs leading-relaxed text-stone-300/85 sm:text-sm sm:leading-7 font-light">
               Share your ceremonial dates and preferred beauty rituals. We will verify artist availability and confirm your reservation directly on WhatsApp.
             </p>
 
-            <ul className="mt-6 space-y-2.5 text-xs sm:text-sm text-zinc-300/85">
+            <ul className="mt-6 space-y-2.5 text-xs sm:text-sm text-stone-200/90 font-light">
               <li className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-[#c5a880] mt-0.5 shrink-0" />
+                <Check className="w-4 h-4 text-[#d4af6e] mt-0.5 shrink-0" />
                 <span>Instant confirmation and appointment coordination on WhatsApp</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-[#c5a880] mt-0.5 shrink-0" />
+                <Check className="w-4 h-4 text-[#d4af6e] mt-0.5 shrink-0" />
                 <span>Personalized skin and makeup consultation prior to bridal events</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Check className="w-4 h-4 text-[#c5a880] mt-0.5 shrink-0" />
+                <Check className="w-4 h-4 text-[#d4af6e] mt-0.5 shrink-0" />
                 <span>Flexible studio scheduling &middot; Mon&ndash;Sun, 10 AM &ndash; 8 PM</span>
               </li>
             </ul>
@@ -193,8 +193,8 @@ export default function Booking() {
                 role="status"
                 aria-live="polite"
               >
-                <div className="w-14 h-14 mx-auto rounded-full bg-[#c5a880]/12 border border-[#c5a880]/40 flex items-center justify-center mb-5">
-                  <CheckCircle2 className="w-6 h-6 text-[#c5a880]" />
+                <div className="w-14 h-14 mx-auto rounded-full bg-[#d4af6e]/15 border border-[#d4af6e]/40 flex items-center justify-center mb-5">
+                  <CheckCircle2 className="w-6 h-6 text-[#d4af6e]" />
                 </div>
                 <h3
                   className="font-serif text-2xl md:text-3xl text-white mb-2"
@@ -202,14 +202,14 @@ export default function Booking() {
                 >
                   Consultation requested
                 </h3>
-                <p className="text-zinc-400 text-xs sm:text-sm max-w-sm mx-auto leading-relaxed">
+                <p className="text-stone-300 text-xs sm:text-sm max-w-sm mx-auto leading-relaxed font-light">
                   We have prefilled WhatsApp with your selected details. Send the message to confirm &mdash; our atelier team responds promptly.
                 </p>
                 <button
                   type="button"
                   onClick={resetForm}
                   data-testid="booking-new"
-                  className="mt-6 btn-outline-gold"
+                  className="mt-6 btn-outline-gold cursor-pointer"
                 >
                   Make Another Booking
                 </button>
@@ -224,7 +224,7 @@ export default function Booking() {
                   <div>
                     <label
                       htmlFor="booking-name"
-                      className="text-[10px] tracking-[0.16em] text-[#c5a880]/90 uppercase block mb-1.5 font-medium"
+                      className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                     >
                       Full Name *
                     </label>
@@ -244,7 +244,7 @@ export default function Booking() {
                   <div>
                     <label
                       htmlFor="booking-phone"
-                      className="text-[10px] tracking-[0.16em] text-[#c5a880]/90 uppercase block mb-1.5 font-medium"
+                      className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                     >
                       Phone *
                     </label>
@@ -269,7 +269,7 @@ export default function Booking() {
                 <div>
                   <label
                     htmlFor="booking-branch"
-                    className="text-[10px] tracking-[0.16em] text-[#c5a880]/90 uppercase block mb-1.5 font-medium"
+                    className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                   >
                     Branch *
                   </label>
@@ -296,7 +296,7 @@ export default function Booking() {
                 <div>
                   <label
                     htmlFor="booking-service"
-                    className="text-[10px] tracking-[0.16em] text-[#c5a880]/90 uppercase block mb-1.5 font-medium"
+                    className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                   >
                     Service *
                   </label>
@@ -327,7 +327,7 @@ export default function Booking() {
                   <div>
                     <label
                       htmlFor="booking-date"
-                      className="text-[10px] tracking-[0.16em] text-[#c5a880]/90 uppercase block mb-1.5 font-medium"
+                      className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                     >
                       Preferred Date
                     </label>
@@ -345,7 +345,7 @@ export default function Booking() {
                   <div>
                     <label
                       htmlFor="booking-time"
-                      className="text-[10px] tracking-[0.16em] text-[#c5a880]/90 uppercase block mb-1.5 font-medium"
+                      className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                     >
                       Preferred Time
                     </label>
@@ -364,7 +364,7 @@ export default function Booking() {
                 <div>
                   <label
                     htmlFor="booking-message"
-                    className="text-[10px] tracking-[0.16em] text-[#c5a880]/90 uppercase block mb-1.5 font-medium"
+                    className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                   >
                     Special Requests (optional)
                   </label>
@@ -395,7 +395,7 @@ export default function Booking() {
                   type="submit"
                   disabled={submitting}
                   data-testid="booking-submit"
-                  className="btn-gold w-full justify-center disabled:opacity-60 py-3 text-xs sm:text-sm"
+                  className="btn-gold w-full justify-center disabled:opacity-60 py-3 text-xs sm:text-sm cursor-pointer"
                 >
                   {submitting ? (
                     <>
@@ -410,8 +410,8 @@ export default function Booking() {
                   )}
                 </button>
 
-                <p className="text-[11px] sm:text-xs text-zinc-500 text-center inline-flex items-center justify-center gap-1.5 w-full mt-1">
-                  <MessageCircle className="w-3.5 h-3.5 text-[#c5a880]" />
+                <p className="text-[11px] sm:text-xs text-stone-400 text-center inline-flex items-center justify-center gap-1.5 w-full mt-1 font-light">
+                  <MessageCircle className="w-3.5 h-3.5 text-[#d4af6e]" />
                   Submitting directly initiates WhatsApp consultation with prefilled details
                 </p>
               </form>

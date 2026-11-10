@@ -31,8 +31,8 @@ export default function Navbar() {
       data-testid="site-navbar"
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/85 backdrop-blur-md border-b border-white/[0.08] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.8)]"
-          : "bg-black/30 backdrop-blur-sm border-b border-transparent"
+          ? "bg-[#080706]/92 backdrop-blur-md border-b border-[#d4af6e]/20 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.9)]"
+          : "bg-[#080706]/40 backdrop-blur-sm border-b border-transparent"
       }`}
     >
       <div className="container mx-auto px-5 sm:px-8 lg:px-12">
@@ -64,7 +64,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 data-testid={`nav-${l.label.toLowerCase()}`}
-                className="text-xs uppercase tracking-[0.16em] text-zinc-300 hover:text-[#c5a880] transition-colors font-medium"
+                className="text-xs uppercase tracking-[0.16em] text-stone-200 hover:text-[#d4af6e] transition-colors font-medium"
               >
                 {l.label}
               </a>
@@ -79,9 +79,9 @@ export default function Navbar() {
                   href={buildPhoneLink(phone)}
                   data-testid={`navbar-call-${index + 1}`}
                   aria-label={`Call Ganga Beauty Parlour at +91 ${phone}`}
-                  className="flex items-center gap-1.5 text-xs text-zinc-300 hover:text-[#c5a880] transition-colors font-light"
+                  className="flex items-center gap-1.5 text-xs text-stone-300 hover:text-[#d4af6e] transition-colors font-light"
                 >
-                  <Phone className="w-3 h-3 text-[#c5a880]" />
+                  <Phone className="w-3 h-3 text-[#d4af6e]" />
                   +91 {phone}
                 </a>
               ))}
@@ -90,7 +90,7 @@ export default function Navbar() {
               type="button"
               onClick={() => bookService("")}
               data-testid="navbar-book"
-              className="btn-gold py-2 px-5 text-xs"
+              className="btn-gold py-2 px-5 text-xs cursor-pointer"
             >
               Book Appointment
             </button>
@@ -98,7 +98,7 @@ export default function Navbar() {
 
           <button
             data-testid="menu-toggle"
-            className="md:hidden text-white p-2 rounded-lg border border-white/10 transition hover:border-[#c5a880]/40"
+            className="md:hidden text-white p-2 rounded-lg border border-white/10 transition hover:border-[#d4af6e]/40"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-controls="mobile-navigation"
@@ -110,7 +110,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-[#0c0c0c] border-b border-white/[0.08] mobile-menu-enter transition-all duration-300 ease-out overflow-hidden">
+        <div className="md:hidden bg-[#100e0b] border-b border-[#d4af6e]/20 mobile-menu-enter transition-all duration-300 ease-out overflow-hidden">
           <div id="mobile-navigation" className="px-5 py-5 flex flex-col gap-4">
             {links.map((l) => (
               <a
@@ -118,21 +118,21 @@ export default function Navbar() {
                 href={l.href}
                 onClick={() => setOpen(false)}
                 data-testid={`mnav-${l.label.toLowerCase()}`}
-                className="text-zinc-200 text-sm tracking-wide hover:text-[#c5a880]"
+                className="text-stone-200 text-sm tracking-wide hover:text-[#d4af6e]"
               >
                 {l.label}
               </a>
             ))}
-            <div className="flex flex-col gap-2 pt-2 border-t border-white/[0.06]">
+            <div className="flex flex-col gap-2 pt-2 border-t border-white/[0.08]">
               {BUSINESS.phones.map((phone, index) => (
                 <a
                   key={phone}
                   href={buildPhoneLink(phone)}
                   data-testid={`mnav-call-${index + 1}`}
                   aria-label={`Call Ganga Beauty Parlour at +91 ${phone}`}
-                  className="flex items-center gap-2 text-zinc-300 text-sm font-light"
+                  className="flex items-center gap-2 text-stone-300 text-sm font-light"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#c5a880]" />
+                  <Phone className="w-3.5 h-3.5 text-[#d4af6e]" />
                   +91 {phone}
                 </a>
               ))}
@@ -144,7 +144,7 @@ export default function Navbar() {
                 bookService("");
               }}
               data-testid="mnav-book"
-              className="btn-gold w-fit py-2.5 px-5 text-xs mt-1"
+              className="btn-gold w-fit py-2.5 px-5 text-xs mt-1 cursor-pointer"
             >
               Book Appointment
             </button>

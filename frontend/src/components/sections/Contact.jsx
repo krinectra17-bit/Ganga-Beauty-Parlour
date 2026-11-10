@@ -26,12 +26,12 @@ export default function Contact() {
     <section
       id="contact"
       data-testid="contact-section"
-      className="section relative bg-black"
+      className="section relative overflow-hidden bg-gradient-to-b from-[#070605] via-[#100e0b] to-[#080706]"
       data-sr
     >
-      <div className="absolute inset-x-0 top-0 h-px bg-white/[0.06]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af6e]/25 to-transparent" />
 
-      <div className="container mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="container relative mx-auto px-5 sm:px-8 lg:px-12">
         <div className="max-w-2xl mb-8 md:mb-12">
           <span className="eyebrow">The Salons</span>
           <div className="gold-divider mt-2.5 mb-4 sm:mt-3 sm:mb-5" />
@@ -40,7 +40,7 @@ export default function Contact() {
             style={{ fontFamily: "Playfair Display, serif" }}
           >
             Step into our{" "}
-            <span className="italic font-serif text-[#DFCEB8]">studios.</span>
+            <span className="italic font-serif gold-text">studios.</span>
           </h2>
         </div>
 
@@ -48,7 +48,7 @@ export default function Contact() {
           <div className="luxe-card p-5 sm:p-6 md:p-7" data-sr data-sr-delay="60ms">
             <div className="flex flex-col justify-between h-full">
               <div>
-                <p className="text-[10px] tracking-[0.18em] text-[#c5a880]/90 uppercase mb-2">
+                <p className="text-[10px] tracking-[0.18em] text-[#d4af6e] uppercase mb-2 font-semibold">
                   Studio Atelier &middot; Sujangarh
                 </p>
                 <h3
@@ -57,10 +57,10 @@ export default function Contact() {
                 >
                   Sujangarh Studio
                 </h3>
-                <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                <p className="text-stone-300 text-xs sm:text-sm leading-relaxed mb-4 font-light">
                   Signature bridal makeup atelier, bespoke skin rituals, and hair artistry at our flagship salon.
                 </p>
-                <p className="text-xs sm:text-sm text-zinc-200/90 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-stone-200/90 leading-relaxed font-light">
                   {BUSINESS.address}
                 </p>
               </div>
@@ -70,7 +70,7 @@ export default function Contact() {
                   href={BUSINESS.mapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-outline-gold w-full justify-center"
+                  className="btn-outline-gold w-full justify-center cursor-pointer"
                   aria-label="Get directions to Ganga Beauty Parlour Sujangarh branch"
                 >
                   Get Directions
@@ -80,7 +80,7 @@ export default function Contact() {
                   href={buildWhatsAppLink(CONSULTATION_MESSAGE)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-whatsapp w-full justify-center"
+                  className="btn-whatsapp w-full justify-center cursor-pointer"
                   aria-label="Chat with Ganga Beauty Parlour on WhatsApp"
                 >
                   WhatsApp
@@ -92,7 +92,7 @@ export default function Contact() {
           <div className="luxe-card p-5 sm:p-6 md:p-7" data-sr data-sr-delay="120ms">
             <div className="flex flex-col justify-between h-full">
               <div>
-                <p className="text-[10px] tracking-[0.18em] text-[#c5a880]/90 uppercase mb-2">
+                <p className="text-[10px] tracking-[0.18em] text-[#d4af6e] uppercase mb-2 font-semibold">
                   Studio Atelier &middot; Didwana
                 </p>
                 <h3
@@ -101,13 +101,13 @@ export default function Contact() {
                 >
                   Didwana Studio
                 </h3>
-                <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed mb-4">
+                <p className="text-stone-300 text-xs sm:text-sm leading-relaxed mb-4 font-light">
                   Experience complete Ganga Beauty Parlour luxury services, bridal styling, and wellness treatments.
                 </p>
-                <p className="text-xs sm:text-sm text-zinc-200/90 leading-relaxed mb-1 font-light">
+                <p className="text-xs sm:text-sm text-stone-200/90 leading-relaxed mb-1 font-light">
                   {BUSINESS.hours}
                 </p>
-                <p className="text-xs text-zinc-500">
+                <p className="text-xs text-stone-400 font-light">
                   {BUSINESS.hoursNote}
                 </p>
               </div>
@@ -117,7 +117,7 @@ export default function Contact() {
                   href={BUSINESS.didwanaMapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-outline-gold w-full justify-center"
+                  className="btn-outline-gold w-full justify-center cursor-pointer"
                   aria-label="Get directions to Ganga Beauty Parlour Didwana branch"
                 >
                   Get Directions
@@ -127,7 +127,7 @@ export default function Contact() {
                   href={buildWhatsAppLink(CONSULTATION_MESSAGE)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-whatsapp w-full justify-center"
+                  className="btn-whatsapp w-full justify-center cursor-pointer"
                   aria-label="Chat with Ganga Beauty Parlour on WhatsApp"
                 >
                   WhatsApp

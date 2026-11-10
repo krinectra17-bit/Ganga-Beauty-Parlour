@@ -84,9 +84,10 @@ export default function PremiumServices() {
     <section
       id="premium-services"
       data-testid="premium-services-section"
-      className="section relative bg-[#090909]"
+      className="section relative overflow-hidden bg-gradient-to-b from-[#080706] via-[#100d0a] to-[#080706]"
     >
-      <div className="absolute inset-x-0 top-0 h-px bg-white/[0.06]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af6e]/25 to-transparent" />
+      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-full max-w-4xl h-72 bg-[radial-gradient(ellipse_at_center,rgba(212,175,110,0.07)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -99,7 +100,7 @@ export default function PremiumServices() {
           >
             Services & <span className="italic gold-text">Package Pricing</span>
           </h2>
-          <p className="mx-auto mt-2.5 max-w-2xl text-xs leading-relaxed text-stone-300/85 sm:text-sm md:text-base sm:leading-6">
+          <p className="mx-auto mt-2.5 max-w-2xl text-xs leading-relaxed text-stone-300/85 sm:text-sm md:text-base sm:leading-6 font-light">
             Complete bridal suites, destination artistry, clinical facials and laser
             treatments with verified, transparent inclusions.
           </p>
@@ -113,7 +114,7 @@ export default function PremiumServices() {
                 type="button"
                 onClick={() => scrollTabs(-280)}
                 aria-label="Scroll left categories"
-                className="hidden sm:flex lg:hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 bg-black/90 text-stone-300 shadow-sm transition-all hover:border-[#C5A880] hover:text-[#C5A880]"
+                className="hidden sm:flex lg:hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#d4af6e]/30 bg-[#14110e] text-stone-300 shadow-sm transition-all hover:border-[#d4af6e] hover:text-[#d4af6e]"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
@@ -143,16 +144,16 @@ export default function PremiumServices() {
                     id={`pricing-tab-${tab.id}`}
                     onClick={() => handleTabClick(tab.id)}
                     data-testid={`pricing-tab-${tab.id}`}
-                    className={`group relative flex shrink-0 snap-start items-center gap-1.5 rounded-full px-3.5 py-2 text-xs uppercase tracking-wider transition-all duration-300 sm:px-4 sm:py-2 min-h-[38px] sm:min-h-[40px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#C5A880] ${
+                    className={`group relative flex shrink-0 snap-start items-center gap-1.5 rounded-full px-3.5 py-2 text-xs uppercase tracking-wider transition-all duration-300 sm:px-4 sm:py-2 min-h-[38px] sm:min-h-[40px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d4af6e] cursor-pointer ${
                       isActive
-                        ? "bg-[#C5A880] font-semibold text-[#090909] shadow-sm"
-                        : "border border-white/10 bg-[#0d0d0d] text-stone-300 hover:border-[#C5A880]/40 hover:text-white"
+                        ? "bg-gradient-to-r from-[#dfc59b] via-[#c5a059] to-[#b38b42] font-semibold text-[#080705] shadow-[0_4px_16px_rgba(197,160,89,0.35)]"
+                        : "border border-[#d4af6e]/20 bg-[#14110e] text-stone-300 hover:border-[#d4af6e]/50 hover:text-white"
                     }`}
                   >
                     <span className="whitespace-nowrap font-medium">{tab.label}</span>
                     <span
                       className={`whitespace-nowrap text-[10px] lowercase tracking-normal ${
-                        isActive ? "text-stone-900 font-medium" : "text-stone-400 font-normal"
+                        isActive ? "text-stone-900 font-semibold" : "text-stone-400 font-normal"
                       }`}
                     >
                       ({tab.range})
@@ -168,7 +169,7 @@ export default function PremiumServices() {
                 type="button"
                 onClick={() => scrollTabs(280)}
                 aria-label="Scroll right categories"
-                className="hidden sm:flex lg:hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 bg-black/90 text-stone-300 shadow-sm transition-all hover:border-[#C5A880] hover:text-[#C5A880]"
+                className="hidden sm:flex lg:hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#d4af6e]/30 bg-[#14110e] text-stone-300 shadow-sm transition-all hover:border-[#d4af6e] hover:text-[#d4af6e]"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
@@ -190,17 +191,19 @@ export default function PremiumServices() {
                     key={pkg.key}
                     data-testid={`bridal-card-${pkg.key}`}
                     className={`luxe-card relative flex flex-col justify-between p-4 min-[400px]:p-5 sm:p-6 transition-all duration-300 ${
-                      pkg.highlight ? "border-[#C5A880]/35 bg-[#100f0e]" : ""
+                      pkg.highlight
+                        ? "border-[#d4af6e]/45 bg-[linear-gradient(180deg,#1c1712,#0e0b08)] shadow-[0_20px_45px_-18px_rgba(214,178,124,0.22)]"
+                        : ""
                     }`}
                   >
                     <div>
                       {/* Category / Artist Level & Badge */}
                       <div className="mb-3 flex items-center justify-between gap-2">
-                        <span className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[9px] uppercase tracking-[0.14em] text-[#DFCEB8] sm:text-[10px]">
+                        <span className="rounded-full border border-[#d4af6e]/30 bg-[#d4af6e]/10 px-2.5 py-0.5 text-[9px] uppercase tracking-[0.14em] text-[#f3e5c8] sm:text-[10px] font-medium">
                           {pkg.artistLevel}
                         </span>
                         {pkg.badge && (
-                          <span className="rounded-full bg-[#C5A880] px-2.5 py-0.5 text-[8px] font-semibold uppercase tracking-[0.1em] text-[#090909] sm:text-[9px]">
+                          <span className="rounded-full bg-gradient-to-r from-[#dfc59b] to-[#c5a059] px-2.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.1em] text-[#080705] sm:text-[9px] shadow-sm">
                             {pkg.badge}
                           </span>
                         )}
@@ -208,21 +211,21 @@ export default function PremiumServices() {
 
                       {/* Package Price */}
                       <h3
-                        className="font-serif text-2xl font-semibold text-white sm:text-3xl"
+                        className="font-serif text-2xl font-bold sm:text-3xl tracking-tight gold-text"
                         style={{ fontFamily: "Playfair Display, serif" }}
                       >
                         {pkg.price}
                       </h3>
 
                       {/* Short Description */}
-                      <p className="mt-1 text-xs leading-relaxed text-stone-400">
+                      <p className="mt-1 text-xs leading-relaxed text-stone-300 font-light">
                         {pkg.desc}
                       </p>
 
-                      <div className="my-3 sm:my-4 h-px bg-white/[0.07]" />
+                      <div className="my-3 sm:my-4 h-px bg-white/[0.08]" />
 
                       {/* Inclusions */}
-                      <div className="mb-2 text-[10px] font-medium uppercase tracking-[0.14em] text-[#C5A880]">
+                      <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#d4af6e]">
                         Inclusions ({pkg.inclusions.length} items):
                       </div>
                       <ul className="space-y-1.5 sm:space-y-2">
@@ -242,7 +245,7 @@ export default function PremiumServices() {
                                   : "hidden"
                               }`}
                             >
-                              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C5A880]" />
+                              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#d4af6e]" />
                               <span className="leading-snug">{item}</span>
                             </li>
                           );
@@ -255,7 +258,7 @@ export default function PremiumServices() {
                           type="button"
                           onClick={() => toggleExpand(pkg.key)}
                           data-testid={`toggle-inclusions-${pkg.key}`}
-                          className={`mt-2.5 inline-flex items-center gap-1.5 text-xs font-medium text-[#C5A880] hover:text-[#DFCEB8] transition-colors ${
+                          className={`mt-2.5 inline-flex items-center gap-1.5 text-xs font-medium text-[#d4af6e] hover:text-[#f3e5c8] transition-colors cursor-pointer ${
                             pkg.inclusions.length <= 7 && !isExpanded ? "lg:hidden" : ""
                           }`}
                         >
@@ -333,31 +336,31 @@ export default function PremiumServices() {
                     <div>
                       {/* Badge & Professional Artist Tag */}
                       <div className="mb-3 flex items-center justify-between gap-2">
-                        <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#DFCEB8]">
+                        <span className="rounded-full bg-gradient-to-r from-[#dfc59b] to-[#c5a059] px-2.5 py-0.5 text-[8px] font-bold uppercase tracking-[0.1em] text-[#080705] sm:text-[9px] shadow-sm">
                           {pkg.badge || "Signature Luxury"}
                         </span>
-                        <span className="rounded-full border border-[#C5A880]/30 bg-black/40 px-2 py-0.5 text-[8px] uppercase tracking-wider text-[#C5A880]">
+                        <span className="rounded-full border border-[#d4af6e]/30 bg-[#d4af6e]/10 px-2 py-0.5 text-[8px] uppercase tracking-wider text-[#f3e5c8] font-medium">
                           Professional Artist
                         </span>
                       </div>
 
                       {/* Package Price */}
                       <h3
-                        className="font-serif text-2xl font-semibold text-white sm:text-3xl"
+                        className="font-serif text-2xl font-bold sm:text-3xl tracking-tight gold-text"
                         style={{ fontFamily: "Playfair Display, serif" }}
                       >
                         {pkg.price}
                       </h3>
 
                       {/* Short Description */}
-                      <p className="mt-1 text-xs leading-relaxed text-stone-300/85">
+                      <p className="mt-1 text-xs leading-relaxed text-stone-300 font-light">
                         {pkg.desc}
                       </p>
 
                       <div className="my-3 sm:my-4 h-px bg-white/[0.08]" />
 
                       {/* Inclusions */}
-                      <div className="mb-2 text-[10px] font-medium uppercase tracking-[0.14em] text-[#C5A880]">
+                      <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#d4af6e]">
                         Inclusions ({pkg.inclusions.length} items):
                       </div>
                       <ul className="space-y-1.5 sm:space-y-2">
@@ -377,7 +380,7 @@ export default function PremiumServices() {
                                   : "hidden"
                               }`}
                             >
-                              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C5A880]" />
+                              <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#d4af6e]" />
                               <span className="leading-snug">{item}</span>
                             </li>
                           );
@@ -390,7 +393,7 @@ export default function PremiumServices() {
                           type="button"
                           onClick={() => toggleExpand(pkg.key)}
                           data-testid={`toggle-inclusions-${pkg.key}`}
-                          className={`mt-2.5 inline-flex items-center gap-1.5 text-xs font-medium text-[#C5A880] hover:text-[#DFCEB8] transition-colors ${
+                          className={`mt-2.5 inline-flex items-center gap-1.5 text-xs font-medium text-[#d4af6e] hover:text-[#f3e5c8] transition-colors cursor-pointer ${
                             pkg.inclusions.length <= 8 && !isExpanded ? "lg:hidden" : ""
                           }`}
                         >
@@ -470,7 +473,7 @@ export default function PremiumServices() {
                     <p className="truncate text-xs font-medium text-white sm:text-sm">
                       {item.name}
                     </p>
-                    <p className="text-xs sm:text-sm font-semibold text-[#DFCEB8]">
+                    <p className="text-xs sm:text-sm font-bold text-[#f3e5c8]">
                       {item.price}
                     </p>
                   </div>
@@ -479,7 +482,7 @@ export default function PremiumServices() {
                     onClick={() =>
                       bookService(`Out of Parlour: ${item.name} (${item.price})`)
                     }
-                    className="shrink-0 rounded-full border border-white/15 px-3 py-1.5 text-[10px] uppercase tracking-wider text-stone-300 hover:border-[#C5A880] hover:text-[#C5A880] transition-colors"
+                    className="shrink-0 rounded-full border border-white/15 px-3 py-1.5 text-[10px] uppercase tracking-wider text-stone-300 hover:border-[#d4af6e] hover:text-[#d4af6e] hover:bg-[#d4af6e]/10 transition-colors cursor-pointer"
                   >
                     Book
                   </button>
@@ -525,16 +528,16 @@ export default function PremiumServices() {
                     className="luxe-card flex flex-col justify-between p-4 sm:p-5 transition-all hover:border-[#C5A880]/35"
                   >
                     <div>
-                      <span className="text-[9px] uppercase tracking-[0.14em] text-[#C5A880]">
+                      <span className="text-[9px] uppercase tracking-[0.14em] text-[#d4af6e] font-medium">
                         2 Ceremonies
                       </span>
                       <h4 className="mt-1 font-serif text-base sm:text-lg font-semibold text-white">
                         {item.name}
                       </h4>
-                      <p className="mt-1.5 text-xl sm:text-2xl font-semibold text-[#DFCEB8]">
+                      <p className="mt-1.5 text-xl sm:text-2xl font-bold tracking-tight gold-text">
                         {item.price}
                       </p>
-                      <p className="mt-1.5 text-xs text-stone-300/80 leading-relaxed">
+                      <p className="mt-1.5 text-xs text-stone-300/80 leading-relaxed font-light">
                         {item.desc}
                       </p>
                     </div>
@@ -579,7 +582,7 @@ export default function PremiumServices() {
                       <h4 className="mt-2.5 font-serif text-xl sm:text-2xl font-semibold text-white">
                         {item.name}
                       </h4>
-                      <p className="mt-1.5 text-2xl sm:text-3xl font-semibold text-[#DFCEB8]">
+                      <p className="mt-1.5 text-2xl sm:text-3xl font-bold tracking-tight gold-text">
                         {item.price}
                       </p>
                       <p className="mt-2 text-xs leading-relaxed text-stone-300">
@@ -627,16 +630,16 @@ export default function PremiumServices() {
                     className="luxe-card flex flex-col justify-between p-4 sm:p-5 transition-all hover:border-[#C5A880]/35"
                   >
                     <div>
-                      <span className="text-[9px] uppercase tracking-[0.14em] text-[#C5A880]">
+                      <span className="text-[9px] uppercase tracking-[0.14em] text-[#d4af6e] font-medium">
                         O3+ Professional
                       </span>
                       <h4 className="mt-1 font-serif text-base sm:text-lg font-semibold text-white">
                         {item.name}
                       </h4>
-                      <p className="mt-1.5 text-lg sm:text-xl font-semibold text-[#DFCEB8]">
+                      <p className="mt-1.5 text-lg sm:text-xl font-bold tracking-tight gold-text">
                         {item.price}
                       </p>
-                      <p className="mt-1.5 text-xs text-stone-300/80 leading-relaxed">
+                      <p className="mt-1.5 text-xs text-stone-300/80 leading-relaxed font-light">
                         {item.desc}
                       </p>
                     </div>
@@ -676,17 +679,17 @@ export default function PremiumServices() {
                       <p className="truncate text-xs font-medium text-white sm:text-sm">
                         {item.name}
                       </p>
-                      <p className="text-xs font-semibold text-[#DFCEB8]">
+                      <p className="text-xs sm:text-sm font-bold text-[#f3e5c8]">
                         {item.price}
                       </p>
-                      <p className="truncate text-[10px] sm:text-[11px] text-stone-400 mt-0.5">
+                      <p className="truncate text-[10px] sm:text-[11px] text-stone-400 mt-0.5 font-light">
                         {item.desc}
                       </p>
                     </div>
                     <button
                       type="button"
                       onClick={() => bookService(`${item.name} (${item.price})`)}
-                      className="shrink-0 rounded-full border border-white/15 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[9px] uppercase tracking-wider text-stone-300 hover:border-[#C5A880] hover:text-[#C5A880] transition-colors"
+                      className="shrink-0 rounded-full border border-white/15 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[9px] uppercase tracking-wider text-stone-300 hover:border-[#d4af6e] hover:text-[#d4af6e] hover:bg-[#d4af6e]/10 transition-colors cursor-pointer"
                     >
                       Book
                     </button>
@@ -709,16 +712,16 @@ export default function PremiumServices() {
                   className="luxe-card-premium flex flex-col justify-between p-4 sm:p-6"
                 >
                   <div>
-                    <span className="text-[9px] uppercase tracking-[0.14em] text-[#C5A880]">
+                    <span className="text-[9px] uppercase tracking-[0.14em] text-[#d4af6e] font-medium">
                       Hydra Technology
                     </span>
                     <h4 className="mt-2 font-serif text-lg sm:text-xl font-semibold text-white">
                       {item.name}
                     </h4>
-                    <p className="mt-1.5 text-xl sm:text-2xl font-semibold text-[#DFCEB8]">
+                    <p className="mt-1.5 text-xl sm:text-2xl font-bold tracking-tight gold-text">
                       {item.price}
                     </p>
-                    <p className="mt-2 text-xs leading-relaxed text-stone-300/85">
+                    <p className="mt-2 text-xs leading-relaxed text-stone-300/85 font-light">
                       {item.desc}
                     </p>
                   </div>
@@ -764,16 +767,16 @@ export default function PremiumServices() {
                   className="luxe-card flex flex-col justify-between p-4 sm:p-5 transition-all hover:border-[#C5A880]/35"
                 >
                   <div>
-                    <span className="text-[9px] uppercase tracking-[0.14em] text-[#C5A880]">
+                    <span className="text-[9px] uppercase tracking-[0.14em] text-[#d4af6e] font-medium">
                       Laser Session
                     </span>
                     <h4 className="mt-1 font-serif text-base sm:text-lg font-semibold text-white">
                       {item.name}
                     </h4>
-                    <p className="mt-1.5 text-lg sm:text-xl font-semibold text-[#DFCEB8]">
+                    <p className="mt-1.5 text-lg sm:text-xl font-bold tracking-tight gold-text">
                       {item.price}
                     </p>
-                    <p className="mt-1.5 text-xs text-stone-300/80 leading-relaxed">
+                    <p className="mt-1.5 text-xs text-stone-300/80 leading-relaxed font-light">
                       {item.desc}
                     </p>
                   </div>

@@ -6,9 +6,9 @@ export default function Offers() {
     <section
       id="offers"
       data-testid="offers-section"
-      className="section relative overflow-hidden bg-black"
+      className="section relative overflow-hidden bg-[radial-gradient(ellipse_at_top,rgba(214,178,124,0.12)_0%,#110e0b_45%,#080706_100%)]"
     >
-      <div className="absolute inset-x-0 top-0 h-px bg-white/[0.06]" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af6e]/25 to-transparent" />
 
       <div className="container relative mx-auto px-4 sm:px-8 lg:px-12">
         <div className="mx-auto mb-6 sm:mb-10 max-w-3xl text-center md:mb-12">
@@ -18,11 +18,11 @@ export default function Offers() {
             className="font-serif text-3xl tracking-tight text-white min-[400px]:text-4xl sm:text-4xl md:text-[3.2rem]"
             style={{ fontFamily: "Playfair Display, serif" }}
           >
-            Seasonal bridal{" "}
-            <span className="italic font-serif text-[#DFCEB8]">invitations.</span>
+            Seasonal celebration{" "}
+            <span className="italic font-serif gold-text">privileges.</span>
           </h2>
-          <p className="mx-auto mt-2.5 sm:mt-4 max-w-2xl text-xs sm:text-sm leading-relaxed sm:leading-7 text-zinc-300/80">
-            Refined packages curated for upcoming wedding celebrations, ceremonial rituals, and intimate gatherings.
+          <p className="mx-auto mt-2.5 sm:mt-4 max-w-2xl text-xs sm:text-sm leading-relaxed sm:leading-7 text-stone-300/85 font-light">
+            Bespoke celebratory packages and limited-edition bridal suites designed for upcoming wedding ceremonies.
           </p>
         </div>
 
@@ -39,20 +39,20 @@ export default function Offers() {
                 data-sr-delay={`${idx * 110}ms`}
                 className={`group relative flex min-h-0 md:min-h-[350px] overflow-hidden rounded-2xl p-4 min-[400px]:p-5 sm:p-6 lg:p-7 transition-all duration-500 hover:-translate-y-1 ${
                   isHighlight
-                    ? "border border-[#c5a880]/40 bg-[linear-gradient(180deg,#14120e,#090909)] shadow-[0_20px_50px_-25px_rgba(197,168,128,0.22)] lg:-translate-y-2 lg:hover:-translate-y-3"
-                    : "border border-white/[0.08] bg-[#0c0c0c] hover:border-[#c5a880]/30 shadow-[0_16px_40px_-30px_rgba(0,0,0,0.8)]"
+                    ? "border border-[#e5ca9a]/55 bg-[linear-gradient(180deg,#201912,#100c08)] shadow-[0_22px_55px_-20px_rgba(214,178,124,0.28)] lg:-translate-y-2 lg:hover:-translate-y-3"
+                    : "border border-[#d4af6e]/25 bg-[linear-gradient(180deg,#15120f,#0c0a08)] hover:border-[#d4af6e]/50 shadow-[0_16px_40px_-30px_rgba(0,0,0,0.9)]"
                 }`}
               >
                 <div className="relative flex w-full flex-col">
                   <div className="mb-3 sm:mb-4 flex items-start justify-between gap-3">
-                    <span className="text-[10px] sm:text-[11px] font-medium tracking-[0.16em] uppercase text-[#c5a880]/85">
+                    <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.16em] uppercase text-[#d4af6e]">
                       {offer.subtitle}
                     </span>
                     <span
-                      className={`px-2.5 py-1 text-[8px] sm:text-[9px] font-medium uppercase tracking-[0.14em] ${
+                      className={`px-2.5 py-1 text-[8px] sm:text-[9px] uppercase tracking-[0.12em] rounded-full ${
                         isHighlight
-                          ? "bg-[#c5a880] text-black font-semibold"
-                          : "border border-[#c5a880]/30 bg-[#c5a880]/10 text-[#dfceb8]"
+                          ? "bg-gradient-to-r from-[#dfc59b] to-[#c5a059] text-[#080705] font-bold shadow-sm"
+                          : "border border-[#d4af6e]/35 bg-[#d4af6e]/10 text-[#f3e5c8] font-semibold"
                       }`}
                     >
                       {offer.badge}
@@ -69,10 +69,10 @@ export default function Offers() {
                   <div className="my-3 sm:my-4 h-px bg-white/[0.08]" />
 
                   <p
-                    className={`font-serif leading-none ${
+                    className={`font-serif leading-none font-bold ${
                       isHighlight
-                        ? "text-2xl min-[400px]:text-3xl text-[#faf6f0] md:text-[2.65rem] lg:text-5xl"
-                        : "text-xl min-[400px]:text-2xl text-[#dfceb8] md:text-[2.15rem] lg:text-4xl"
+                        ? "text-2xl min-[400px]:text-3xl gold-text md:text-[2.65rem] lg:text-5xl"
+                        : "text-xl min-[400px]:text-2xl text-[#f3e5c8] md:text-[2.15rem] lg:text-4xl"
                     }`}
                     style={{ fontFamily: "Playfair Display, serif" }}
                   >
@@ -83,9 +83,9 @@ export default function Offers() {
                     {visiblePerks.map((perk) => (
                       <li
                         key={perk}
-                        className="flex items-start gap-2.5 text-xs sm:text-sm leading-snug sm:leading-6 text-zinc-300/85"
+                        className="flex items-start gap-2.5 text-xs sm:text-sm leading-snug sm:leading-6 text-stone-200/90 font-light"
                       >
-                        <Check className="h-3.5 w-3.5 text-[#c5a880] mt-1 shrink-0" />
+                        <Check className="h-3.5 w-3.5 text-[#d4af6e] mt-1 shrink-0" />
                         <span>{perk}</span>
                       </li>
                     ))}
@@ -95,11 +95,11 @@ export default function Offers() {
                     type="button"
                     onClick={() => bookService(offer.service)}
                     data-testid={`offer-cta-${offer.title.toLowerCase().replace(/\s+/g, "-")}`}
-                    className={`mt-4 sm:mt-auto w-full justify-center py-2.5 sm:py-3 text-xs sm:text-sm ${
+                    className={`mt-4 sm:mt-auto w-full justify-center py-2.5 sm:py-3 text-xs sm:text-sm cursor-pointer ${
                       isHighlight ? "btn-gold" : "btn-outline-gold"
                     }`}
                   >
-                    Book Appointment
+                    <span>Book Appointment</span>
                     <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                   </button>
                 </div>

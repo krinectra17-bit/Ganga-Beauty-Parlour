@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import {
   ArrowUpRight,
   Crown,
@@ -10,6 +10,8 @@ import {
   Sparkle,
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import {
   BRIDAL_PACKAGES,
@@ -41,6 +43,47 @@ const CATEGORIES = [
 export default function PremiumServices() {
   const [activeTab, setActiveTab] = useState("bridal");
   const [expandedCards, setExpandedCards] = useState({});
+  const tabsContainerRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  const updateScrollIndicators = useCallback(() => {
+    const el = tabsContainerRef.current;
+    if (!el) return;
+    const overflow = el.scrollWidth > el.clientWidth + 2;
+    setIsOverflowing(overflow);
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 10);
+  }, []);
+
+  useEffect(() => {
+    updateScrollIndicators();
+    const handleResize = () => updateScrollIndicators();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [updateScrollIndicators]);
+
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    setTimeout(() => {
+      const el = tabsContainerRef.current;
+      if (el && el.scrollWidth > el.clientWidth) {
+        const btn = el.querySelector(`[data-testid="pricing-tab-${tabId}"]`);
+        if (btn) {
+          btn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        }
+      }
+      updateScrollIndicators();
+    }, 50);
+  };
+
+  const scrollTabs = (offset) => {
+    if (tabsContainerRef.current) {
+      tabsContainerRef.current.scrollBy({ left: offset, behavior: "smooth" });
+      setTimeout(updateScrollIndicators, 320);
+    }
+  };
 
   const toggleExpand = (key) => {
     setExpandedCards((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -72,33 +115,81 @@ export default function PremiumServices() {
           </p>
         </div>
 
-        {/* Category Navigation Pills */}
-        <div className="mb-10 flex items-center justify-start gap-2 overflow-x-auto pb-2 sm:justify-center sm:gap-2.5">
-          {CATEGORIES.map((tab) => {
-            const isActive = activeTab === tab.id;
-            return (
+        {/* Category Navigation Bar */}
+        <div className="relative mx-auto mb-10 max-w-5xl px-3 sm:px-6">
+          <div className="flex items-center gap-2">
+            {/* Left Scroll Button (visible on tablet when scrollable) */}
+            {canScrollLeft && (
               <button
-                key={tab.id}
                 type="button"
-                onClick={() => setActiveTab(tab.id)}
-                data-testid={`pricing-tab-${tab.id}`}
-                className={`group flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-xs uppercase tracking-wider transition-all duration-300 sm:px-5 sm:py-2.5 sm:text-xs ${
-                  isActive
-                    ? "bg-[#D4AF37] font-semibold text-black shadow-[0_4px_20px_rgba(212,175,55,0.45)]"
-                    : "border border-[#D4AF37]/25 bg-black/40 text-zinc-300 hover:border-[#D4AF37]/60 hover:text-white"
-                }`}
+                onClick={() => scrollTabs(-280)}
+                aria-label="Scroll left categories"
+                className="hidden sm:flex lg:hidden h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-black/95 text-[#D4AF37] shadow-[0_4px_16px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all hover:bg-[#D4AF37] hover:text-black hover:scale-105 active:scale-95"
               >
-                <span>{tab.label}</span>
-                <span
-                  className={`text-[10px] lowercase tracking-normal ${
-                    isActive ? "text-black/80 font-medium" : "text-[#D4AF37]"
-                  }`}
-                >
-                  ({tab.range})
-                </span>
+                <ChevronLeft className="h-4 w-4" />
               </button>
-            );
-          })}
+            )}
+
+            {/* Scrollable / Centered Tabs Track */}
+            <div
+              ref={tabsContainerRef}
+              onScroll={updateScrollIndicators}
+              role="tablist"
+              aria-label="Service categories"
+              className="no-scrollbar flex-1 min-w-0 flex items-center gap-2 overflow-x-auto scroll-smooth py-2.5 px-1 snap-x snap-mandatory lg:flex-wrap lg:justify-center lg:gap-3 lg:overflow-visible lg:py-1"
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
+              {CATEGORIES.map((tab) => {
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls={`pricing-panel-${tab.id}`}
+                    id={`pricing-tab-${tab.id}`}
+                    onClick={() => handleTabClick(tab.id)}
+                    data-testid={`pricing-tab-${tab.id}`}
+                    className={`group relative flex shrink-0 snap-start items-center gap-1.5 rounded-full px-4 py-2 text-xs uppercase tracking-wider transition-all duration-300 sm:px-5 sm:py-2.5 min-h-[42px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] ${
+                      isActive
+                        ? "bg-[#D4AF37] font-semibold text-black shadow-[0_4px_22px_rgba(212,175,55,0.45)] scale-[1.02]"
+                        : "border border-[#D4AF37]/25 bg-zinc-950/80 text-zinc-300 hover:border-[#D4AF37]/60 hover:text-white hover:bg-zinc-900/60"
+                    }`}
+                  >
+                    <span className="whitespace-nowrap font-medium">{tab.label}</span>
+                    <span
+                      className={`whitespace-nowrap text-[10px] lowercase tracking-normal transition-colors ${
+                        isActive
+                          ? "text-black/80 font-medium"
+                          : "text-[#E8CA6B]/90 font-normal group-hover:text-[#E8CA6B]"
+                      }`}
+                    >
+                      ({tab.range})
+                    </span>
+                  </button>
+                );
+              })}
+              {/* Spacer to guarantee the last item is never clipped on mobile scroll */}
+              <div className="shrink-0 w-6 lg:hidden" aria-hidden="true" />
+            </div>
+
+            {/* Right Scroll Button (visible on tablet when scrollable) */}
+            {canScrollRight && (
+              <button
+                type="button"
+                onClick={() => scrollTabs(280)}
+                aria-label="Scroll right categories"
+                className="hidden sm:flex lg:hidden h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-black/95 text-[#D4AF37] shadow-[0_4px_16px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all hover:bg-[#D4AF37] hover:text-black hover:scale-105 active:scale-95"
+              >
+                <ChevronRight className="h-4 w-4" />
+              </button>
+            )}
+          </div>
         </div>
 
         {/* =========================================================================

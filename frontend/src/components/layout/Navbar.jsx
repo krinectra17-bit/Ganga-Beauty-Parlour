@@ -30,7 +30,9 @@ export default function Navbar() {
     <header
       data-testid="site-navbar"
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass bg-black/20" : "glass bg-black/10"
+        scrolled
+          ? "bg-[#080706]/92 backdrop-blur-md border-b border-[#d4af6e]/20 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.9)]"
+          : "bg-[#080706]/40 backdrop-blur-sm border-b border-transparent"
       }`}
     >
       <div className="container mx-auto px-5 sm:px-8 lg:px-12">
@@ -40,7 +42,7 @@ export default function Navbar() {
             data-testid="brand-link"
             className="flex items-center gap-3"
           >
-            <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center overflow-hidden rounded-full">
+            <div className="w-11 h-11 md:w-13 md:h-13 flex items-center justify-center overflow-hidden rounded-full">
               <CommonImage
                 src="/images/logos/logo-ganga-gold.webp"
                 alt="Ganga Beauty Parlour logo"
@@ -51,7 +53,7 @@ export default function Navbar() {
                 height={IMAGE_DIMENSIONS.logo.height}
               />
             </div>
-            <span className="text-white font-semibold uppercase tracking-[0.18em] text-sm md:text-base">
+            <span className="text-white font-serif font-medium uppercase tracking-[0.16em] text-sm md:text-base">
               Ganga Beauty Parlour
             </span>
           </a>
@@ -62,24 +64,24 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 data-testid={`nav-${l.label.toLowerCase()}`}
-                className="text-sm text-zinc-300 hover:text-[#D4AF37] transition-colors tracking-wide"
+                className="text-xs uppercase tracking-[0.16em] text-stone-200 hover:text-[#d4af6e] transition-colors font-medium"
               >
                 {l.label}
               </a>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
-            <div className="flex flex-col gap-1">
+          <div className="hidden md:flex items-center gap-4">
+            <div className="flex flex-col gap-0.5 text-right">
               {BUSINESS.phones.map((phone, index) => (
                 <a
                   key={phone}
                   href={buildPhoneLink(phone)}
                   data-testid={`navbar-call-${index + 1}`}
                   aria-label={`Call Ganga Beauty Parlour at +91 ${phone}`}
-                  className="flex items-center gap-2 text-sm text-zinc-300 hover:text-[#D4AF37] transition-colors"
+                  className="flex items-center gap-1.5 text-xs text-stone-300 hover:text-[#d4af6e] transition-colors font-light"
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-3 h-3 text-[#d4af6e]" />
                   +91 {phone}
                 </a>
               ))}
@@ -88,7 +90,7 @@ export default function Navbar() {
               type="button"
               onClick={() => bookService("")}
               data-testid="navbar-book"
-              className="btn-gold"
+              className="btn-gold py-2 px-5 text-xs cursor-pointer"
             >
               Book Appointment
             </button>
@@ -96,19 +98,19 @@ export default function Navbar() {
 
           <button
             data-testid="menu-toggle"
-            className="md:hidden text-white p-2 rounded-full border border-white/10 transition hover:border-[#D4AF37]/30"
+            className="md:hidden text-white p-2 rounded-lg border border-white/10 transition hover:border-[#d4af6e]/40"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-controls="mobile-navigation"
             aria-expanded={open}
           >
-            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="md:hidden glass border-t border-[#D4AF37]/15 mobile-menu-enter transition-all duration-300 ease-out overflow-hidden">
+        <div className="md:hidden bg-[#100e0b] border-b border-[#d4af6e]/20 mobile-menu-enter transition-all duration-300 ease-out overflow-hidden">
           <div id="mobile-navigation" className="px-5 py-5 flex flex-col gap-4">
             {links.map((l) => (
               <a
@@ -116,21 +118,21 @@ export default function Navbar() {
                 href={l.href}
                 onClick={() => setOpen(false)}
                 data-testid={`mnav-${l.label.toLowerCase()}`}
-                className="text-zinc-200 text-base"
+                className="text-stone-200 text-sm tracking-wide hover:text-[#d4af6e]"
               >
                 {l.label}
               </a>
             ))}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2 pt-2 border-t border-white/[0.08]">
               {BUSINESS.phones.map((phone, index) => (
                 <a
                   key={phone}
                   href={buildPhoneLink(phone)}
                   data-testid={`mnav-call-${index + 1}`}
                   aria-label={`Call Ganga Beauty Parlour at +91 ${phone}`}
-                  className="flex items-center gap-2 text-zinc-200 text-base"
+                  className="flex items-center gap-2 text-stone-300 text-sm font-light"
                 >
-                  <Phone className="w-4 h-4 text-[#D4AF37]" />
+                  <Phone className="w-3.5 h-3.5 text-[#d4af6e]" />
                   +91 {phone}
                 </a>
               ))}
@@ -142,7 +144,7 @@ export default function Navbar() {
                 bookService("");
               }}
               data-testid="mnav-book"
-              className="btn-gold w-fit"
+              className="btn-gold w-fit py-2.5 px-5 text-xs mt-1 cursor-pointer"
             >
               Book Appointment
             </button>

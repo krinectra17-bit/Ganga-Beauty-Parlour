@@ -98,79 +98,407 @@ export const SERVICES = [
   },
 ];
 
-export const PREMIUM_SERVICES = [
+// ===== 1. BRIDAL MAKEUP PACKAGES (Image 1: ₹7,999 to ₹25,000) =====
+export const BRIDAL_PACKAGES = [
   {
-    key: "hd-bridal",
-    name: "HD Bridal Makeup",
-    price: "Starting \u20b915,000",
-    desc: "Long-lasting HD bridal glam with flawless skin finish and luxury styling.",
-    category: "Bridal Glam",
+    key: "bridal-7999",
+    name: "₹7,999 Bridal Package",
+    price: "₹7,999",
+    category: "Bridal Makeup Packages",
+    artistLevel: "Basic Artist",
+    artistNote: "Prepared by Basic Artist (₹7,999 - ₹11,000)",
+    desc: "Classic bridal package with Lake-me makeup, 2-time facial, 1-time bleach, normal hand & leg wax, eyebrow/upper lip/haircut and juda.",
+    inclusions: [
+      "Lake-me Makeup",
+      "2Time Facial",
+      "1Time Blech",
+      "Hand Leg Wax Normal",
+      "Eybrow For . upe. Hair cutting",
+      "Juda",
+    ],
+    bookingLabel: "₹7,999 Bridal Package",
   },
   {
-    key: "airbrush",
-    name: "Airbrush Makeup",
-    price: "Starting \u20b925,000",
-    desc: "Ultra-smooth premium bridal airbrush makeup for camera-perfect results.",
-    category: "Bridal Glam",
+    key: "bridal-11000",
+    name: "₹11,000 Bridal Package",
+    price: "₹11,000",
+    category: "Bridal Makeup Packages",
+    artistLevel: "Basic Artist",
+    artistNote: "Prepared by Basic Artist (₹7,999 - ₹11,000)",
+    desc: "Complete bridal package with Krylon makeup, 3-time facial, 1-time bleach, normal body wax, hair spa, eyebrow/forehead/upper lip/haircut and juda gajara.",
+    inclusions: [
+      "Krylon Make-up",
+      "3Time Facial",
+      "1Time Bleach",
+      "Body Wax Normal",
+      "Hair spa",
+      "Eye.For.Up. hair cut",
+      "Juda gajara",
+    ],
+    bookingLabel: "₹11,000 Bridal Package",
   },
   {
-    key: "5d-bridal",
-    name: "5D Bridal Makeup",
-    price: "Starting \u20b945,000",
-    desc: "Top-tier bridal transformation with luxury finishing and celebrity-style glam.",
-    category: "Signature Bride",
+    key: "bridal-15000",
+    name: "₹15,000 HD Bridal Package",
+    price: "₹15,000",
+    category: "Bridal Makeup Packages",
+    artistLevel: "Professional Artist",
+    artistNote: "Professional Makeup Artist • 100% Makeup Guarantee",
+    highlight: true,
+    badge: "MOST POPULAR",
+    desc: "HD bridal makeover with 3-time facial, 2-time bleach, body bleach, chocolate body wax, B.Wax, haircut free, juda gajara, hair spa and manicure-pedicure.",
+    inclusions: [
+      "Makeup Hd",
+      "3Time Facial",
+      "2Time blech",
+      "Body Bleach",
+      "Body Wax chocklety",
+      "B.Wax",
+      "Eye.For.up.haircut. free",
+      "Juda Gajara",
+      "Hairspa",
+      "Manicure,Padicure",
+    ],
+    bookingLabel: "₹15,000 HD Bridal Package",
   },
   {
-    key: "bridal-engagement",
-    name: "Bridal + Engagement Combo",
-    price: "Starting \u20b917,000",
-    desc: "Complete bridal and engagement makeover package with coordinated styling.",
-    category: "Combo Package",
+    key: "bridal-21000",
+    name: "₹21,000 HD & 3D Bridal Package",
+    price: "₹21,000",
+    category: "Bridal Makeup Packages",
+    artistLevel: "Professional Artist",
+    artistNote: "Professional Makeup Artist • 100% Makeup Guarantee",
+    desc: "Advanced HD & 3D bridal artistry with body polishing, body wax & bleach, B.Wax, hair spa, manicure & pedicure, best hairstyle, 3D eye lashes, nude lenses and original gajara.",
+    inclusions: [
+      "Makeup HD & 3D",
+      "3Time Facial",
+      "2Time Bleach",
+      "Body Wax",
+      "Body Bleach",
+      "Body Polishing",
+      "B.Wax",
+      "Hair Spa",
+      "Manicure & Padicure",
+      "Best Hairstyle",
+      "eye. For. Up> Haircut (free)",
+      "3D Eye lasses",
+      "Nude Lance",
+      "juda orignal gajara",
+    ],
+    bookingLabel: "₹21,000 HD & 3D Bridal Package",
   },
   {
-    key: "hair-spa",
-    name: "Hair Spa",
-    price: "\u20b9600 - \u20b92000",
-    desc: "Deep nourishment and repair treatment for silky, healthy hair.",
-    category: "Hair Ritual",
-  },
-  {
-    key: "keratin",
-    name: "Keratin Treatment",
-    price: "\u20b94500 - \u20b97500",
-    desc: "Smoothening treatment for frizz-free, glossy, manageable hair.",
-    category: "Hair Ritual",
-  },
-  {
-    key: "botox-hair",
-    name: "Botox Hair Treatment",
-    price: "\u20b94000 - \u20b97000",
-    desc: "Advanced hair repair treatment for shine, softness, and damage recovery.",
-    category: "Hair Ritual",
-  },
-  {
-    key: "hair-extension",
-    name: "Hair Extension",
-    price: "\u20b915,000 - \u20b930,000",
-    desc: "Premium volume and length enhancement with natural luxury finish.",
-    category: "Luxury Hair",
-  },
-  {
-    key: "hydra-facial",
-    name: "Hydra Facial",
-    price: "Starting \u20b93000",
-    desc: "Deep hydration facial treatment for glowing, refreshed skin.",
-    category: "Skin Care",
-  },
-  {
-    key: "o3-bridal-glow",
-    name: "O3+ Bridal Glow Facial",
-    price: "Starting \u20b94200",
-    desc: "Brightening bridal facial designed for instant glow and skin radiance.",
-    category: "Skin Care",
+    key: "bridal-25000",
+    name: "₹25,000 5D Look Luxury Bridal Package",
+    price: "₹25,000",
+    category: "Bridal Makeup Packages",
+    artistLevel: "Professional Artist",
+    artistNote: "Professional Makeup Artist • 100% Makeup Guarantee",
+    badge: "LUXURY BRIDE",
+    desc: "Signature 5D look bridal experience with 3-time O3+ facial, 2-time O3+ bleach, hair spa, hair colour, chocolate body wax, body bleach, body polishing, B. Wax, face wax, manicure & pedicure, bridal seat, haircut/juda/gajara and eye lashes.",
+    inclusions: [
+      "Make-up - 5D look",
+      "3Time Facial o3+",
+      "2Time Bleach o3+",
+      "Hair Spa, Hair Clour",
+      "Body Wax Cholaty",
+      "Body Bleach",
+      "Body Polishing",
+      "B. Wax",
+      "Face Wax",
+      "Manicure & Padicure",
+      "Bridal Seat",
+      "Eye.For.up.HairCut,juda,Gajara",
+      "Eyelace ,Eye lasese",
+    ],
+    bookingLabel: "₹25,000 5D Bridal Package",
   },
 ];
 
+// ===== 2. PREMIUM BRIDAL PACKAGES (Image 2: ₹31,000 to ₹61,000) =====
+export const PREMIUM_BRIDAL_PACKAGES = [
+  {
+    key: "premium-31000",
+    name: "₹31,000 Package",
+    price: "₹31,000",
+    category: "Premium Bridal Packages",
+    artistLevel: "Professional Artist",
+    artistNote: "Professional Makeup Artist • 100% Makeup Guarantee",
+    desc: "Airbrush Makeup & HD Makeup with complete ₹15,000 Bridal Package, Flower Juda and Bridal Set according to face.",
+    inclusions: [
+      "Aibrush Makeup",
+      "Hd Makeup",
+      "15000/- bridal Package",
+      "Flower Juda",
+      "Bridal Set Face Accourding",
+    ],
+    bookingLabel: "₹31,000 Package",
+  },
+  {
+    key: "premium-35000",
+    name: "₹35,000 Package",
+    price: "₹35,000",
+    category: "Premium Bridal Packages",
+    artistLevel: "Professional Artist",
+    artistNote: "Professional Makeup Artist • 100% Makeup Guarantee",
+    desc: "5D Airbrush Makeup & 3D Makeup with complete ₹15,000 Bridal Package, Bridal Set, Flower Juda and 1 Party Makeup.",
+    inclusions: [
+      "5D Airbrush Makeup",
+      "3D makeup",
+      "15000 Bridal Packge",
+      "Bridal Set",
+      "Flower Juda",
+      "1 Party Makeup",
+    ],
+    bookingLabel: "₹35,000 Package",
+  },
+  {
+    key: "premium-41000",
+    name: "₹41,000 Package",
+    price: "₹41,000",
+    category: "Premium Bridal Packages",
+    artistLevel: "Professional Artist",
+    artistNote: "Professional Makeup Artist • 100% Makeup Guarantee",
+    desc: "5D Airbrush Makeup & 5D Makeup with complete ₹21,000 Bridal Package, Bridal Set, 1 Party Makeup and Juda Flower / Chotti Paranda.",
+    inclusions: [
+      "5D Airbrush Makeup",
+      "5D Makeup",
+      "21000/- Bridal Packge",
+      "Bridal Set",
+      "1Part Makeup",
+      "Juda Flower/ chotti Paranda",
+    ],
+    bookingLabel: "₹41,000 Package",
+  },
+  {
+    key: "premium-45000",
+    name: "₹45,000 Package",
+    price: "₹45,000",
+    category: "Premium Bridal Packages",
+    artistLevel: "Professional Artist",
+    artistNote: "Professional Makeup Artist • 100% Makeup Guarantee",
+    highlight: true,
+    badge: "ROYAL COMBO",
+    desc: "5D Airbrush Makeup, Airbrush Makeup, Haldi Makeup with complete ₹21,000 Package, Bridal Set and Nail Art.",
+    inclusions: [
+      "5D Airbrush Makeup",
+      "Airbrush Makeup",
+      "Haldi Makeup",
+      "21000/- Package",
+      "Bridal Set",
+      "Nail aart",
+    ],
+    bookingLabel: "₹45,000 Package",
+  },
+  {
+    key: "premium-51000",
+    name: "₹51,000 Package",
+    price: "₹51,000",
+    category: "Premium Bridal Packages",
+    artistLevel: "Professional Artist",
+    artistNote: "Professional Makeup Artist • 100% Makeup Guarantee",
+    desc: "Airbrush Makeup, 3D Sangeet Makeup, HD Haldi Makeup with complete ₹21,000 Bridal Package, 1 Party Makeup Free, 5 Months Grooming Free, Hair Smoothening, Bridal Set and Haldi Bridal Set.",
+    inclusions: [
+      "Airbrush Makeup",
+      "Sangeet Makeup 3D",
+      "Haldi Makeup Hd",
+      "21000/- Bridal Package",
+      "1 party Makeup Free",
+      "5months Eye,,For,Up, HairCurt Free",
+      "Hair Smoothning",
+      "Bridal Set",
+      "Haldi Bridal Set",
+    ],
+    bookingLabel: "₹51,000 Premium Bridal Package",
+  },
+  {
+    key: "premium-61000",
+    name: "₹61,000 Package",
+    price: "₹61,000",
+    category: "Premium Bridal Packages",
+    artistLevel: "Top Professional Artist",
+    artistNote: "Professional Makeup Artist • 100% Makeup Guarantee",
+    highlight: true,
+    badge: "CELEBRITY SUITE",
+    desc: "5D Airbrush Bridal, 5D Airbrush Sangeet, 3D Haldi Makeup with complete ₹25,000 Package, 1 Party Makeup, Bridal Makeup, Hair Kerasmoothening, Haldi Set, Nail Art and Free Grooming (Professional Makeup Artist).",
+    inclusions: [
+      "5D Aribrush Bridal",
+      "5D Airbrush Sangeet",
+      "Haldi Makeup 3D",
+      "25000 Package",
+      "1 Party makeup",
+      "Bridal Makeup",
+      "Hair Kerasmoothning",
+      "HAldi Set",
+      "Nail Aart",
+      "Eye.For ,up, Hair Cutting free",
+      "(Professional Makeup Artist)",
+    ],
+    bookingLabel: "₹61,000 Premium Bridal Package",
+  },
+];
+
+export const ARTIST_GUARANTEE_NOTE =
+  "NOTE: ₹7,999 to ₹11,000 packages prepared by Basic Artists. ₹15,000 to ₹61,000 packages prepared by certified Professional Makeup Artists (*4 certified artists ready to serve you. 100% Makeup Guarantee).";
+
+// ===== 3. OUT OF PARLOUR MAKEUP (Image 3: ₹6,100 to ₹45,000) =====
+export const OUT_OF_PARLOUR_MAKEUP = [
+  { name: "Lakme Staff", price: "₹6,100" },
+  { name: "Lakme Staff", price: "₹8,100" },
+  { name: "Krylon Staff", price: "₹10,000" },
+  { name: "Krylon HD", price: "₹13,000" },
+  { name: "Forever 52", price: "₹14,000" },
+  { name: "Makeup Studio", price: "₹16,000" },
+  { name: "Huda HD", price: "₹18,000" },
+  { name: "Huda Nude", price: "₹18,000" },
+  { name: "3D", price: "₹18,000" },
+  { name: "5D", price: "₹19,000" },
+  { name: "NARS 3D", price: "₹21,000" },
+  { name: "NARS / Huda 5D", price: "₹23,000" },
+  { name: "Krylon Airbrush", price: "₹23,000" },
+  { name: "Makeup Airbrush", price: "₹25,000" },
+  { name: "Makeup Airbrush Glossy", price: "₹31,000" },
+  { name: "Makeup 5D Airbrush Glossy", price: "₹45,000" },
+];
+
+export const OUT_OF_PARLOUR_TRAVEL_NOTE =
+  "Bridal makeup rate k according long lasting and glow show hoga + travelling charges km k according hoga (₹2,000 - ₹50,000).";
+
+// ===== 4. TWO-TIME MAKEUP (Image 3: ₹25,000 to ₹75,000) =====
+export const TWO_TIME_MAKEUP = [
+  {
+    key: "two-time-krylon",
+    name: "Krylon",
+    price: "₹25,000",
+    desc: "Coordinated two-ceremony bridal makeover with Krylon professional cosmetics.",
+    bookingLabel: "Krylon (Two-Time) - ₹25,000",
+  },
+  {
+    key: "two-time-hd",
+    name: "HD Makeup",
+    price: "₹30,000",
+    desc: "Two high-definition transformations with camera-perfect finish and extended staying power.",
+    bookingLabel: "HD Makeup (Two-Time) - ₹30,000",
+  },
+  {
+    key: "two-time-huda-hd",
+    name: "Huda HD",
+    price: "₹35,000",
+    desc: "Luxury dual makeover crafted with authentic Huda Beauty HD formulation.",
+    bookingLabel: "Huda HD (Two-Time) - ₹35,000",
+  },
+  {
+    key: "two-time-huda-nars-3d",
+    name: "Huda / NARS 3D",
+    price: "₹45,000",
+    desc: "Multidimensional 3D styling for two celebrations using luxury Huda and NARS cosmetics.",
+    bookingLabel: "Huda / NARS 3D (Two-Time) - ₹45,000",
+  },
+  {
+    key: "two-time-huda-nars-5d",
+    name: "Huda / NARS 5D",
+    price: "₹55,000",
+    desc: "Top-tier 5D bridal transformation across two functions with bespoke contour and glow.",
+    bookingLabel: "Huda / NARS 5D (Two-Time) - ₹55,000",
+  },
+  {
+    key: "two-time-airbrush",
+    name: "Airbrush Makeup",
+    price: "₹65,000",
+    desc: "Silky, sweat-resistant airbrush application for two wedding functions.",
+    bookingLabel: "Airbrush Makeup (Two-Time) - ₹65,000",
+  },
+  {
+    key: "two-time-airbrush-5d",
+    name: "Airbrush Makeup 5D",
+    price: "₹75,000",
+    desc: "Ultimate 5D Airbrush bridal transformation across two major celebrations.",
+    bookingLabel: "Airbrush Makeup 5D (Two-Time) - ₹75,000",
+  },
+];
+
+// ===== 5. THREE-TIME MAKEUP (Image 3: ₹60,000 & ₹80,000) =====
+export const THREE_TIME_MAKEUP = [
+  {
+    key: "three-time-3d-5d",
+    name: "3 Time 3D and 5D",
+    price: "₹60,000",
+    desc: "Comprehensive 3-event bridal suite (Haldi, Sangeet & Wedding) in luxury 3D & 5D styling.",
+    bookingLabel: "3 Time 3D and 5D - ₹60,000",
+  },
+  {
+    key: "three-time-airbrush",
+    name: "3 Time Airbrush 3D, 5D",
+    price: "₹80,000",
+    desc: "Pinnacle 3-event bridal suite with professional airbrush 3D & 5D application for all three celebrations.",
+    bookingLabel: "3 Time Airbrush 3D, 5D - ₹80,000",
+  },
+];
+
+// ===== 6. FACIAL SERVICES (Image 4: ₹550 to ₹1,500) =====
+export const FACIAL_SERVICES = [
+  { name: "Fruit", price: "₹550", desc: "Gentle natural fruit extraction for mild rejuvenation and glow." },
+  { name: "Mix Fruit", price: "₹800", desc: "Multi-fruit vitamin infusion for deep skin nourishment." },
+  { name: "Gold", price: "₹700 - ₹900 - ₹1,100 - ₹1,400", desc: "Lustrous gold particle treatment available in 4 brand tiers." },
+  { name: "Diamond", price: "₹700 - ₹900 - ₹1,100 - ₹1,400", desc: "Skin polishing and clarifying diamond dust facial in 4 tier options." },
+  { name: "Papaya", price: "₹800, ₹1,100", desc: "Enzymatic blemish correction and pigmentation control treatment." },
+  { name: "Red Wine", price: "₹1,500", desc: "Antioxidant-rich red wine treatment for skin firmness and youthful glow." },
+  { name: "Whitening", price: "₹1,100, ₹1,500", desc: "Intensive brightening and tone-evening facial treatment." },
+  { name: "Pear", price: "₹1,100, ₹1,500", desc: "Natural pear facial for cooling, soothing and radiant skin texture." },
+  { name: "Oxylife Whitening", price: "₹1,100, ₹1,500", desc: "Active oxygen-boosted whitening treatment for dull, fatigued skin." },
+];
+
+export const FACIAL_CONSULTATION_NOTE =
+  "Otherwise skin According to information to Manish Ganga Soni (Personalized skin consultation).";
+
+// ===== 7. O3+ PROFESSIONAL FACIAL (Image 4: ₹1,800 to ₹4,200) =====
+export const O3_PROFESSIONAL_FACIAL = [
+  { name: "O3+ Whitening", price: "₹1,800", desc: "Clinical O3+ brightening treatment for luminous, even-toned complexion." },
+  { name: "O3+ Oil Control", price: "₹1,800", desc: "Targeted sebum balancing and pore purifying treatment for clear matte skin." },
+  { name: "O3+ Power Brightening", price: "₹2,000", desc: "Intensive radiance accelerator for stubborn tan removal and deep glow." },
+  { name: "O3+ Glow", price: "₹2,500", desc: "Signature O3+ instant bridal radiance ritual for supple, glass-like finish." },
+  { name: "O3+ Glow + Mask", price: "₹3,500", desc: "Advanced glow treatment enriched with customized professional peel-off rubber mask." },
+  { name: "O3+ Bridal Glow", price: "₹4,200", desc: "The ultimate O3+ bridal skin ritual for maximum luminosity, hydration and camera perfection." },
+];
+
+// ===== 8. HYDRA FACIAL & COLD MASSAGE (Image 4: ₹500 to ₹5,000) =====
+export const HYDRA_FACIAL_SERVICES = [
+  { name: "O3+ Hydra (Tier 1)", price: "₹3,000", desc: "Deep vortex aqua cleansing, exfoliation and hydration infusion." },
+  { name: "O3+ Hydra (Tier 2)", price: "₹4,000", desc: "Advanced hydro-dermabrasion with oxygen infusion and deep sonic extraction." },
+  { name: "O3+ Hydra (Tier 3 Luxury)", price: "₹5,000", desc: "Complete clinical Hydra experience with radiofrequency tightening, cold hammer and nutrient infusion." },
+  { name: "Aloe Vera Ultrasound Cold Massage", price: "₹500 / ₹800 / ₹1,500", desc: "Soothing ultrasound cryogenic massage with pure aloe vera for pore tightening, redness reduction, and deep cellular hydration." },
+];
+
+// ===== 9. LASER TREATMENT (Image 4: 8-10 Sessions / Per Session Rate) =====
+export const LASER_TREATMENTS = [
+  { name: "Face Laser Treatment", area: "Face", price: "₹2,000 - ₹4,000", sessions: "8-10 Sessions (Per Session)", desc: "Precision laser hair reduction and skin toning for full facial area." },
+  { name: "Hand Laser Treatment", area: "Hand", price: "₹8,000", sessions: "8-10 Sessions (Per Session)", desc: "Complete bilateral hand and arm laser hair removal session." },
+  { name: "Leg Laser Treatment", area: "Leg", price: "₹8,000", sessions: "8-10 Sessions (Per Session)", desc: "Full bilateral legs smooth laser hair reduction treatment." },
+  { name: "Full Body Laser Treatment", area: "Body", price: "₹20,000", sessions: "8-10 Sessions (Per Session)", desc: "Comprehensive head-to-toe full body laser hair reduction session." },
+  { name: "Chin Laser Treatment", area: "Chin", price: "₹2,500", sessions: "8-10 Sessions (Per Session)", desc: "Targeted submental and chin area permanent hair reduction." },
+  { name: "Upper Lips Laser Treatment", area: "Upper Lips", price: "₹1,000", sessions: "8-10 Sessions (Per Session)", desc: "Delicate upper lip precision laser hair removal session." },
+];
+
+export const LASER_SESSION_NOTE =
+  "Laser Treatment 8-10 Seat (Rates shown per seat / session).";
+
+// Preserved for backward compatibility
+export const PREMIUM_SERVICES = [
+  ...BRIDAL_PACKAGES.map((p) => ({
+    key: p.key,
+    name: p.name,
+    price: p.price,
+    desc: p.desc,
+    category: p.category,
+  })),
+  ...PREMIUM_BRIDAL_PACKAGES.map((p) => ({
+    key: p.key,
+    name: p.name,
+    price: p.price,
+    desc: p.desc,
+    category: p.category,
+  })),
+];
 export const TESTIMONIALS = [
   {
     name: "Pooja S.",

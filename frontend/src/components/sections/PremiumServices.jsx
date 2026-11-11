@@ -107,14 +107,14 @@ export default function PremiumServices() {
         </div>
 
         {/* Category Navigation Bar */}
-        <div className="relative mx-auto mb-6 sm:mb-8 md:mb-10 max-w-5xl px-2 sm:px-4">
+        <div className="relative mx-auto mb-6 sm:mb-8 md:mb-10 max-w-5xl px-0 md:px-4">
           <div className="flex items-center gap-2">
             {canScrollLeft && (
               <button
                 type="button"
                 onClick={() => scrollTabs(-280)}
                 aria-label="Scroll left categories"
-                className="hidden sm:flex lg:hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#d4af6e]/30 bg-[#14110e] text-stone-300 shadow-sm transition-all hover:border-[#d4af6e] hover:text-[#d4af6e]"
+                className="hidden md:flex lg:hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#d4af6e]/30 bg-[#14110e] text-stone-300 shadow-sm transition-all hover:border-[#d4af6e] hover:text-[#d4af6e]"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
@@ -125,15 +125,16 @@ export default function PremiumServices() {
               onScroll={updateScrollIndicators}
               role="tablist"
               aria-label="Service categories"
-              className="no-scrollbar flex-1 min-w-0 flex items-center gap-2 overflow-x-auto scroll-smooth py-1.5 px-1 snap-x snap-mandatory lg:flex-wrap lg:justify-center lg:gap-2.5 lg:overflow-visible"
+              className="no-scrollbar w-full grid grid-cols-2 gap-2 md:w-auto md:flex-1 md:min-w-0 md:flex md:items-center md:gap-2 md:overflow-x-auto md:scroll-smooth md:py-1.5 md:px-1 md:snap-x md:snap-mandatory lg:flex-wrap lg:justify-center lg:gap-2.5 lg:overflow-visible"
               style={{
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
                 WebkitOverflowScrolling: "touch",
               }}
             >
-              {CATEGORIES.map((tab) => {
+              {CATEGORIES.map((tab, idx) => {
                 const isActive = activeTab === tab.id;
+                const isLastFullSpan = idx === CATEGORIES.length - 1;
                 return (
                   <button
                     key={tab.id}
@@ -144,15 +145,19 @@ export default function PremiumServices() {
                     id={`pricing-tab-${tab.id}`}
                     onClick={() => handleTabClick(tab.id)}
                     data-testid={`pricing-tab-${tab.id}`}
-                    className={`group relative flex shrink-0 snap-start items-center gap-1.5 rounded-full px-3.5 py-2 text-xs uppercase tracking-wider transition-all duration-300 sm:px-4 sm:py-2 min-h-[38px] sm:min-h-[40px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d4af6e] cursor-pointer ${
+                    className={`group relative flex flex-col md:flex-row md:shrink-0 md:snap-start items-center justify-center md:justify-start gap-0.5 md:gap-1.5 rounded-xl md:rounded-full px-2 py-2 md:px-4 md:py-2 text-center md:text-left uppercase transition-all duration-300 min-h-[48px] md:min-h-[40px] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d4af6e] cursor-pointer ${
+                      isLastFullSpan ? "col-span-2 md:col-span-1" : ""
+                    } ${
                       isActive
                         ? "bg-gradient-to-r from-[#dfc59b] via-[#c5a059] to-[#b38b42] font-semibold text-[#080705] shadow-[0_4px_16px_rgba(197,160,89,0.35)]"
                         : "border border-[#d4af6e]/20 bg-[#14110e] text-stone-300 hover:border-[#d4af6e]/50 hover:text-white"
                     }`}
                   >
-                    <span className="whitespace-nowrap font-medium">{tab.label}</span>
+                    <span className="whitespace-nowrap text-[11px] sm:text-xs tracking-[0.04em] md:tracking-wider font-medium leading-tight">
+                      {tab.label}
+                    </span>
                     <span
-                      className={`whitespace-nowrap text-[10px] lowercase tracking-normal ${
+                      className={`whitespace-nowrap text-[9.5px] sm:text-[10px] lowercase tracking-normal leading-tight ${
                         isActive ? "text-stone-900 font-semibold" : "text-stone-400 font-normal"
                       }`}
                     >
@@ -161,7 +166,7 @@ export default function PremiumServices() {
                   </button>
                 );
               })}
-              <div className="shrink-0 w-6 lg:hidden" aria-hidden="true" />
+              <div className="hidden md:block shrink-0 w-6 lg:hidden" aria-hidden="true" />
             </div>
 
             {canScrollRight && (
@@ -169,7 +174,7 @@ export default function PremiumServices() {
                 type="button"
                 onClick={() => scrollTabs(280)}
                 aria-label="Scroll right categories"
-                className="hidden sm:flex lg:hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#d4af6e]/30 bg-[#14110e] text-stone-300 shadow-sm transition-all hover:border-[#d4af6e] hover:text-[#d4af6e]"
+                className="hidden md:flex lg:hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#d4af6e]/30 bg-[#14110e] text-stone-300 shadow-sm transition-all hover:border-[#d4af6e] hover:text-[#d4af6e]"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>

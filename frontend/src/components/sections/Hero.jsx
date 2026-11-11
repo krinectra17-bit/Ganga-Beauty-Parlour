@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import {
-  HERO_BLUR_IMAGE,
   HERO_IMAGE,
   HERO_SRCSET,
   IMAGE_DIMENSIONS,
@@ -15,59 +13,54 @@ const stats = [
 ];
 
 export default function Hero() {
-  const [heroLoaded, setHeroLoaded] = useState(false);
-
   return (
     <section
       id="top"
       data-testid="hero-section"
-      className="grain relative min-h-[100svh] w-full overflow-hidden bg-[#080706]"
+      className="relative min-h-[100svh] w-full overflow-hidden bg-[#080706]"
     >
       <div className="hero-image-frame absolute inset-0 z-0 overflow-hidden">
-        <img
-          src={HERO_BLUR_IMAGE}
-          alt=""
-          className="hero-blur absolute inset-0 h-full w-full object-cover object-[center_top]"
-          width={60}
-          height={34}
-          aria-hidden="true"
-        />
         <img
           src={HERO_IMAGE}
           srcSet={HERO_SRCSET}
           alt="Luxury bridal makeover by Ganga Beauty Parlour"
-          className={`hero-main absolute inset-0 w-full h-full object-cover object-[center_top] hero-media ${heroLoaded ? "hero-main-visible" : "hero-main-loading"}`}
+          className="hero-main absolute inset-0 h-full w-full object-cover object-[center_top]"
           loading="eager"
           decoding="async"
           fetchPriority="high"
-          sizes="100vw"
+          sizes="(max-aspect-ratio: 16/9) 178vh, 100vw"
           width={IMAGE_DIMENSIONS.hero.width}
           height={IMAGE_DIMENSIONS.hero.height}
-          onLoad={() => setHeroLoaded(true)}
         />
       </div>
 
-      {/* Cinematic Lower Scrim & Warm Ambient Lighting (preserves bright upper portrait) */}
-      <div className="absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_75%_25%,rgba(214,178,124,0.12)_0%,transparent_65%)] pointer-events-none" />
+      {/* Localized Scrim Behind Text Area Only (keeps upper 65-70% & faces bright and natural) */}
       <div
         className="absolute inset-0 z-[2] md:hidden pointer-events-none"
         style={{
           background:
-            "linear-gradient(to top, #080706 0%, rgba(8,7,6,0.95) 22%, rgba(8,7,6,0.84) 35%, rgba(8,7,6,0.62) 46%, rgba(8,7,6,0.22) 56%, rgba(8,7,6,0) 66%)",
+            "linear-gradient(to top, rgba(8,7,6,0.92) 0%, rgba(8,7,6,0.80) 18%, rgba(8,7,6,0.58) 28%, rgba(8,7,6,0.34) 34%, rgba(8,7,6,0.12) 39%, rgba(8,7,6,0) 43%)",
+        }}
+      />
+      <div
+        className="hidden md:block lg:hidden absolute inset-0 z-[2] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 56% 44% at 24% 80%, rgba(8,7,6,0.74) 0%, rgba(8,7,6,0.44) 48%, rgba(8,7,6,0.14) 76%, rgba(8,7,6,0) 100%)",
+        }}
+      />
+      <div
+        className="hidden lg:block absolute inset-0 z-[2] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 35% 44% at 17% 78%, rgba(8,7,6,0.72) 0%, rgba(8,7,6,0.44) 48%, rgba(8,7,6,0.14) 76%, rgba(8,7,6,0) 100%)",
         }}
       />
       <div
         className="hidden md:block absolute inset-0 z-[2] pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, rgba(8,7,6,0.78) 0%, rgba(8,7,6,0.52) 28%, rgba(8,7,6,0.16) 46%, rgba(8,7,6,0) 62%)",
-        }}
-      />
-      <div
-        className="hidden md:block absolute inset-0 z-[2] pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(8,7,6,0.92) 0%, rgba(8,7,6,0.54) 22%, rgba(8,7,6,0.14) 42%, rgba(8,7,6,0) 58%)",
+            "linear-gradient(to top, rgba(8,7,6,0.78) 0%, rgba(8,7,6,0.34) 14%, rgba(8,7,6,0) 28%)",
         }}
       />
 

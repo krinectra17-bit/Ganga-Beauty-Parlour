@@ -6,6 +6,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import CommonImage from "@/components/CommonImage";
+import { Link } from "@/router/Router";
 import {
   BUSINESS,
   IMAGE_DIMENSIONS,
@@ -28,7 +29,7 @@ export default function Footer() {
     >
       <div className="container mx-auto px-5 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
-          <div className="md:col-span-4">
+          <div className="md:col-span-4 lg:col-span-3">
             <div className="mb-4 flex items-center">
               <CommonImage
                 src="/images/logos/logo-ganga-gold.webp"
@@ -52,9 +53,9 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="md:col-span-4 lg:col-span-3">
             <p className="mb-3 text-[10px] uppercase tracking-[0.18em] text-[#d4af6e] font-semibold">
-              Atelier & Contact
+              Atelier &amp; Contact
             </p>
             <p className="mb-4 flex items-start gap-2 text-xs sm:text-sm leading-relaxed text-stone-300 font-light">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af6e]" />
@@ -102,7 +103,60 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="md:col-span-4 lg:col-span-2" data-testid="footer-policies">
+            <p className="mb-3 text-[10px] uppercase tracking-[0.18em] text-[#d4af6e] font-semibold">
+              Policies &amp; Information
+            </p>
+            <ul className="space-y-2 text-xs sm:text-sm text-stone-300 font-light">
+              <li>
+                <Link
+                  to="/privacy-policy"
+                  data-testid="footer-link-privacy-policy"
+                  className="transition-colors hover:text-[#d4af6e]"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/terms-and-conditions"
+                  data-testid="footer-link-terms-and-conditions"
+                  className="transition-colors hover:text-[#d4af6e]"
+                >
+                  Terms &amp; Conditions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/booking-policy"
+                  data-testid="footer-link-booking-policy"
+                  className="transition-colors hover:text-[#d4af6e]"
+                >
+                  Booking Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/cancellation-refund-policy"
+                  data-testid="footer-link-cancellation-refund-policy"
+                  className="transition-colors hover:text-[#d4af6e]"
+                >
+                  Cancellation &amp; Refund Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/bridal-booking-policy"
+                  data-testid="footer-link-bridal-booking-policy"
+                  className="transition-colors hover:text-[#d4af6e]"
+                >
+                  Bridal Booking Policy
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-6 lg:col-span-2">
             <p className="mb-3 text-[10px] uppercase tracking-[0.18em] text-[#d4af6e] font-semibold">
               Location Map
             </p>
@@ -140,7 +194,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="md:col-span-2">
+          <div className="md:col-span-6 lg:col-span-2">
             <a
               href={BUSINESS.instagram}
               target="_blank"

@@ -712,6 +712,18 @@ export function buildPhoneLink(phone) {
 
 export function bookService(serviceName) {
   if (typeof window === "undefined") return;
+  const isHome = window.location.pathname === "/" || window.location.pathname === "";
+  if (!isHome) {
+    window.history.pushState({}, "", "/#booking");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+    setTimeout(() => {
+      const event = new CustomEvent("preselect-service", { detail: serviceName });
+      window.dispatchEvent(event);
+      const el = document.getElementById("booking");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 150);
+    return;
+  }
   const event = new CustomEvent("preselect-service", { detail: serviceName });
   window.dispatchEvent(event);
   const el = document.getElementById("booking");

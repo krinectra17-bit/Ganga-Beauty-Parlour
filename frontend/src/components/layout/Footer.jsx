@@ -14,8 +14,34 @@ import {
   GALLERY,
 } from "@/data/site";
 
+const FOOTER_WHATSAPP_MESSAGE = [
+  "✨ *GANGA BEAUTY PARLOUR*",
+  "━━━━━━━━━━━━━━━━━━",
+  "",
+  "💄 *NEW BOOKING REQUEST*",
+  "",
+  "Hello Ganga Beauty Parlour!",
+  "I would like to book an appointment. Please find my details below:",
+  "",
+  "👤 *CUSTOMER DETAILS*",
+  "▪️ Name: [Customer Name]",
+  "▪️ Phone: [Customer Phone]",
+  "",
+  "📍 *BOOKING DETAILS*",
+  "▪️ Branch: [Selected Branch]",
+  "▪️ Service: [Selected Service and Price]",
+  "▪️ Date: [Selected Date]",
+  "▪️ Time: [Selected Time]",
+  "",
+  "━━━━━━━━━━━━━━━━━━",
+  "📩 Kindly confirm my booking and availability.",
+  "",
+  "Thank you! ❤️",
+  "*Ganga Beauty Parlour*",
+].join("\n");
+
 export default function Footer() {
-  const wa = buildWhatsAppLink("Hi Ganga Beauty Parlour!");
+  const wa = buildWhatsAppLink(FOOTER_WHATSAPP_MESSAGE);
   const igPreview = GALLERY.slice(0, 4);
 
   return (

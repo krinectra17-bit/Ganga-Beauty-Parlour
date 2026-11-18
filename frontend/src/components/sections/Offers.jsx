@@ -94,7 +94,7 @@ export default function Offers() {
                   <button
                     type="button"
                     onClick={() => bookService(offer.service)}
-                    data-testid={`offer-cta-${offer.title.toLowerCase().replace(/\s+/g, "-")}`}
+                    data-testid={`offer-btn-${idx}`}
                     className={`mt-4 sm:mt-auto w-full justify-center py-2.5 sm:py-3 text-xs sm:text-sm cursor-pointer ${
                       isHighlight ? "btn-gold" : "btn-outline-gold"
                     }`}

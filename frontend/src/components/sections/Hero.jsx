@@ -69,7 +69,7 @@ export default function Hero() {
           {/* Atelier Badge */}
           <div className="reveal reveal-d1 mb-2.5 inline-flex max-w-full items-center gap-2 rounded-full border border-[#d4af6e]/35 bg-[linear-gradient(135deg,rgba(25,20,15,0.88),rgba(10,8,6,0.94))] px-3 py-1 text-[8.5px] uppercase tracking-[0.12em] text-[#f3e5c8] shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md sm:mb-4 sm:gap-2.5 sm:px-4 sm:py-1.5 sm:text-[10px] sm:tracking-[0.16em]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-[#fff3db] to-[#c59f54] shadow-[0_0_8px_rgba(212,175,110,0.7)]" />
-            <span className="min-w-0 truncate font-medium">Bridal Makeup Atelier &middot; Sujangarh & Didwana</span>
+            <span className="min-w-0 truncate font-medium">Sujangarh&apos;s No. 1 Bridal &amp; Beauty Studio</span>
           </div>
 
           {/* Headline with Radiant Metallic Gold Sheen */}

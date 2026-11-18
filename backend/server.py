@@ -35,7 +35,7 @@ ALLOW_ALL_CORS = CORS_ORIGINS == ["*"]
 ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "").strip()
 BOOKING_RATE_LIMIT_WINDOW = int(os.getenv("BOOKING_RATE_LIMIT_WINDOW", "60"))
 BOOKING_RATE_LIMIT_MAX = int(os.getenv("BOOKING_RATE_LIMIT_MAX", "5"))
-ALLOWED_BRANCHES = {"Sujangarh", "Didwana"}
+ALLOWED_BRANCHES = {"Sujangarh", "Didwana", "Ladnun"}
 PHONE_PATTERN = re.compile(r"^[6-9]\d{9}$")
 booking_attempts: dict[str, Deque[float]] = defaultdict(deque)
 

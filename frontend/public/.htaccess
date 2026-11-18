@@ -2,7 +2,16 @@
 # Ganga Beauty Parlour - Hostinger Apache / LiteSpeed Configuration
 # ----------------------------------------------------------------------
 
-# 1. SPA Fallback Routing
+# 1. Disable Directory Browsing
+Options -Indexes
+
+# 2. Block Access to Hidden & Sensitive Files (.env, .git, etc.)
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# 3. SPA Fallback Routing
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -12,7 +21,7 @@
   RewriteRule . /index.html [L]
 </IfModule>
 
-# 2. Browser Caching
+# 4. Browser Caching
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
@@ -37,14 +46,16 @@
   ExpiresByType font/woff "access plus 1 year"
 </IfModule>
 
-# 3. Compression
+# 5. Compression
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
-# 4. Security Headers
+# 6. Security Headers
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>

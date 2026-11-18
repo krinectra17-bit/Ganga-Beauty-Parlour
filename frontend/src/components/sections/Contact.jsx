@@ -80,6 +80,7 @@ export default function Contact() {
                   href={buildWhatsAppLink(CONSULTATION_MESSAGE)}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-testid="contact-whatsapp-sujangarh"
                   className="btn-whatsapp w-full justify-center cursor-pointer"
                   aria-label="Chat with Ganga Beauty Parlour on WhatsApp"
                 >
@@ -127,6 +128,7 @@ export default function Contact() {
                   href={buildWhatsAppLink(CONSULTATION_MESSAGE)}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-testid="contact-whatsapp-sujangarh"
                   className="btn-whatsapp w-full justify-center cursor-pointer"
                   aria-label="Chat with Ganga Beauty Parlour on WhatsApp"
                 >

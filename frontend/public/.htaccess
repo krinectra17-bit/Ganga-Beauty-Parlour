@@ -2,16 +2,25 @@
 # Ganga Beauty Parlour - Hostinger Apache / LiteSpeed Configuration
 # ----------------------------------------------------------------------
 
-# 1. Disable Directory Browsing
+# 1. Force UTF-8 Default Charset & Explicit MIME Types
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .json .xml
+AddType "text/html; charset=UTF-8" .html
+AddType "text/css; charset=UTF-8" .css
+AddType "application/javascript; charset=UTF-8" .js
+AddType "application/json; charset=UTF-8" .json
+AddType "image/svg+xml; charset=UTF-8" .svg
+
+# 2. Disable Directory Browsing
 Options -Indexes
 
-# 2. Block Access to Hidden & Sensitive Files (.env, .git, etc.)
+# 3. Block Access to Hidden & Sensitive Files (.env, .git, etc.)
 <FilesMatch "^\.">
   Order allow,deny
   Deny from all
 </FilesMatch>
 
-# 3. SPA Fallback Routing
+# 4. SPA Fallback Routing
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -21,7 +30,7 @@ Options -Indexes
   RewriteRule . /index.html [L]
 </IfModule>
 
-# 4. Browser Caching
+# 5. Browser Caching
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
@@ -46,12 +55,12 @@ Options -Indexes
   ExpiresByType font/woff "access plus 1 year"
 </IfModule>
 
-# 5. Compression
+# 6. Compression
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
-# 6. Security Headers
+# 7. Security Headers
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"

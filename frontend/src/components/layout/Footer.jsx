@@ -11,34 +11,11 @@ import {
   IMAGE_DIMENSIONS,
   buildPhoneLink,
   buildWhatsAppLink,
+  buildWhatsAppBookingMessage,
   GALLERY,
 } from "@/data/site";
 
-const FOOTER_WHATSAPP_MESSAGE = [
-  "✨ *GANGA BEAUTY PARLOUR*",
-  "━━━━━━━━━━━━━━━━━━",
-  "",
-  "💄 *NEW BOOKING REQUEST*",
-  "",
-  "Hello Ganga Beauty Parlour!",
-  "I would like to book an appointment. Please find my details below:",
-  "",
-  "👤 *CUSTOMER DETAILS*",
-  "▪️ Name: [Customer Name]",
-  "▪️ Phone: [Customer Phone]",
-  "",
-  "📍 *BOOKING DETAILS*",
-  "▪️ Branch: [Selected Branch]",
-  "▪️ Service: [Selected Service and Price]",
-  "▪️ Date: [Selected Date]",
-  "▪️ Time: [Selected Time]",
-  "",
-  "━━━━━━━━━━━━━━━━━━",
-  "📩 Kindly confirm my booking and availability.",
-  "",
-  "Thank you! ❤️",
-  "*Ganga Beauty Parlour*",
-].join("\n");
+const FOOTER_WHATSAPP_MESSAGE = buildWhatsAppBookingMessage();
 
 export default function Footer() {
   const wa = buildWhatsAppLink(FOOTER_WHATSAPP_MESSAGE);

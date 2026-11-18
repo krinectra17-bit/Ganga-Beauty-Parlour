@@ -54,6 +54,9 @@ const devPlugins = [];
 if (isDev) devPlugins.push(publicImagesReloadPlugin(), noCacheDevPlugin());
 
 export default defineConfig({
+  esbuild: {
+    charset: 'ascii',
+  },
   plugins: [react(), ...devPlugins],
   build: {
     sourcemap: false,

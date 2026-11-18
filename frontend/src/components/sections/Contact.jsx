@@ -1,56 +1,14 @@
-import { BUSINESS, buildPhoneLink, buildWhatsAppLink } from "@/data/site";
+import { BUSINESS, buildPhoneLink, buildWhatsAppLink, buildWhatsAppBookingMessage } from "@/data/site";
 
-const CONSULTATION_MESSAGE = [
-  "✨ *GANGA BEAUTY PARLOUR*",
-  "━━━━━━━━━━━━━━━━━━",
-  "",
-  "💄 *NEW BOOKING REQUEST*",
-  "",
-  "Hello Ganga Beauty Parlour!",
-  "I would like to book an appointment. Please find my details below:",
-  "",
-  "👤 *CUSTOMER DETAILS*",
-  "▪️ Name: [Customer Name]",
-  "▪️ Phone: [Customer Phone]",
-  "",
-  "📍 *BOOKING DETAILS*",
-  "▪️ Branch: Sujangarh",
-  "▪️ Service: Bridal / Beauty Consultation",
-  "▪️ Date: [Selected Date]",
-  "▪️ Time: [Selected Time]",
-  "",
-  "━━━━━━━━━━━━━━━━━━",
-  "📩 Kindly confirm my booking and availability.",
-  "",
-  "Thank you! ❤️",
-  "*Ganga Beauty Parlour*",
-].join("\n");
+const CONSULTATION_MESSAGE = buildWhatsAppBookingMessage({
+  branch: "Sujangarh",
+  service: "Bridal / Beauty Consultation",
+});
 
-const DIDWANA_CONSULTATION_MESSAGE = [
-  "✨ *GANGA BEAUTY PARLOUR*",
-  "━━━━━━━━━━━━━━━━━━",
-  "",
-  "💄 *NEW BOOKING REQUEST*",
-  "",
-  "Hello Ganga Beauty Parlour!",
-  "I would like to book an appointment. Please find my details below:",
-  "",
-  "👤 *CUSTOMER DETAILS*",
-  "▪️ Name: [Customer Name]",
-  "▪️ Phone: [Customer Phone]",
-  "",
-  "📍 *BOOKING DETAILS*",
-  "▪️ Branch: Didwana",
-  "▪️ Service: Bridal / Beauty Consultation",
-  "▪️ Date: [Selected Date]",
-  "▪️ Time: [Selected Time]",
-  "",
-  "━━━━━━━━━━━━━━━━━━",
-  "📩 Kindly confirm my booking and availability.",
-  "",
-  "Thank you! ❤️",
-  "*Ganga Beauty Parlour*",
-].join("\n");
+const DIDWANA_CONSULTATION_MESSAGE = buildWhatsAppBookingMessage({
+  branch: "Didwana",
+  service: "Bridal / Beauty Consultation",
+});
 
 function ContactCallLinks() {
   return (

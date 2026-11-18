@@ -14,6 +14,7 @@ import {
   HYDRA_FACIAL_SERVICES,
   LASER_TREATMENTS,
   buildWhatsAppLink,
+  buildWhatsAppBookingMessage,
 } from "@/data/site";
 
 const PHONE_PATTERN = /^[6-9]\d{9}$/;
@@ -71,25 +72,7 @@ export default function Booking() {
   };
 
   const buildMessage = (details = form) => {
-    const lines = [
-      "Hello Ganga Beauty Parlour,",
-      "",
-      "I would like to make a booking.",
-      "",
-      `Name: ${details.name}`,
-      `Phone: ${details.phone}`,
-      `Branch: ${details.branch}`,
-      `Service: ${details.service}`,
-      details.date ? `Date: ${details.date}` : "",
-      details.time ? `Time: ${details.time}` : "",
-      details.message ? `Additional Message: ${details.message}` : "",
-      "",
-      "Please confirm my booking.",
-      "",
-      "Thank you.",
-    ].filter(Boolean);
-
-    return lines.join("\n");
+    return buildWhatsAppBookingMessage(details);
   };
 
   const handleSubmit = (e) => {

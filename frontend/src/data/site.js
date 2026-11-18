@@ -640,6 +640,55 @@ export const OFFERS = [
   },
 ];
 
+export function buildWhatsAppBookingMessage(details = {}) {
+  const name = details.name && details.name.trim() ? details.name.trim() : "[Customer Name]";
+  const rawPhone = details.phone ? details.phone.trim() : "";
+  const phone = rawPhone
+    ? rawPhone.startsWith("+")
+      ? rawPhone
+      : `+91 ${rawPhone}`
+    : "[Customer Phone]";
+  const branch = details.branch && details.branch.trim() ? details.branch.trim() : "[Selected Branch]";
+  const service = details.service && details.service.trim() ? details.service.trim() : "[Selected Service and Price]";
+  const date = details.date && details.date.trim() ? details.date.trim() : "[Selected Date]";
+  const time = details.time && details.time.trim() ? details.time.trim() : "[Selected Time]";
+
+  const lines = [
+    "✨ *GANGA BEAUTY PARLOUR*",
+    "━━━━━━━━━━━━━━━━━━",
+    "",
+    "💄 *NEW BOOKING REQUEST*",
+    "",
+    "Hello Ganga Beauty Parlour!",
+    "I would like to book an appointment. Please find my details below:",
+    "",
+    "👤 *CUSTOMER DETAILS*",
+    `▪️ Name: ${name}`,
+    `▪️ Phone: ${phone}`,
+    "",
+    "📍 *BOOKING DETAILS*",
+    `▪️ Branch: ${branch}`,
+    `▪️ Service: ${service}`,
+    `▪️ Date: ${date}`,
+    `▪️ Time: ${time}`,
+  ];
+
+  if (details.message && details.message.trim()) {
+    lines.push(`▪️ Note: ${details.message.trim()}`);
+  }
+
+  lines.push(
+    "",
+    "━━━━━━━━━━━━━━━━━━",
+    "📩 Kindly confirm my booking and availability.",
+    "",
+    "Thank you! ❤️",
+    "*Ganga Beauty Parlour*"
+  );
+
+  return lines.join("\n");
+}
+
 export function buildWhatsAppLink(text) {
   const base = "https://wa.me/917733079941";
   if (!text) return base;

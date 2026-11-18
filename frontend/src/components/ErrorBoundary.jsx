@@ -24,7 +24,19 @@ export default class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
-      const wa = buildWhatsAppLink("Hello, the site encountered an error.");
+      const errorMsg = [
+        "✨ *GANGA BEAUTY PARLOUR*",
+        "━━━━━━━━━━━━━━━━━━",
+        "",
+        "💄 *WEBSITE INQUIRY & BOOKING*",
+        "",
+        "Hello Ganga Beauty Parlour!",
+        "I was visiting your website and would like to directly book an appointment.",
+        "",
+        "Thank you! ❤️",
+        "*Ganga Beauty Parlour*",
+      ].join("\n");
+      const wa = buildWhatsAppLink(errorMsg);
       return (
         <div className="min-h-screen flex items-center justify-center bg-black text-white p-6">
           <div className="max-w-xl w-full luxe-card p-6 text-center">

@@ -1,7 +1,56 @@
 import { BUSINESS, buildPhoneLink, buildWhatsAppLink } from "@/data/site";
 
-const CONSULTATION_MESSAGE =
-  "Hi Ganga Beauty Parlour! I'd like a free consultation on WhatsApp.";
+const CONSULTATION_MESSAGE = [
+  "✨ *GANGA BEAUTY PARLOUR*",
+  "━━━━━━━━━━━━━━━━━━",
+  "",
+  "💄 *NEW BOOKING REQUEST*",
+  "",
+  "Hello Ganga Beauty Parlour!",
+  "I would like to book an appointment. Please find my details below:",
+  "",
+  "👤 *CUSTOMER DETAILS*",
+  "▪️ Name: [Customer Name]",
+  "▪️ Phone: [Customer Phone]",
+  "",
+  "📍 *BOOKING DETAILS*",
+  "▪️ Branch: Sujangarh",
+  "▪️ Service: Bridal / Beauty Consultation",
+  "▪️ Date: [Selected Date]",
+  "▪️ Time: [Selected Time]",
+  "",
+  "━━━━━━━━━━━━━━━━━━",
+  "📩 Kindly confirm my booking and availability.",
+  "",
+  "Thank you! ❤️",
+  "*Ganga Beauty Parlour*",
+].join("\n");
+
+const DIDWANA_CONSULTATION_MESSAGE = [
+  "✨ *GANGA BEAUTY PARLOUR*",
+  "━━━━━━━━━━━━━━━━━━",
+  "",
+  "💄 *NEW BOOKING REQUEST*",
+  "",
+  "Hello Ganga Beauty Parlour!",
+  "I would like to book an appointment. Please find my details below:",
+  "",
+  "👤 *CUSTOMER DETAILS*",
+  "▪️ Name: [Customer Name]",
+  "▪️ Phone: [Customer Phone]",
+  "",
+  "📍 *BOOKING DETAILS*",
+  "▪️ Branch: Didwana",
+  "▪️ Service: Bridal / Beauty Consultation",
+  "▪️ Date: [Selected Date]",
+  "▪️ Time: [Selected Time]",
+  "",
+  "━━━━━━━━━━━━━━━━━━",
+  "📩 Kindly confirm my booking and availability.",
+  "",
+  "Thank you! ❤️",
+  "*Ganga Beauty Parlour*",
+].join("\n");
 
 function ContactCallLinks() {
   return (
@@ -125,10 +174,10 @@ export default function Contact() {
                 </a>
                 <ContactCallLinks />
                 <a
-                  href={buildWhatsAppLink(CONSULTATION_MESSAGE)}
+                  href={buildWhatsAppLink(DIDWANA_CONSULTATION_MESSAGE)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-testid="contact-whatsapp-sujangarh"
+                  data-testid="contact-whatsapp-didwana"
                   className="btn-whatsapp w-full justify-center cursor-pointer"
                   aria-label="Chat with Ganga Beauty Parlour on WhatsApp"
                 >

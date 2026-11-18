@@ -98,3 +98,5 @@ test_result.md
 
 # Mobile development
 android-sdk/
+
+*.zip

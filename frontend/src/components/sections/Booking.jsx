@@ -1,9 +1,18 @@
 import { useState, useEffect } from "react";
-import { CalendarCheck, MessageCircle, Loader2, CheckCircle2 } from "lucide-react";
+import { CalendarCheck, MessageCircle, Loader2, CheckCircle2, Check } from "lucide-react";
 import {
   BRANCH_OPTIONS,
   SERVICES,
   PREMIUM_SERVICES,
+  BRIDAL_PACKAGES,
+  PREMIUM_BRIDAL_PACKAGES,
+  OUT_OF_PARLOUR_MAKEUP,
+  TWO_TIME_MAKEUP,
+  THREE_TIME_MAKEUP,
+  FACIAL_SERVICES,
+  O3_PROFESSIONAL_FACIAL,
+  HYDRA_FACIAL_SERVICES,
+  LASER_TREATMENTS,
   buildWhatsAppLink,
 } from "@/data/site";
 
@@ -20,10 +29,18 @@ const initialForm = {
   branch: "",
 };
 
-// Combined service options (regular services + offers)
+// Combined service options (regular services + updated rate card packages)
 const SERVICE_OPTIONS = [
   ...SERVICES.map((s) => s.name),
-  ...PREMIUM_SERVICES.map((s) => s.name),
+  ...BRIDAL_PACKAGES.map((p) => p.bookingLabel),
+  ...PREMIUM_BRIDAL_PACKAGES.map((p) => p.bookingLabel),
+  ...OUT_OF_PARLOUR_MAKEUP.map((p) => `Out of Parlour: ${p.name} (${p.price})`),
+  ...TWO_TIME_MAKEUP.map((p) => p.bookingLabel),
+  ...THREE_TIME_MAKEUP.map((p) => p.bookingLabel),
+  ...FACIAL_SERVICES.map((f) => `${f.name} (${f.price})`),
+  ...O3_PROFESSIONAL_FACIAL.map((f) => `${f.name} (${f.price})`),
+  ...HYDRA_FACIAL_SERVICES.map((h) => `${h.name} (${h.price})`),
+  ...LASER_TREATMENTS.map((l) => `${l.name} (${l.price})`),
   "Bridal Trial Makeup (Free)",
   "Other",
 ];
@@ -131,69 +148,68 @@ export default function Booking() {
     <section
       id="booking"
       data-testid="booking-section"
-      className="section bg-[#050505] relative overflow-hidden"
+      className="section relative overflow-hidden bg-gradient-to-b from-[#080706] via-[#100e0b] to-[#060504]"
       data-sr
     >
-      <div className="container mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 items-start gap-8 md:gap-10 lg:grid-cols-2">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af6e]/25 to-transparent" />
+
+      <div className="container relative mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 items-start gap-8 md:gap-12 lg:grid-cols-2">
           <div data-sr data-sr-delay="60ms">
-            <span className="eyebrow">Book Now</span>
-            <div className="gold-divider mt-3 mb-5" />
+            <span className="eyebrow">Bespoke Consultation</span>
+            <div className="gold-divider mt-2.5 mb-4 sm:mt-3 sm:mb-5" />
             <h2
-              className="font-serif text-white text-4xl min-[400px]:text-5xl tracking-tight"
+              className="font-serif text-white text-3xl min-[400px]:text-4xl sm:text-5xl tracking-tight"
               style={{ fontFamily: "Playfair Display, serif" }}
             >
               Reserve your{" "}
-              <span className="italic gold-text">moment.</span>
+              <span className="italic font-serif gold-text">consultation.</span>
             </h2>
-            <p className="mt-5 max-w-md text-sm leading-7 text-zinc-300/82 sm:text-base">
-              Tell us a little about what you'd like, and we'll confirm
-              availability instantly on WhatsApp. Bridal & special occasion
-              bookings are taken on prior appointment.
+            <p className="mt-4 max-w-md text-xs leading-relaxed text-stone-300/85 sm:text-sm sm:leading-7 font-light">
+              Share your ceremonial dates and preferred beauty rituals. We will verify artist availability and confirm your reservation directly on WhatsApp.
             </p>
 
-            <ul className="mt-7 space-y-3 text-sm text-zinc-300/90">
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#D4AF37] mt-1" />
-                Quick confirmation on WhatsApp
+            <ul className="mt-6 space-y-2.5 text-xs sm:text-sm text-stone-200/90 font-light">
+              <li className="flex items-start gap-2.5">
+                <Check className="w-4 h-4 text-[#d4af6e] mt-0.5 shrink-0" />
+                <span>Instant confirmation and appointment coordination on WhatsApp</span>
               </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#D4AF37] mt-1" />
-                Personal consultation before bridal services
+              <li className="flex items-start gap-2.5">
+                <Check className="w-4 h-4 text-[#d4af6e] mt-0.5 shrink-0" />
+                <span>Personalized skin and makeup consultation prior to bridal events</span>
               </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-4 h-4 text-[#D4AF37] mt-1" />
-                Flexible scheduling - Mon-Sun, 10 AM - 8 PM
+              <li className="flex items-start gap-2.5">
+                <Check className="w-4 h-4 text-[#d4af6e] mt-0.5 shrink-0" />
+                <span>Flexible studio scheduling &middot; Mon&ndash;Sun, 10 AM &ndash; 8 PM</span>
               </li>
             </ul>
           </div>
 
-          <div className="luxe-card-premium p-5 md:p-7" data-sr data-sr-delay="120ms">
+          <div className="luxe-card-premium p-5 sm:p-6 md:p-7 rounded-2xl" data-sr data-sr-delay="120ms">
             {success ? (
               <div
-                className="text-center py-10"
+                className="text-center py-8 sm:py-10"
                 data-testid="booking-success"
                 role="status"
                 aria-live="polite"
               >
-                <div className="w-16 h-16 mx-auto rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/50 flex items-center justify-center mb-6">
-                  <CheckCircle2 className="w-7 h-7 text-[#D4AF37]" />
+                <div className="w-14 h-14 mx-auto rounded-full bg-[#d4af6e]/15 border border-[#d4af6e]/40 flex items-center justify-center mb-5">
+                  <CheckCircle2 className="w-6 h-6 text-[#d4af6e]" />
                 </div>
                 <h3
-                  className="font-serif text-2xl md:text-3xl text-white mb-3"
+                  className="font-serif text-2xl md:text-3xl text-white mb-2"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
-                  Booking received!
+                  Consultation requested
                 </h3>
-                <p className="text-zinc-400 max-w-sm mx-auto">
-                  We've opened WhatsApp with your details. Send the message to
-                  confirm - we'll respond within minutes.
+                <p className="text-stone-300 text-xs sm:text-sm max-w-sm mx-auto leading-relaxed font-light">
+                  We have prefilled WhatsApp with your selected details. Send the message to confirm &mdash; our atelier team responds promptly.
                 </p>
                 <button
                   type="button"
                   onClick={resetForm}
                   data-testid="booking-new"
-                  className="mt-8 btn-outline-gold"
+                  className="mt-6 btn-outline-gold cursor-pointer"
                 >
                   Make Another Booking
                 </button>
@@ -201,14 +217,14 @@ export default function Booking() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="space-y-5"
+                className="space-y-4 sm:space-y-5"
                 aria-describedby={error ? "booking-error" : undefined}
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                   <div>
                     <label
                       htmlFor="booking-name"
-                      className="text-[10px] tracking-[0.22em] text-[#D4AF37]/85 uppercase block mb-2"
+                      className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                     >
                       Full Name *
                     </label>
@@ -228,7 +244,7 @@ export default function Booking() {
                   <div>
                     <label
                       htmlFor="booking-phone"
-                      className="text-[10px] tracking-[0.22em] text-[#D4AF37]/85 uppercase block mb-2"
+                      className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                     >
                       Phone *
                     </label>
@@ -253,7 +269,7 @@ export default function Booking() {
                 <div>
                   <label
                     htmlFor="booking-branch"
-                    className="text-[10px] tracking-[0.22em] text-[#D4AF37]/85 uppercase block mb-2"
+                    className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                   >
                     Branch *
                   </label>
@@ -280,7 +296,7 @@ export default function Booking() {
                 <div>
                   <label
                     htmlFor="booking-service"
-                    className="text-[10px] tracking-[0.22em] text-[#D4AF37]/85 uppercase block mb-2"
+                    className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                   >
                     Service *
                   </label>
@@ -296,6 +312,9 @@ export default function Booking() {
                     <option value="" disabled>
                       Select a service
                     </option>
+                    {form.service && !SERVICE_OPTIONS.includes(form.service) && (
+                      <option value={form.service}>{form.service}</option>
+                    )}
                     {SERVICE_OPTIONS.map((opt) => (
                       <option key={opt} value={opt}>
                         {opt}
@@ -304,11 +323,11 @@ export default function Booking() {
                   </select>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                   <div>
                     <label
                       htmlFor="booking-date"
-                      className="text-[10px] tracking-[0.22em] text-[#D4AF37]/85 uppercase block mb-2"
+                      className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                     >
                       Preferred Date
                     </label>
@@ -326,7 +345,7 @@ export default function Booking() {
                   <div>
                     <label
                       htmlFor="booking-time"
-                      className="text-[10px] tracking-[0.22em] text-[#D4AF37]/85 uppercase block mb-2"
+                      className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                     >
                       Preferred Time
                     </label>
@@ -345,9 +364,9 @@ export default function Booking() {
                 <div>
                   <label
                     htmlFor="booking-message"
-                    className="text-[10px] tracking-[0.22em] text-[#D4AF37]/85 uppercase block mb-2"
+                    className="text-[10px] tracking-[0.16em] text-[#d4af6e] uppercase block mb-1.5 font-semibold"
                   >
-                    Note (optional)
+                    Special Requests (optional)
                   </label>
                   <textarea
                     id="booking-message"
@@ -355,7 +374,7 @@ export default function Booking() {
                     value={form.message}
                     onChange={handleChange}
                     rows={3}
-                    placeholder="Any details we should know"
+                    placeholder="Ceremony timing, guest count, or makeup preferences"
                     data-testid="booking-message"
                     className="luxe-input resize-none"
                   />
@@ -364,7 +383,7 @@ export default function Booking() {
                 {error && (
                   <p
                     id="booking-error"
-                    className="text-sm text-red-400"
+                    className="text-xs sm:text-sm text-red-400"
                     data-testid="booking-error"
                     role="alert"
                   >
@@ -376,7 +395,7 @@ export default function Booking() {
                   type="submit"
                   disabled={submitting}
                   data-testid="booking-submit"
-                  className="btn-gold w-full justify-center disabled:opacity-60"
+                  className="btn-gold w-full justify-center disabled:opacity-60 py-3 text-xs sm:text-sm cursor-pointer"
                 >
                   {submitting ? (
                     <>
@@ -391,9 +410,9 @@ export default function Booking() {
                   )}
                 </button>
 
-                <p className="text-xs text-zinc-500 text-center inline-flex items-center justify-center gap-1.5 w-full">
-                  <MessageCircle className="w-3 h-3 text-[#D4AF37]" /> Submitting
-                  opens WhatsApp with your details prefilled
+                <p className="text-[11px] sm:text-xs text-stone-400 text-center inline-flex items-center justify-center gap-1.5 w-full mt-1 font-light">
+                  <MessageCircle className="w-3.5 h-3.5 text-[#d4af6e]" />
+                  Submitting directly initiates WhatsApp consultation with prefilled details
                 </p>
               </form>
             )}

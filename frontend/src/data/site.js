@@ -2,6 +2,7 @@ export const BUSINESS = {
   name: "Ganga Beauty Parlour",
   owner: "Ganga Manish Soni",
   tagline: "Your Beauty, Our Passion",
+  website: "https://gangabeautyparlour.com",
   address:
     "Near SBI Bank, Sabji Mandi, Sumeru Complex, 1st Floor, Sujangarh",
   phones: ["7733079941", "7014221824"],
@@ -640,6 +641,17 @@ export const OFFERS = [
   },
 ];
 
+export const EMOJI = {
+  SPARKLES: "\u2728",
+  LIPSTICK: "\uD83D\uDC84",
+  CUSTOMER: "\uD83D\uDC64",
+  PIN: "\uD83D\uDCCD",
+  ENVELOPE: "\uD83D\uDCE9",
+  HEART: "\u2764\uFE0F",
+  BULLET: "\u25AA\uFE0F",
+  DIVIDER: "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
+};
+
 export function buildWhatsAppBookingMessage(details = {}) {
   const name = details.name && details.name.trim() ? details.name.trim() : "[Customer Name]";
   const rawPhone = details.phone ? details.phone.trim() : "";
@@ -654,35 +666,35 @@ export function buildWhatsAppBookingMessage(details = {}) {
   const time = details.time && details.time.trim() ? details.time.trim() : "[Selected Time]";
 
   const lines = [
-    "✨ *GANGA BEAUTY PARLOUR*",
-    "━━━━━━━━━━━━━━━━━━",
+    `${EMOJI.SPARKLES} *GANGA BEAUTY PARLOUR*`,
+    EMOJI.DIVIDER,
     "",
-    "💄 *NEW BOOKING REQUEST*",
+    `${EMOJI.LIPSTICK} *NEW BOOKING REQUEST*`,
     "",
     "Hello Ganga Beauty Parlour!",
     "I would like to book an appointment. Please find my details below:",
     "",
-    "👤 *CUSTOMER DETAILS*",
-    `▪️ Name: ${name}`,
-    `▪️ Phone: ${phone}`,
+    `${EMOJI.CUSTOMER} *CUSTOMER DETAILS*`,
+    `${EMOJI.BULLET} Name: ${name}`,
+    `${EMOJI.BULLET} Phone: ${phone}`,
     "",
-    "📍 *BOOKING DETAILS*",
-    `▪️ Branch: ${branch}`,
-    `▪️ Service: ${service}`,
-    `▪️ Date: ${date}`,
-    `▪️ Time: ${time}`,
+    `${EMOJI.PIN} *BOOKING DETAILS*`,
+    `${EMOJI.BULLET} Branch: ${branch}`,
+    `${EMOJI.BULLET} Service: ${service}`,
+    `${EMOJI.BULLET} Date: ${date}`,
+    `${EMOJI.BULLET} Time: ${time}`,
   ];
 
   if (details.message && details.message.trim()) {
-    lines.push(`▪️ Note: ${details.message.trim()}`);
+    lines.push(`${EMOJI.BULLET} Note: ${details.message.trim()}`);
   }
 
   lines.push(
     "",
-    "━━━━━━━━━━━━━━━━━━",
-    "📩 Kindly confirm my booking and availability.",
+    EMOJI.DIVIDER,
+    `${EMOJI.ENVELOPE} Kindly confirm my booking and availability.`,
     "",
-    "Thank you! ❤️",
+    `Thank you! ${EMOJI.HEART}`,
     "*Ganga Beauty Parlour*"
   );
 
@@ -701,6 +713,18 @@ export function buildPhoneLink(phone) {
 
 export function bookService(serviceName) {
   if (typeof window === "undefined") return;
+  const isHome = window.location.pathname === "/" || window.location.pathname === "";
+  if (!isHome) {
+    window.history.pushState({}, "", "/#booking");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+    setTimeout(() => {
+      const event = new CustomEvent("preselect-service", { detail: serviceName });
+      window.dispatchEvent(event);
+      const el = document.getElementById("booking");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 150);
+    return;
+  }
   const event = new CustomEvent("preselect-service", { detail: serviceName });
   window.dispatchEvent(event);
   const el = document.getElementById("booking");

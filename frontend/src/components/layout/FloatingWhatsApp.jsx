@@ -1,31 +1,7 @@
 import { MessageCircle } from "lucide-react";
-import { buildWhatsAppLink } from "@/data/site";
+import { buildWhatsAppLink, buildWhatsAppBookingMessage } from "@/data/site";
 
-const FLOATING_MESSAGE = [
-  "✨ *GANGA BEAUTY PARLOUR*",
-  "━━━━━━━━━━━━━━━━━━",
-  "",
-  "💄 *NEW BOOKING REQUEST*",
-  "",
-  "Hello Ganga Beauty Parlour!",
-  "I would like to book an appointment. Please find my details below:",
-  "",
-  "👤 *CUSTOMER DETAILS*",
-  "▪️ Name: [Customer Name]",
-  "▪️ Phone: [Customer Phone]",
-  "",
-  "📍 *BOOKING DETAILS*",
-  "▪️ Branch: [Selected Branch]",
-  "▪️ Service: [Selected Service and Price]",
-  "▪️ Date: [Selected Date]",
-  "▪️ Time: [Selected Time]",
-  "",
-  "━━━━━━━━━━━━━━━━━━",
-  "📩 Kindly confirm my booking and availability.",
-  "",
-  "Thank you! ❤️",
-  "*Ganga Beauty Parlour*",
-].join("\n");
+const FLOATING_MESSAGE = buildWhatsAppBookingMessage();
 
 export default function FloatingWhatsApp() {
   const wa = buildWhatsAppLink(FLOATING_MESSAGE);

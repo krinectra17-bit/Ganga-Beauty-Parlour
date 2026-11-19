@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import { useRouter } from "@/router/Router";
 import {
   BUSINESS,
   IMAGE_DIMENSIONS,
@@ -9,6 +10,7 @@ import {
 import CommonImage from "@/components/CommonImage";
 
 const links = [
+  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Offers", href: "#offers" },
   { label: "Gallery", href: "#gallery" },
@@ -18,6 +20,7 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { path, navigate } = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -25,6 +28,27 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleBrandClick = (e) => {
+    e.preventDefault();
+    if (path === "/") {
+      const topEl = document.getElementById("top");
+      if (topEl) topEl.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setOpen(false);
+    if (path === "/") {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/" + href);
+    }
+  };
 
   return (
     <header
@@ -38,7 +62,8 @@ export default function Navbar() {
       <div className="container mx-auto px-5 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a
-            href="#top"
+            href="/"
+            onClick={handleBrandClick}
             data-testid="brand-link"
             className="flex items-center gap-3"
           >
@@ -63,6 +88,7 @@ export default function Navbar() {
               <a
                 key={l.href}
                 href={l.href}
+                onClick={(e) => handleNavClick(e, l.href)}
                 data-testid={`nav-${l.label.toLowerCase()}`}
                 className="text-xs uppercase tracking-[0.16em] text-stone-200 hover:text-[#d4af6e] transition-colors font-medium"
               >
@@ -72,14 +98,14 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <div className="flex flex-col gap-0.5 text-right">
+            <div className="flex flex-col text-right">
               {BUSINESS.phones.map((phone, index) => (
                 <a
                   key={phone}
                   href={buildPhoneLink(phone)}
                   data-testid={`navbar-call-${index + 1}`}
                   aria-label={`Call Ganga Beauty Parlour at +91 ${phone}`}
-                  className="flex items-center gap-1.5 text-xs text-stone-300 hover:text-[#d4af6e] transition-colors font-light"
+                  className="flex items-center gap-1.5 py-1 min-h-[24px] text-xs text-stone-300 hover:text-[#d4af6e] transition-colors font-light"
                 >
                   <Phone className="w-3 h-3 text-[#d4af6e]" />
                   +91 {phone}
@@ -116,7 +142,7 @@ export default function Navbar() {
               <a
                 key={l.href}
                 href={l.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleNavClick(e, l.href)}
                 data-testid={`mnav-${l.label.toLowerCase()}`}
                 className="text-stone-200 text-sm tracking-wide hover:text-[#d4af6e]"
               >

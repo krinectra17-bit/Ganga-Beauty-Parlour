@@ -17,12 +17,19 @@ export default function initScrollReveal() {
         obs.unobserve(el);
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    { threshold: 0.1, rootMargin: "50px 0px 0px 0px" }
   );
 
+  const vh = window.innerHeight || 800;
   items.forEach((el) => {
-    // Start hidden; reveal will animate
-    el.classList.add("opacity-0");
-    io.observe(el);
+    const rect = el.getBoundingClientRect();
+    if (rect.top < vh) {
+      // Element is already in the viewport — keep visible immediately
+      el.classList.add("reveal");
+    } else {
+      // Element is below the fold — hide and observe for scroll reveal
+      el.classList.add("opacity-0");
+      io.observe(el);
+    }
   });
 }

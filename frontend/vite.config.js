@@ -54,15 +54,23 @@ const devPlugins = [];
 if (isDev) devPlugins.push(publicImagesReloadPlugin(), noCacheDevPlugin());
 
 export default defineConfig({
+  esbuild: {
+    charset: 'ascii',
+  },
   plugins: [react(), ...devPlugins],
   build: {
     sourcemap: false,
     chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ["react", "react-dom"],
-          icons: ["lucide-react"],
+        manualChunks(id) {
+          if (
+            id.includes("node_modules/react/") ||
+            id.includes("node_modules/react-dom/") ||
+            id.includes("node_modules/scheduler/")
+          ) {
+            return "vendor-react";
+          }
         },
       },
     },

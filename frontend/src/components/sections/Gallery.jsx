@@ -147,7 +147,6 @@ export default function Gallery() {
                 type="button"
                 onClick={() => openLightbox(index)}
                 data-testid={`gallery-thumb-${index}`}
-                aria-label={`View ${item.title} - ${item.look} in full size`}
                 className={`group relative overflow-hidden rounded-2xl border border-[#d4af6e]/20 bg-[#14110e] text-left transition-all duration-500 hover:-translate-y-1.5 hover:border-[#d4af6e]/60 hover:shadow-[0_20px_45px_-15px_rgba(212,175,110,0.25)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af6e] cursor-pointer ${gridClass}`}
               >
                 <div className="h-full w-full overflow-hidden bg-stone-950">

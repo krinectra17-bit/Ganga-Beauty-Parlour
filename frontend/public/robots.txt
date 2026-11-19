@@ -1,4 +1,33 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://seashell-cat-835414.hostingersite.com/sitemap.xml
+# Explicit Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Explicit AI Agents & LLM Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://gangabeautyparlour.com/sitemap.xml

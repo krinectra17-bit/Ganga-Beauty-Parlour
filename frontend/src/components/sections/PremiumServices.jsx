@@ -186,7 +186,12 @@ export default function PremiumServices() {
             TAB 1: BRIDAL PACKAGES (₹7,999 to ₹25,000)
            ========================================================================= */}
         {activeTab === "bridal" && (
-          <div className="space-y-6 sm:space-y-8">
+          <div
+            id="pricing-panel-bridal"
+            role="tabpanel"
+            aria-labelledby="pricing-tab-bridal"
+            className="space-y-6 sm:space-y-8"
+          >
             <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
               {BRIDAL_PACKAGES.map((pkg) => {
                 const isExpanded = !!expandedCards[pkg.key];
@@ -327,7 +332,12 @@ export default function PremiumServices() {
             TAB 2: PREMIUM BRIDAL PACKAGES (₹31,000 to ₹61,000)
            ========================================================================= */}
         {activeTab === "premium" && (
-          <div className="space-y-6 sm:space-y-8">
+          <div
+            id="pricing-panel-premium"
+            role="tabpanel"
+            aria-labelledby="pricing-tab-premium"
+            className="space-y-6 sm:space-y-8"
+          >
             <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
               {PREMIUM_BRIDAL_PACKAGES.map((pkg) => {
                 const isExpanded = !!expandedCards[pkg.key];
@@ -458,7 +468,12 @@ export default function PremiumServices() {
             TAB 3: OUT OF PARLOUR MAKEUP (₹6,100 to ₹45,000)
            ========================================================================= */}
         {activeTab === "out-of-parlour" && (
-          <div className="space-y-4 sm:space-y-6">
+          <div
+            id="pricing-panel-out-of-parlour"
+            role="tabpanel"
+            aria-labelledby="pricing-tab-out-of-parlour"
+            className="space-y-4 sm:space-y-6"
+          >
             <div className="rounded-xl border border-white/10 bg-[#0d0d0d] p-4">
               <p className="text-xs text-stone-300 leading-relaxed text-center sm:text-left">
                 <span className="font-medium text-[#DFCEB8]">
@@ -511,7 +526,12 @@ export default function PremiumServices() {
             TAB 4: TWO-TIME & THREE-TIME MAKEUP (₹25,000 to ₹80,000)
            ========================================================================= */}
         {activeTab === "multi-time" && (
-          <div className="space-y-8 sm:space-y-10">
+          <div
+            id="pricing-panel-multi-time"
+            role="tabpanel"
+            aria-labelledby="pricing-tab-multi-time"
+            className="space-y-8 sm:space-y-10"
+          >
             {/* Two-Time Makeup */}
             <div>
               <div className="mb-2">
@@ -613,7 +633,12 @@ export default function PremiumServices() {
             TAB 5: FACIAL SERVICES & O3+ PROFESSIONAL (₹550 to ₹4,200)
            ========================================================================= */}
         {activeTab === "facials" && (
-          <div className="space-y-8 sm:space-y-10">
+          <div
+            id="pricing-panel-facials"
+            role="tabpanel"
+            aria-labelledby="pricing-tab-facials"
+            className="space-y-8 sm:space-y-10"
+          >
             {/* O3+ Professional Section */}
             <div>
               <div className="mb-2">
@@ -709,7 +734,12 @@ export default function PremiumServices() {
             TAB 6: HYDRA FACIAL & COLD MASSAGE (₹500 to ₹5,000)
            ========================================================================= */}
         {activeTab === "hydra" && (
-          <div className="space-y-6 sm:space-y-8">
+          <div
+            id="pricing-panel-hydra"
+            role="tabpanel"
+            aria-labelledby="pricing-tab-hydra"
+            className="space-y-6 sm:space-y-8"
+          >
             <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
               {HYDRA_FACIAL_SERVICES.map((item, idx) => (
                 <div
@@ -755,7 +785,12 @@ export default function PremiumServices() {
             TAB 7: LASER TREATMENT (8-10 Sessions / Per Session Rate)
            ========================================================================= */}
         {activeTab === "laser" && (
-          <div className="space-y-4 sm:space-y-6">
+          <div
+            id="pricing-panel-laser"
+            role="tabpanel"
+            aria-labelledby="pricing-tab-laser"
+            className="space-y-4 sm:space-y-6"
+          >
             <div className="rounded-xl border border-white/10 bg-[#0d0d0d] p-4">
               <p className="text-xs text-stone-300 leading-relaxed text-center sm:text-left">
                 <span className="font-medium text-[#DFCEB8]">

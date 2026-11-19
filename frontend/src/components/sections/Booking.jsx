@@ -48,6 +48,7 @@ const SERVICE_OPTIONS = [
 
 export default function Booking() {
   const [form, setForm] = useState(initialForm);
+  const [agreed, setAgreed] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -108,6 +109,13 @@ export default function Booking() {
       return;
     }
 
+    if (!agreed) {
+      setError(
+        "Please agree to the Terms & Conditions and Cancellation & Refund Policy to proceed with your booking."
+      );
+      return;
+    }
+
     setSubmitting(true);
     setForm(cleanedForm);
     setSuccess(true);
@@ -123,6 +131,7 @@ export default function Booking() {
 
   const resetForm = () => {
     setForm(initialForm);
+    setAgreed(false);
     setSuccess(false);
     setError("");
   };
@@ -361,6 +370,51 @@ export default function Booking() {
                     data-testid="booking-message"
                     className="luxe-input resize-none"
                   />
+                </div>
+
+                <div className="flex items-start gap-2.5 pt-1">
+                  <input
+                    id="booking-agreement"
+                    name="agreement"
+                    type="checkbox"
+                    checked={agreed}
+                    onChange={(e) => {
+                      setAgreed(e.target.checked);
+                      if (e.target.checked && error.includes("Terms & Conditions")) {
+                        setError("");
+                      }
+                    }}
+                    data-testid="booking-agreement"
+                    className="mt-0.5 h-4 w-4 shrink-0 rounded border-[#d4af6e]/40 bg-[#120f0d] accent-[#c59f54] text-[#c59f54] focus:ring-1 focus:ring-[#d4af6e] focus:ring-offset-0 cursor-pointer"
+                  />
+                  <label
+                    htmlFor="booking-agreement"
+                    className="text-xs text-stone-300 font-light leading-snug cursor-pointer select-none"
+                  >
+                    I agree to the{" "}
+                    <a
+                      href="/terms-and-conditions"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-testid="booking-terms-link"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-[#f3e5c8] underline underline-offset-2 hover:text-[#d4af6e] transition-colors font-medium"
+                    >
+                      Terms &amp; Conditions
+                    </a>{" "}
+                    and{" "}
+                    <a
+                      href="/cancellation-refund-policy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-testid="booking-cancellation-link"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-[#f3e5c8] underline underline-offset-2 hover:text-[#d4af6e] transition-colors font-medium"
+                    >
+                      Cancellation &amp; Refund Policy
+                    </a>
+                    .
+                  </label>
                 </div>
 
                 {error && (

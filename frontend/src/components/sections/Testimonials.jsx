@@ -30,20 +30,15 @@ export default function Testimonials() {
           className="mb-8 grid grid-cols-2 rounded-2xl border border-[#d4af6e]/25 bg-[linear-gradient(180deg,#16120e,#0c0a08)] p-5 text-center sm:p-6 md:mb-12 md:grid-cols-4 md:divide-x md:divide-[#d4af6e]/20 shadow-[0_16px_36px_-20px_rgba(0,0,0,0.85)]"
         >
           {[
-            ["4.8", "Google Rating"],
-            ["500+", "Brides Styled"],
-            ["2,500+", "Happy Clients"],
+            ["100%", "Genuine Products"],
+            ["Bespoke", "Bridal Artistry"],
+            ["1-on-1", "Private Consultations"],
             ["10+", "Years of Craft"],
           ].map(([value, label], index) => (
             <div key={label} className="relative py-2 sm:py-0">
               {index === 0 && (
-                <div className="mb-1.5 flex items-center justify-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="h-3.5 w-3.5 fill-[#d4af6e] text-[#d4af6e]"
-                    />
-                  ))}
+                <div className="mb-1.5 flex items-center justify-center gap-1 text-[#d4af6e]">
+                  <BadgeCheck className="h-4 w-4" />
                 </div>
               )}
               <p

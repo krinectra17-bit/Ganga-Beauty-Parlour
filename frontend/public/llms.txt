@@ -5,7 +5,7 @@
 ## Overview
 - **Business Name**: Ganga Beauty Parlour
 - **Founder & Lead Artist**: Ganga Manish Soni
-- **Tagline**: Sujangarh's No. 1 Bridal & Beauty Studio
+- **Tagline**: Premier Bridal & Luxury Beauty Studio · Sujangarh
 - **Official Production Website**: https://gangabeautyparlour.com/
 - **Primary Phone & WhatsApp**: +91 77330 79941
 - **Secondary Phone**: +91 70142 21824
@@ -13,14 +13,14 @@
 - **Serving Regions**: Sujangarh, Didwana, Ladnun, and nearby areas across Rajasthan, India.
 - **Booking Channel**: Direct WhatsApp reservations (no admin panel, no user login required).
 
-## Studio Locations
-- **Sujangarh Main Studio (Flagship)**:
+## Studio Location & Service Coverage
+- **Sujangarh Flagship Studio (Physical Salon)**:
   - Address: Sumeru Complex, 1st Floor, Near SBI Bank, Sabji Mandi, Sujangarh, Rajasthan 331507
-  - Map: https://www.google.com/maps/search/?api=1&query=Sumeru+Complex+Sabji+Mandi+Sujangarh
+  - Map Navigation: https://www.google.com/maps/search/?api=1&query=Sumeru+Complex+Sabji+Mandi+Sujangarh
   - Phones: +91 77330 79941, +91 70142 21824
-- **Didwana Branch**:
-  - Address: Near City Bus Stand, Didwana, Rajasthan 341303
-  - Map: https://www.google.com/maps/search/?api=1&query=Ganga+Beauty+Parlour+Didwana+Rajasthan
+- **On-Location & Destination Bridal Service Areas**:
+  - Coverage: Sujangarh, Didwana, Ladnun, and broader Shekhawati region.
+  - Description: On-location bridal makeup teams travel to wedding venues and private residences upon prior booking.
   - Phones: +91 77330 79941, +91 70142 21824
 
 ## Signature Services & Artistry

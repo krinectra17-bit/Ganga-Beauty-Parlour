@@ -29,7 +29,7 @@ export default function Footer() {
     >
       <div className="container mx-auto px-5 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-12">
-          <div className="md:col-span-4 lg:col-span-3">
+          <div className="md:col-span-6 lg:col-span-3">
             <div className="mb-4 flex items-center">
               <CommonImage
                 src="/images/logos/logo-ganga-gold.webp"
@@ -49,11 +49,55 @@ export default function Footer() {
               <span className="italic font-serif gold-text">quiet precision.</span>
             </p>
             <p className="mt-4 max-w-md text-xs sm:text-sm leading-relaxed text-stone-300 font-light">
-              A bespoke bridal atelier dedicated to radiant transformations, authentic ceremonial styling, and advanced skincare rituals in Sujangarh and Didwana.
+              A bespoke bridal atelier dedicated to radiant transformations, authentic ceremonial styling, and advanced skincare rituals in Sujangarh, Rajasthan.
             </p>
           </div>
 
-          <div className="md:col-span-4 lg:col-span-3">
+          <div className="md:col-span-6 lg:col-span-2" data-testid="footer-local-services">
+            <p className="mb-3 text-[10px] uppercase tracking-[0.18em] text-[#d4af6e] font-semibold">
+              Sujangarh Services
+            </p>
+            <ul className="space-y-2 text-xs sm:text-sm text-stone-300 font-light">
+              <li>
+                <Link
+                  to="/beauty-parlour-sujangarh"
+                  data-testid="footer-link-beauty-parlour-sujangarh"
+                  className="transition-colors hover:text-[#d4af6e]"
+                >
+                  Beauty Parlour in Sujangarh
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/bridal-makeup-sujangarh"
+                  data-testid="footer-link-bridal-makeup-sujangarh"
+                  className="transition-colors hover:text-[#d4af6e]"
+                >
+                  Bridal Makeup Artist
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/facial-skincare-sujangarh"
+                  data-testid="footer-link-facial-skincare-sujangarh"
+                  className="transition-colors hover:text-[#d4af6e]"
+                >
+                  Facial &amp; Skincare
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/hair-styling-sujangarh"
+                  data-testid="footer-link-hair-styling-sujangarh"
+                  className="transition-colors hover:text-[#d4af6e]"
+                >
+                  Hair Styling &amp; Keratin
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-6 lg:col-span-3">
             <p className="mb-3 text-[10px] uppercase tracking-[0.18em] text-[#d4af6e] font-semibold">
               Atelier &amp; Contact
             </p>

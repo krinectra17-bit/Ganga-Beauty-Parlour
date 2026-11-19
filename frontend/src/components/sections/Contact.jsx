@@ -1,3 +1,4 @@
+import { Link } from "@/router/Router";
 import { BUSINESS, buildPhoneLink, buildWhatsAppLink, buildWhatsAppBookingMessage } from "@/data/site";
 
 const CONSULTATION_MESSAGE = buildWhatsAppBookingMessage({
@@ -56,7 +57,7 @@ export default function Contact() {
             <div className="flex flex-col justify-between h-full">
               <div>
                 <p className="text-[10px] tracking-[0.18em] text-[#d4af6e] uppercase mb-2 font-semibold">
-                  Studio Atelier &middot; Sujangarh
+                  Flagship Studio &middot; Sujangarh
                 </p>
                 <h3
                   className="font-serif text-white text-2xl tracking-tight mb-2 min-[400px]:text-[1.65rem]"
@@ -101,16 +102,16 @@ export default function Contact() {
             <div className="flex flex-col justify-between h-full">
               <div>
                 <p className="text-[10px] tracking-[0.18em] text-[#d4af6e] uppercase mb-2 font-semibold">
-                  Studio Atelier &middot; Didwana
+                  Destination &middot; Didwana &amp; Ladnun
                 </p>
                 <h3
                   className="font-serif text-white text-2xl tracking-tight mb-2 min-[400px]:text-[1.65rem]"
                   style={{ fontFamily: "Playfair Display, serif" }}
                 >
-                  Didwana Studio
+                  Didwana &amp; Ladnun Service
                 </h3>
                 <p className="text-stone-300 text-xs sm:text-sm leading-relaxed mb-4 font-light">
-                  Experience complete Ganga Beauty Parlour luxury services, bridal styling, and wellness treatments.
+                  Specialized on-location bridal artistry, destination wedding makeovers, and personalized beauty sessions across Didwana, Ladnun &amp; Shekhawati.
                 </p>
                 <p className="text-xs sm:text-sm text-stone-200/90 leading-relaxed mb-1 font-light">
                   {BUSINESS.hours}
@@ -121,15 +122,13 @@ export default function Contact() {
               </div>
 
               <div className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
-                <a
-                  href={BUSINESS.didwanaMapsLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline-gold w-full justify-center cursor-pointer"
-                  aria-label="Get directions to Ganga Beauty Parlour Didwana branch"
+                <Link
+                  to="/bridal-makeup-sujangarh"
+                  className="btn-outline-gold w-full justify-center cursor-pointer text-center"
+                  aria-label="View bridal makeup services and packages"
                 >
-                  Get Directions
-                </a>
+                  Bridal Packages
+                </Link>
                 <ContactCallLinks />
                 <a
                   href={buildWhatsAppLink(DIDWANA_CONSULTATION_MESSAGE)}

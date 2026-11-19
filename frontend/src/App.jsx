@@ -16,6 +16,7 @@ const Testimonials = lazy(() => import("@/components/sections/Testimonials"));
 const Contact = lazy(() => import("@/components/sections/Contact"));
 const Booking = lazy(() => import("@/components/sections/Booking"));
 const PolicyPage = lazy(() => import("@/components/policies/PolicyPage"));
+const LocalSeoPage = lazy(() => import("@/components/pages/LocalSeoPage"));
 
 const POLICY_SLUGS = new Set([
   "privacy-policy",
@@ -90,9 +91,9 @@ function MainContent() {
   );
 }
 
-export default function App() {
+export default function App({ initialPath }) {
   return (
-    <RouterProvider>
+    <RouterProvider initialPath={initialPath}>
       <div className="relative min-h-screen bg-[#080706] text-white selection:bg-[#d4af6e] selection:text-black">
         <Navbar />
         <MainContent />

@@ -5,14 +5,17 @@ import App from "@/App.jsx";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import initScrollReveal from "@/utils/scroll-reveal";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <StrictMode>
-    <ErrorBoundary>
-      <App />
-    </ErrorBoundary>
-  </StrictMode>,
-);
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <StrictMode>
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
+    </StrictMode>
+  );
+}
 
 // Initialize scroll reveal when browser is idle to prevent forced reflow during critical rendering
 if (typeof window !== "undefined") {

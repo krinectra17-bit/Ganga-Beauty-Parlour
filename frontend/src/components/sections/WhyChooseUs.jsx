@@ -11,10 +11,10 @@ const items = [
   },
   {
     num: "02",
-    stat: "2,500+",
-    unit: "Celebrations",
-    title: "2,500+ Happy Clients",
-    desc: "From first cuts to wedding-day glow-ups - we've been part of thousands of beautiful moments.",
+    stat: "Bespoke",
+    unit: "Bridal Care",
+    title: "Cherished Celebrations",
+    desc: "From festive makeovers to unforgettable wedding days — tailored artistry for every cherished occasion.",
     Icon: Users,
   },
   {

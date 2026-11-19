@@ -38,11 +38,12 @@ const items = [
 export default function WhyChooseUs() {
   return (
     <section
-      id="why"
+      id="about"
       data-testid="why-section"
       className="section relative overflow-hidden bg-gradient-to-b from-[#080706] via-[#120f0c] to-[#0a0806]"
       data-sr
     >
+      <div id="why" className="sr-only" aria-hidden="true" />
       {/* Subtle Warm Ambiance */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d4af6e]/30 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-64 bg-[radial-gradient(ellipse_at_top,rgba(212,175,110,0.08)_0%,transparent_70%)] pointer-events-none" />

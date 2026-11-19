@@ -2,6 +2,7 @@ export const BUSINESS = {
   name: "Ganga Beauty Parlour",
   owner: "Ganga Manish Soni",
   tagline: "Your Beauty, Our Passion",
+  website: "https://gangabeautyparlour.com",
   address:
     "Near SBI Bank, Sabji Mandi, Sumeru Complex, 1st Floor, Sujangarh",
   phones: ["7733079941", "7014221824"],

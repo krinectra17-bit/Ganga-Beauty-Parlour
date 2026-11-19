@@ -4,9 +4,10 @@
 
 # 1. Force UTF-8 Default Charset & Explicit MIME Types
 AddDefaultCharset UTF-8
-AddCharset UTF-8 .html .css .js .json .xml
+AddCharset UTF-8 .html .css .js .json .xml .txt
 AddType "text/html; charset=UTF-8" .html
 AddType "text/css; charset=UTF-8" .css
+AddType "text/plain; charset=UTF-8" .txt
 AddType "application/javascript; charset=UTF-8" .js
 AddType "application/json; charset=UTF-8" .json
 AddType "image/svg+xml; charset=UTF-8" .svg
@@ -20,10 +21,16 @@ Options -Indexes
   Deny from all
 </FilesMatch>
 
-# 4. SPA Fallback Routing
+# 4. Canonical Host Redirect & SPA Fallback Routing
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # 301 Redirect www.gangabeautyparlour.com to apex https://gangabeautyparlour.com
+  RewriteCond %{HTTP_HOST} ^www\.gangabeautyparlour\.com$ [NC]
+  RewriteRule ^(.*)$ https://gangabeautyparlour.com/$1 [R=301,L]
+
+  # SPA Fallback Routing
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -37,6 +44,9 @@ Options -Indexes
 
   # HTML (ensure instant updates on re-deploy)
   ExpiresByType text/html "access plus 0 seconds"
+
+  # Plain text files (robots.txt, llms.txt)
+  ExpiresByType text/plain "access plus 1 day"
 
   # CSS & JavaScript (hashed assets)
   ExpiresByType text/css "access plus 1 year"
@@ -67,6 +77,6 @@ Options -Indexes
   Header set X-XSS-Protection "1; mode=block"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
-  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
   Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src 'self' https://www.google.com; connect-src 'self'; upgrade-insecure-requests;"
 </IfModule>

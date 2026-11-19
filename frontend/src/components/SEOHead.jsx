@@ -4,7 +4,7 @@ const DEFAULT_SEO = {
   title: "Ganga Beauty Parlour | Bridal Makeup Artist & Beauty Salon in Sujangarh",
   description:
     "Ganga Beauty Parlour by Ganga Manish Soni \u2014 Premier beauty parlour and bridal makeup artist in Sujangarh. Luxury bridal makeovers, HD & airbrush makeup, facial skincare, and hair styling in Sujangarh and Didwana. Book on WhatsApp.",
-  canonical: "https://seashell-cat-835414.hostingersite.com/",
+  canonical: "https://gangabeautyparlour.com/",
 };
 
 export default function SEOHead({ title, description, canonical }) {

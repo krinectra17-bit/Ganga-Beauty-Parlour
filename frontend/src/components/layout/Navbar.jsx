@@ -10,6 +10,7 @@ import {
 import CommonImage from "@/components/CommonImage";
 
 const links = [
+  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Offers", href: "#offers" },
   { label: "Gallery", href: "#gallery" },

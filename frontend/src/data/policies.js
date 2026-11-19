@@ -9,7 +9,7 @@ export const POLICIES = {
     seoTitle: "Privacy Policy | Ganga Beauty Parlour",
     metaDescription:
       "Learn how Ganga Beauty Parlour collects, uses, and safeguards your personal and appointment booking information responsibly.",
-    canonical: "https://seashell-cat-835414.hostingersite.com/privacy-policy",
+    canonical: "https://gangabeautyparlour.com/privacy-policy",
     intro:
       "Ganga Beauty Parlour respects the privacy of its customers and is committed to handling personal information responsibly.",
     sections: [
@@ -62,7 +62,7 @@ export const POLICIES = {
     seoTitle: "Terms & Conditions | Ganga Beauty Parlour",
     metaDescription:
       "Terms and conditions governing beauty salon services, pricing, hygiene, and booking requests at Ganga Beauty Parlour.",
-    canonical: "https://seashell-cat-835414.hostingersite.com/terms-and-conditions",
+    canonical: "https://gangabeautyparlour.com/terms-and-conditions",
     intro:
       "Welcome to Ganga Beauty Parlour. By accessing our website or requesting our services, customers agree to the applicable terms and conditions.",
     sections: [
@@ -113,7 +113,7 @@ export const POLICIES = {
     seoTitle: "Booking Policy | Ganga Beauty Parlour",
     metaDescription:
       "Appointment booking, advance payment, rescheduling, and punctuality guidelines for Ganga Beauty Parlour services.",
-    canonical: "https://seashell-cat-835414.hostingersite.com/booking-policy",
+    canonical: "https://gangabeautyparlour.com/booking-policy",
     intro:
       "Our booking policy helps ensure a seamless, punctual, and premium salon experience for every client.",
     sections: [
@@ -164,7 +164,7 @@ export const POLICIES = {
     metaDescription:
       "Understand Ganga Beauty Parlour's advance payment, cancellation, and refund policies for salon and bridal appointments.",
     canonical:
-      "https://seashell-cat-835414.hostingersite.com/cancellation-refund-policy",
+      "https://gangabeautyparlour.com/cancellation-refund-policy",
     intro:
       "Please review our cancellation and refund guidelines prior to confirming your appointment or making advance payments.",
     sections: [
@@ -208,7 +208,7 @@ export const POLICIES = {
     metaDescription:
       "Guidelines, advance reservations, consultations, and package policies for bridal makeover appointments at Ganga Beauty Parlour.",
     canonical:
-      "https://seashell-cat-835414.hostingersite.com/bridal-booking-policy",
+      "https://gangabeautyparlour.com/bridal-booking-policy",
     intro:
       "Our dedicated bridal booking policies ensure dedicated artistry, scheduled preparation, and flawless bridal transformations for your celebration.",
     sections: [

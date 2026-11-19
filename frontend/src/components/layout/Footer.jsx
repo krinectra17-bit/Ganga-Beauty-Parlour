@@ -275,11 +275,34 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/[0.08] pt-6 text-xs text-stone-400 font-light md:flex-row md:items-center md:justify-between">
-          <p>
-            &copy; {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
-          </p>
-          <p>
-            Bridal Makeup Atelier &middot; Sujangarh &middot; Didwana &middot; Rajasthan
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+            <p>
+              &copy; {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
+            </p>
+            <span className="hidden sm:inline text-stone-600" aria-hidden="true">
+              &middot;
+            </span>
+            <p>
+              Bridal Makeup Atelier &middot; Sujangarh &middot; Didwana &middot; Rajasthan
+            </p>
+          </div>
+          <p className="text-stone-400">
+            Designed &amp; Developed by{" "}
+            <a
+              href="https://www.krinectra.online/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Krinectra - Official Website (opens in a new tab)"
+              className="group relative inline-flex items-center font-medium text-[#d4af6e] tracking-wide transition-all duration-300 hover:text-[#f3e5c8] hover:drop-shadow-[0_0_8px_rgba(212,175,110,0.5)] focus:outline-none focus-visible:ring-1 focus-visible:ring-[#d4af6e]"
+            >
+              <span className="bg-gradient-to-r from-[#f3e5c8] via-[#d4af6e] to-[#c59b4e] bg-clip-text text-transparent transition-all duration-300 group-hover:brightness-125">
+                Krinectra
+              </span>
+              <span
+                aria-hidden="true"
+                className="absolute -bottom-0.5 left-0 h-[1px] w-0 bg-gradient-to-r from-[#d4af6e] via-[#f3e5c8] to-[#d4af6e] transition-all duration-300 ease-out group-hover:w-full"
+              />
+            </a>
           </p>
         </div>
       </div>

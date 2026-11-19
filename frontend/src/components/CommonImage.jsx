@@ -66,7 +66,7 @@ export default function CommonImage({
         alt={alt}
         loading={loading}
         decoding="async"
-        fetchPriority={loading === "eager" ? "high" : "auto"}
+        fetchPriority={loading === "eager" ? "high" : "low"}
         className={className}
         style={style}
         width={width}

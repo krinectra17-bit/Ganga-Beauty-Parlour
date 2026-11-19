@@ -14,7 +14,14 @@ root.render(
   </StrictMode>,
 );
 
-// Initialize scroll reveal after first paint
-requestAnimationFrame(() => {
-  try { initScrollReveal(); } catch (e) { /* fail silently */ }
-});
+// Initialize scroll reveal when browser is idle to prevent forced reflow during critical rendering
+if (typeof window !== "undefined") {
+  const scheduleIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 150));
+  scheduleIdle(() => {
+    try {
+      initScrollReveal();
+    } catch (e) {
+      /* fail silently */
+    }
+  });
+}

@@ -1,28 +1,41 @@
+import { lazy, Suspense } from "react";
 import { RouterProvider, useRouter, Link } from "@/router/Router";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
-import Services from "@/components/sections/Services";
-import PremiumServices from "@/components/sections/PremiumServices";
-import Offers from "@/components/sections/Offers";
-import Gallery from "@/components/sections/Gallery";
-import Testimonials from "@/components/sections/Testimonials";
-import Contact from "@/components/sections/Contact";
-import Booking from "@/components/sections/Booking";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import Footer from "@/components/layout/Footer";
-import PolicyPage from "@/components/policies/PolicyPage";
-import { POLICIES } from "@/data/policies";
+
+// Critical above-the-fold content (Navbar, Hero, WhyChooseUs) is loaded statically.
+// Below-the-fold sections are code-split to eliminate long tasks and optimize mobile LCP & TBT.
+const Services = lazy(() => import("@/components/sections/Services"));
+const PremiumServices = lazy(() => import("@/components/sections/PremiumServices"));
+const Offers = lazy(() => import("@/components/sections/Offers"));
+const Gallery = lazy(() => import("@/components/sections/Gallery"));
+const Testimonials = lazy(() => import("@/components/sections/Testimonials"));
+const Contact = lazy(() => import("@/components/sections/Contact"));
+const Booking = lazy(() => import("@/components/sections/Booking"));
+const PolicyPage = lazy(() => import("@/components/policies/PolicyPage"));
+
+const POLICY_SLUGS = new Set([
+  "privacy-policy",
+  "terms-and-conditions",
+  "booking-policy",
+  "cancellation-refund-policy",
+  "bridal-booking-policy",
+]);
 
 function MainContent() {
   const { path } = useRouter();
 
   // Match policy route
   const policySlug = path.replace(/^\//, "");
-  if (POLICIES[policySlug]) {
+  if (POLICY_SLUGS.has(policySlug)) {
     return (
       <main>
-        <PolicyPage policyKey={policySlug} />
+        <Suspense fallback={<div className="min-h-screen bg-[#080706]" />}>
+          <PolicyPage policyKey={policySlug} />
+        </Suspense>
       </main>
     );
   }
@@ -47,18 +60,32 @@ function MainContent() {
     );
   }
 
-  // Home Page
+  // Home Page: Above-fold Hero + WhyChooseUs rendered immediately; below-fold loaded via Suspense
   return (
     <main>
       <Hero />
       <WhyChooseUs />
-      <Services />
-      <PremiumServices />
-      <Offers />
-      <Gallery />
-      <Testimonials />
-      <Contact />
-      <Booking />
+      <Suspense fallback={<div id="services" className="min-h-[300px] bg-[#0a0806]" />}>
+        <Services />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[300px] bg-[#0a0806]" />}>
+        <PremiumServices />
+      </Suspense>
+      <Suspense fallback={<div id="offers" className="min-h-[300px] bg-[#0a0806]" />}>
+        <Offers />
+      </Suspense>
+      <Suspense fallback={<div id="gallery" className="min-h-[300px] bg-[#0a0806]" />}>
+        <Gallery />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[300px] bg-[#0a0806]" />}>
+        <Testimonials />
+      </Suspense>
+      <Suspense fallback={<div id="contact" className="min-h-[300px] bg-[#0a0806]" />}>
+        <Contact />
+      </Suspense>
+      <Suspense fallback={<div id="booking" className="min-h-[400px] bg-[#0a0806]" />}>
+        <Booking />
+      </Suspense>
     </main>
   );
 }
@@ -66,11 +93,11 @@ function MainContent() {
 export default function App() {
   return (
     <RouterProvider>
-      <div className="App bg-black min-h-screen text-white flex flex-col justify-between">
+      <div className="relative min-h-screen bg-[#080706] text-white selection:bg-[#d4af6e] selection:text-black">
         <Navbar />
         <MainContent />
-        <Footer />
         <FloatingWhatsApp />
+        <Footer />
       </div>
     </RouterProvider>
   );

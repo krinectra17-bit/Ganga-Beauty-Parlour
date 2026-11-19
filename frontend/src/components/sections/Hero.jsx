@@ -28,7 +28,7 @@ export default function Hero() {
           loading="eager"
           decoding="async"
           fetchPriority="high"
-          sizes="(max-aspect-ratio: 16/9) 178vh, 100vw"
+          sizes="100vw"
           width={IMAGE_DIMENSIONS.hero.width}
           height={IMAGE_DIMENSIONS.hero.height}
         />
@@ -67,14 +67,14 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex min-h-[100svh] w-full max-w-[1800px] items-end px-4 pb-[max(1.25rem,env(safe-area-inset-bottom))] pt-20 sm:px-8 sm:pb-8 sm:pt-28 md:px-10 md:pb-10 md:pt-32 lg:px-14 lg:pb-12 xl:px-20 2xl:px-24">
         <div className="w-full max-w-[min(100%,34rem)] sm:max-w-[36rem] md:max-w-[40rem] lg:max-w-[42rem] xl:max-w-[44rem]">
           {/* Atelier Badge */}
-          <div className="reveal reveal-d1 mb-2.5 inline-flex max-w-full items-center gap-2 rounded-full border border-[#d4af6e]/35 bg-[linear-gradient(135deg,rgba(25,20,15,0.88),rgba(10,8,6,0.94))] px-3 py-1 text-[8.5px] uppercase tracking-[0.12em] text-[#f3e5c8] shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md sm:mb-4 sm:gap-2.5 sm:px-4 sm:py-1.5 sm:text-[10px] sm:tracking-[0.16em]">
+          <div className="mb-2.5 inline-flex max-w-full items-center gap-2 rounded-full border border-[#d4af6e]/35 bg-[linear-gradient(135deg,rgba(25,20,15,0.88),rgba(10,8,6,0.94))] px-3 py-1 text-[8.5px] uppercase tracking-[0.12em] text-[#f3e5c8] shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md sm:mb-4 sm:gap-2.5 sm:px-4 sm:py-1.5 sm:text-[10px] sm:tracking-[0.16em]">
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-[#fff3db] to-[#c59f54] shadow-[0_0_8px_rgba(212,175,110,0.7)]" />
             <span className="min-w-0 truncate font-medium">Sujangarh&apos;s No. 1 Bridal &amp; Beauty Studio</span>
           </div>
 
           {/* Headline with Radiant Metallic Gold Sheen */}
           <h1
-            className="reveal reveal-d2 font-serif text-[clamp(2.3rem,10.4vw,3.35rem)] leading-[1.06] tracking-[-0.015em] text-[#fcf9f4] sm:text-[clamp(3.85rem,8.2vw,5.25rem)] sm:leading-[0.98] md:text-[clamp(4.45rem,6.6vw,6.1rem)] lg:text-[clamp(4.75rem,5.4vw,6.8rem)]"
+            className="font-serif text-[clamp(2.3rem,10.4vw,3.35rem)] leading-[1.06] tracking-[-0.015em] text-[#fcf9f4] sm:text-[clamp(3.85rem,8.2vw,5.25rem)] sm:leading-[0.98] md:text-[clamp(4.45rem,6.6vw,6.1rem)] lg:text-[clamp(4.75rem,5.4vw,6.8rem)]"
             style={{ textShadow: "0 2px 14px rgba(0, 0, 0, 0.55)" }}
           >
             Your Beauty,
@@ -91,7 +91,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="reveal reveal-d2 mt-2.5 max-w-[32rem] text-[13.5px] leading-[1.55] text-[#fcf9f4]/90 sm:mt-4 sm:text-base md:text-lg md:leading-8 font-light"
+            className="mt-2.5 max-w-[32rem] text-[13.5px] leading-[1.55] text-[#fcf9f4]/90 sm:mt-4 sm:text-base md:text-lg md:leading-8 font-light"
             style={{ textShadow: "0 1px 10px rgba(0, 0, 0, 0.6)" }}
           >
             Luxe bridal makeup, bespoke hair artistry and curated rituals for your
@@ -99,7 +99,7 @@ export default function Hero() {
           </p>
 
           {/* Stat Cards with Layered Rim Lighting */}
-          <div className="reveal reveal-d3 mt-3 grid max-w-[30rem] grid-cols-3 gap-2 sm:mt-5 sm:gap-3">
+          <div className="mt-3 grid max-w-[30rem] grid-cols-3 gap-2 sm:mt-5 sm:gap-3">
             {stats.map((stat) => (
               <div
                 key={stat.label}

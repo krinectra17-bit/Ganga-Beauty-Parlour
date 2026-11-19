@@ -98,14 +98,14 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <div className="flex flex-col gap-0.5 text-right">
+            <div className="flex flex-col text-right">
               {BUSINESS.phones.map((phone, index) => (
                 <a
                   key={phone}
                   href={buildPhoneLink(phone)}
                   data-testid={`navbar-call-${index + 1}`}
                   aria-label={`Call Ganga Beauty Parlour at +91 ${phone}`}
-                  className="flex items-center gap-1.5 text-xs text-stone-300 hover:text-[#d4af6e] transition-colors font-light"
+                  className="flex items-center gap-1.5 py-1 min-h-[24px] text-xs text-stone-300 hover:text-[#d4af6e] transition-colors font-light"
                 >
                   <Phone className="w-3 h-3 text-[#d4af6e]" />
                   +91 {phone}

@@ -79,7 +79,7 @@ export default function Footer() {
                 href={wa}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Chat with Ganga Beauty Parlour on WhatsApp"
+                aria-label="WhatsApp Consultation - Chat with Ganga Beauty Parlour on WhatsApp"
                 className="flex items-center gap-2.5 text-xs sm:text-sm text-stone-300 transition-colors hover:text-[#f3e5c8]"
               >
                 <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#25D366]/30 bg-[#25D366]/10">

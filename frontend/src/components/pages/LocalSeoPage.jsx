@@ -94,11 +94,6 @@ export default function LocalSeoPage({ pageKey }) {
         canonical={page.canonical}
       />
 
-      {/* JSON-LD Script in DOM */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
 
       <div className="container mx-auto px-5 sm:px-8 lg:px-12 max-w-5xl">
         {/* Breadcrumb Navigation */}

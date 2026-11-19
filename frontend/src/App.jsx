@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { RouterProvider, useRouter, Link } from "@/router/Router";
+import { RouterProvider, useRouter, Link, normalizePath } from "@/router/Router";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
@@ -26,16 +26,34 @@ const POLICY_SLUGS = new Set([
   "bridal-booking-policy",
 ]);
 
+const LOCAL_SEO_SLUGS = new Set([
+  "beauty-parlour-sujangarh",
+  "bridal-makeup-sujangarh",
+  "facial-skincare-sujangarh",
+  "hair-styling-sujangarh",
+]);
+
 function MainContent() {
   const { path } = useRouter();
+  const routeSlug = normalizePath(path).replace(/^\//, "");
 
   // Match policy route
-  const policySlug = path.replace(/^\//, "");
-  if (POLICY_SLUGS.has(policySlug)) {
+  if (POLICY_SLUGS.has(routeSlug)) {
     return (
       <main>
         <Suspense fallback={<div className="min-h-screen bg-[#080706]" />}>
-          <PolicyPage policyKey={policySlug} />
+          <PolicyPage policyKey={routeSlug} />
+        </Suspense>
+      </main>
+    );
+  }
+
+  // Match local SEO landing route
+  if (LOCAL_SEO_SLUGS.has(routeSlug)) {
+    return (
+      <main>
+        <Suspense fallback={<div className="min-h-screen bg-[#080706]" />}>
+          <LocalSeoPage pageKey={routeSlug} />
         </Suspense>
       </main>
     );

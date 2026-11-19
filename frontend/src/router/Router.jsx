@@ -48,8 +48,11 @@ export function navigate(to, options = {}) {
 
 export function RouterProvider({ children, initialPath }) {
   const [path, setPath] = useState(() => {
-    if (typeof window === "undefined") return "/";
-    return normalizePath(window.location.pathname);
+    if (initialPath) return normalizePath(initialPath);
+    if (typeof window !== "undefined") {
+      return normalizePath(window.location.pathname);
+    }
+    return "/";
   });
 
   useEffect(() => {

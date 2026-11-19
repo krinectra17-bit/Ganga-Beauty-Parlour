@@ -28,7 +28,7 @@ export default function Hero() {
           loading="eager"
           decoding="async"
           fetchPriority="high"
-          sizes="100vw"
+          sizes="(max-aspect-ratio: 16/9) 178vh, 100vw"
           width={IMAGE_DIMENSIONS.hero.width}
           height={IMAGE_DIMENSIONS.hero.height}
         />

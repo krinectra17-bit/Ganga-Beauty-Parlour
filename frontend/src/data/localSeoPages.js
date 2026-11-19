@@ -12,7 +12,7 @@ export const LOCAL_SEO_PAGES = {
     eyebrow: "Flagship Beauty Atelier · Sujangarh, Rajasthan",
     lead: "Experience Sujangarh's destination for bridal transformations, clinical-grade skincare rituals, and precision hair artistry. Located at Sumeru Complex, 1st Floor, Near SBI Bank, Sabji Mandi, Ganga Beauty Parlour blends traditional Rajasthani warmth with high-end luxury cosmetics.",
     serviceKey: "beauty-parlour",
-    heroImage: "/images/hero/hero-bridal-main-1280.webp",
+    heroImage: "/images/hero/hero-bridal-main-1920.webp",
     heroImageAlt: "Luxury beauty parlour in Sujangarh - Ganga Beauty Parlour",
     stats: [
       { value: "10+ Yrs", label: "Beauty Excellence" },

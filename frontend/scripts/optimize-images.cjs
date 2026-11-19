@@ -19,7 +19,7 @@ const HERO_SOURCE = path.resolve(
   'hero',
   'hero-bridal-main.webp'
 );
-const HERO_WIDTHS = [640, 960, 1280, 1920, 2560];
+const HERO_WIDTHS = [1080, 1280, 1440, 1920, 2560, 3840];
 
 async function walk(dir) {
   const entries = await fs.readdir(dir, { withFileTypes: true });
@@ -58,7 +58,7 @@ async function optimizeImage(inputPath) {
   }
 
   try {
-    await sharp(inputPath).webp({ quality: 82 }).toFile(outPath);
+    await sharp(inputPath).webp({ quality: 85 }).toFile(outPath);
     log(`Created: ${path.relative(INPUT_DIR, outPath)}`);
   } catch (err) {
     error(`Failed to convert ${relativePath}: ${err.message || err}`);
@@ -83,8 +83,16 @@ async function generateHeroVariants() {
     }
 
     await sharp(HERO_SOURCE)
-      .resize({ width, withoutEnlargement: true })
-      .webp({ quality: width >= 1920 ? 82 : 78, effort: 6 })
+      .resize({
+        width,
+        withoutEnlargement: true,
+        kernel: sharp.kernel.lanczos3,
+      })
+      .webp({
+        quality: 90,
+        effort: 6,
+        smartSubsample: true,
+      })
       .toFile(outPath);
     log(`Created: ${path.relative(INPUT_DIR, outPath)}`);
   }

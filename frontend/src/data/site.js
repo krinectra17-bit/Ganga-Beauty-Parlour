@@ -25,11 +25,12 @@ const __IMG_DEV_BUST = import.meta.env && import.meta.env.DEV ? `?v=${Date.now()
 export const HERO_IMAGE = `/images/hero/hero-bridal-main-1920.webp${__IMG_DEV_BUST}`;
 export const HERO_BLUR_IMAGE = `/images/hero/hero-blur.webp${__IMG_DEV_BUST}`;
 export const HERO_SRCSET = [
-  `/images/hero/hero-bridal-main-640.webp${__IMG_DEV_BUST} 640w`,
-  `/images/hero/hero-bridal-main-960.webp${__IMG_DEV_BUST} 960w`,
+  `/images/hero/hero-bridal-main-1080.webp${__IMG_DEV_BUST} 1080w`,
   `/images/hero/hero-bridal-main-1280.webp${__IMG_DEV_BUST} 1280w`,
+  `/images/hero/hero-bridal-main-1440.webp${__IMG_DEV_BUST} 1440w`,
   `/images/hero/hero-bridal-main-1920.webp${__IMG_DEV_BUST} 1920w`,
   `/images/hero/hero-bridal-main-2560.webp${__IMG_DEV_BUST} 2560w`,
+  `/images/hero/hero-bridal-main-3840.webp${__IMG_DEV_BUST} 3840w`,
 ].join(", ");
 
 export const IMAGE_DIMENSIONS = {
